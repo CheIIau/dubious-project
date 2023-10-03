@@ -12,7 +12,10 @@ const Loader = () => {
 createRoot(document.getElementById('root') as HTMLElement).render(
     <StrictMode>
         <ThemeProvider>
-            <RouterProvider router={router} fallbackElement={<Loader />} />
+            <RouterProvider
+                router={router}
+                fallbackElement={<Loader />}
+            />
         </ThemeProvider>
     </StrictMode>
 )

@@ -1,4 +1,4 @@
-import { FC, PropsWithChildren, ReactNode } from 'react'
+import { FC, PropsWithChildren } from 'react'
 import { LinkProps, NavLink } from 'react-router-dom'
 import { classNames } from 'src/shared/lib/classNames/classNames'
 import classes from './AppLink.module.scss'

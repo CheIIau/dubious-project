@@ -10,7 +10,7 @@ interface LangSwitcherProps extends PropsWithChildren {
 }
 
 export const LangSwitcher: FC<LangSwitcherProps> = ({ className }) => {
-    const { t, i18n } = useTranslation('translation')
+    const { i18n } = useTranslation('translation')
     const toggle = () => {
         i18n.changeLanguage(i18n.language === 'ru-RU' ? 'en' : 'ru-RU')
     }
@@ -20,7 +20,7 @@ export const LangSwitcher: FC<LangSwitcherProps> = ({ className }) => {
             theme={THEME_BUTTON.clear}
             onClick={toggle}
         >
-            <TranslateIcon fill='#fff' />
+            <TranslateIcon fill="#fff" />
         </Button>
     )
 }

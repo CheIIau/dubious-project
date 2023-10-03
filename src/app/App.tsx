@@ -5,7 +5,6 @@ import { useTheme } from 'src/app/providers/ThemeProvider/themeProviderIndex'
 import { classNames } from 'src/shared/lib/classNames/classNames'
 import { Navbar } from 'src/widgets/Navbar/NavbarIndex'
 import { Sidebar } from 'src/widgets/Sidebar/SidebarIndex'
-import { useTranslation } from 'react-i18next'
 
 const App = () => {
     const { theme } = useTheme()

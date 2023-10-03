@@ -1,12 +1,13 @@
-import path from "path";
-import { BuildOptions } from "./types/config";
+import { BuildOptions } from './types/config'
 import webpack from 'webpack'
-import { buildPlugins } from "./buildPlugins";
-import { buildResolvers } from "./buildResolve";
-import { buildLoaders } from "./buildLoaders";
-import { buildDevServer } from "./buildDevServer";
+import { buildPlugins } from './buildPlugins'
+import { buildResolvers } from './buildResolve'
+import { buildLoaders } from './buildLoaders'
+import { buildDevServer } from './buildDevServer'
 
-export function buildWebpackConfig(options: BuildOptions): webpack.Configuration {
+export function buildWebpackConfig(
+    options: BuildOptions
+): webpack.Configuration {
     const { paths, mode, isDev } = options
     return {
         mode,
@@ -19,9 +20,9 @@ export function buildWebpackConfig(options: BuildOptions): webpack.Configuration
         plugins: buildPlugins(options),
         resolve: buildResolvers(options),
         module: {
-            rules: buildLoaders(options),
+            rules: buildLoaders(options)
         },
         devtool: isDev ? 'inline-source-map' : undefined,
         devServer: isDev ? buildDevServer(options) : undefined
-    };
+    }
 }
