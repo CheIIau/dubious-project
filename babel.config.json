@@ -1,0 +1,4 @@
+{
+    "presets": ["@babel/env"],
+    "plugins": ["i18next-extract"]
+}

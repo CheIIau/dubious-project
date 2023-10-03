@@ -12,8 +12,14 @@
         "baseUrl": ".",
         "paths": {
             "src/*": ["src/*"],
-            "@/*": ["./src/*"]
-        }
+            "@/*": ["src/*"]
+        },
+        "skipLibCheck": true,
+        "strict": true,
+        "forceConsistentCasingInFileNames": true,
+        "noFallthroughCasesInSwitch": true,
+        "resolveJsonModule": true,
+        "isolatedModules": true
     },
     "ts-node": {
         "compilerOptions": {
