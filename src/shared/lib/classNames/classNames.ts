@@ -8,6 +8,6 @@ export function classNames(
         ...additional.filter(Boolean),
         Object.entries(mods)
             .filter(([_className, flag]) => !!flag)
-            .map(([flag]) => flag)
+            .map(([className]) => className)
     ].join(' ')
 }
