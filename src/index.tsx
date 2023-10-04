@@ -4,18 +4,19 @@ import { StrictMode } from 'react'
 import { router } from 'src/app/providers/router/lib/router'
 import { ThemeProvider } from 'src/app/providers/ThemeProvider/themeProviderIndex'
 import './shared/config/i18n/i18n'
+import ErrorBoundary from './app/providers/ErrorBoundary/ErrorBoundary'
+import { Spinner } from './shared/ui/Spinner/Spinner'
 
-const Loader = () => {
-    return <div>Loading...</div>
-}
-
+//тут errorboundary по сути не нужен, т.к. все ошибки перехватывает роутер
 createRoot(document.getElementById('root') as HTMLElement).render(
     <StrictMode>
-        <ThemeProvider>
-            <RouterProvider
-                router={router}
-                fallbackElement={<Loader />}
-            />
-        </ThemeProvider>
+        <ErrorBoundary>
+            <ThemeProvider>
+                <RouterProvider
+                    router={router}
+                    fallbackElement={<Spinner />}
+                />
+            </ThemeProvider>
+        </ErrorBoundary>
     </StrictMode>
 )

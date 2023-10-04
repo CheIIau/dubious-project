@@ -5,6 +5,7 @@ import { useTheme } from 'src/app/providers/ThemeProvider/themeProviderIndex'
 import { classNames } from 'src/shared/lib/classNames/classNames'
 import { Navbar } from 'src/widgets/Navbar/NavbarIndex'
 import { Sidebar } from 'src/widgets/Sidebar/SidebarIndex'
+import { PageLoader } from 'src/widgets/PageLoader/PageLoader'
 
 const App = () => {
     const { theme } = useTheme()
@@ -13,7 +14,7 @@ const App = () => {
             <Navbar />
             <div className="content-page">
                 <Sidebar />
-                <Suspense fallback={<div>Loading...</div>}>
+                <Suspense fallback={<PageLoader />}>
                     <div className="page-wrapper">
                         <Outlet />
                     </div>

@@ -4,7 +4,7 @@ import classes from './Sidebar.module.scss'
 import { ThemeSwitcher } from 'src/widgets/ThemeSwitcher/themeSwitcherIndex'
 import { LangSwitcher } from 'src/widgets/LangSwitcher/ui/LangSwitcher'
 import MenuIcon from 'src/shared/assets/icons/menu.svg'
-import { Button, THEME_BUTTON } from 'src/shared/ui/AppLink/Button/Button'
+import { Button, THEME_BUTTON } from 'src/shared/ui/Button/Button'
 
 interface SidebarProps extends PropsWithChildren {
     className?: string

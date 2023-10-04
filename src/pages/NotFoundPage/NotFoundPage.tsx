@@ -1,8 +1,19 @@
+import { FC, PropsWithChildren } from 'react'
+import { classNames } from 'src/shared/lib/classNames/classNames'
+import classes from './NotFoundPage.module.scss'
 import { useTranslation } from 'react-i18next'
 
-const NotFoundPage = () => {
+interface NotFoundPageProps extends PropsWithChildren {
+    className?: string
+}
+
+const NotFoundPage: FC<NotFoundPageProps> = ({ className }) => {
     const { t } = useTranslation('translation')
-    return <div>{t('notFound')}</div>
+    return (
+        <div className={classNames(classes['not-found-page'], {}, [className])}>
+            {t('notFound')}
+        </div>
+    )
 }
 
 export default NotFoundPage

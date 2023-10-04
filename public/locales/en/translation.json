@@ -1,3 +1,5 @@
 {
-    "notFound": "Page not found"
+    "notFound": "Page not found",
+    "error": "An error has occurred ;(",
+    "refresh": "Refresh the page"
 }
