@@ -11,7 +11,8 @@ module.exports = {
     extends: [
         'eslint:recommended',
         'plugin:@typescript-eslint/recommended',
-        'plugin:react/recommended'
+        'plugin:react/recommended',
+        'plugin:i18next/recommended'
     ],
     overrides: [
         {
@@ -29,7 +30,7 @@ module.exports = {
         ecmaVersion: 'latest',
         sourceType: 'module'
     },
-    plugins: ['@typescript-eslint', 'react'],
+    plugins: ['@typescript-eslint', 'react', 'i18next'],
     rules: {
         indent: ['warn', 4],
         'linebreak-style': ['warn', 'windows'],
@@ -43,6 +44,7 @@ module.exports = {
                 varsIgnorePattern: '^_',
                 caughtErrorsIgnorePattern: '^_'
             }
-        ]
+        ],
+        'i18next/no-literal-string': 'warn'
     }
 }

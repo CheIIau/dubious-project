@@ -3,13 +3,15 @@ import { classNames } from 'src/shared/lib/classNames/classNames'
 import classes from './Sidebar.module.scss'
 import { ThemeSwitcher } from 'src/widgets/ThemeSwitcher/themeSwitcherIndex'
 import { LangSwitcher } from 'src/widgets/LangSwitcher/ui/LangSwitcher'
+import MenuIcon from 'src/shared/assets/icons/menu.svg'
+import { Button, THEME_BUTTON } from 'src/shared/ui/AppLink/Button/Button'
 
 interface SidebarProps extends PropsWithChildren {
     className?: string
 }
 
 export const Sidebar: FC<SidebarProps> = ({ className }) => {
-    const [collapsed, setCollapsed] = useState(false)
+    const [collapsed, setCollapsed] = useState(true)
 
     const onToggle = () => {
         setCollapsed(!collapsed)
@@ -23,7 +25,9 @@ export const Sidebar: FC<SidebarProps> = ({ className }) => {
                 [className]
             )}
         >
-            <button onClick={onToggle}>toggle</button>
+            <Button className={classNames(classes['menu-button'])} theme={THEME_BUTTON.clear} onClick={onToggle}>
+                <MenuIcon fill="#fff" />
+            </Button>
             <div className={classes.switchers}>
                 <ThemeSwitcher />
                 <LangSwitcher className={classes.lang} />

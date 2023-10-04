@@ -3,24 +3,29 @@ import { classNames } from '../../../shared/lib/classNames/classNames'
 import { FC, PropsWithChildren } from 'react'
 import classes from './Navbar.module.scss'
 import { AppLink, appLinkTheme } from 'src/shared/ui/AppLink/AppLink'
+import { useTranslation } from 'react-i18next'
 
 interface NavbarProps extends PropsWithChildren {
     className?: string
 }
 
 export const Navbar: FC<NavbarProps> = ({ className }) => {
+    const { t } = useTranslation(['about', 'main'])
     return (
         <div className={classNames(classes.navbar, {}, [className])}>
             <div className={classes.links}>
                 <AppLink
                     theme={appLinkTheme.secondary}
                     to={RouterPaths.main}
-                    className={classes.mainLink}
+                    className={classes['main-link']}
                 >
-                    Main
+                    {t('main:mainPage')}
                 </AppLink>
-                <AppLink theme={appLinkTheme.secondary} to={RouterPaths.about}>
-                    About
+                <AppLink
+                    theme={appLinkTheme.secondary}
+                    to={RouterPaths.about}
+                >
+                    {t('about:aboutPage')}
                 </AppLink>
             </div>
         </div>

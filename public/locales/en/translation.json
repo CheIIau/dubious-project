@@ -1,7 +1,3 @@
 {
-    "test": "test123",
-    "test2": {
-        "test21": "test21",
-        "test22": "test22"
-    }
+    "notFound": "Page not found"
 }
