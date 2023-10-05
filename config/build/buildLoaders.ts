@@ -63,7 +63,24 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
                 }
             },
             // Compiles Sass to CSS
-            'sass-loader'
+            'sass-loader',
+            {
+                loader: 'postcss-loader',
+                options: {
+                    postcssOptions: {
+                        plugins: [
+                            [
+                                'postcss-preset-env',
+                                {
+                                    stage: 3
+                                }
+                            ],
+                            ['autoprefixer', {}],
+                            ['tailwindcss', {}]
+                        ]
+                    }
+                }
+            }
         ]
     }
 

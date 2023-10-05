@@ -2,6 +2,10 @@
 @import './variables/global';
 @import './themes/light';
 @import './themes/dark';
+/* need to add "files.associations": { "*.scss": "postcss" } to vscode to avoid warnings */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 .app {
     font: var(--font-m);
