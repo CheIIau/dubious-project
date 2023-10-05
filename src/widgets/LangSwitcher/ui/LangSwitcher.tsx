@@ -2,7 +2,7 @@ import { FC, PropsWithChildren } from 'react'
 import { classNames } from 'src/shared/lib/classNames/classNames'
 import { useTranslation } from 'react-i18next'
 import { Button, THEME_BUTTON } from 'src/shared/ui/Button/Button'
-import TranslateIcon from 'src/shared/assets/icons/translate.svg'
+import TranslateIcon from 'src/shared/assets/icons/translate.svg?react'
 
 interface LangSwitcherProps extends PropsWithChildren {
     className?: string

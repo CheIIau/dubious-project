@@ -1,5 +1,5 @@
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
-// in case you run into any typescript error when configuring `devServer`
+import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
 import webpack from 'webpack'
 import HTMLWebpackPlugin from 'html-webpack-plugin'
 import { BuildOptions } from './types/config'
@@ -21,6 +21,7 @@ export function buildPlugins({
         new webpack.DefinePlugin({
             __IS_DEV__: JSON.stringify(isDev)
         }),
-        new webpack.HotModuleReplacementPlugin()
+        new webpack.HotModuleReplacementPlugin(),
+        new BundleAnalyzerPlugin({ openAnalyzer: false })
     ]
 }

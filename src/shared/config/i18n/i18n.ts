@@ -9,9 +9,6 @@ i18n.use(I18NextHttpBackend)
     .init({
         debug: __IS_DEV__,
         fallbackLng: 'ru-RU',
-        interpolation: {
-            escapeValue: false // not needed for react as it escapes by default
-        },
         backend: {
             loadPath: '/locales/{{lng}}/{{ns}}.json',
         },
