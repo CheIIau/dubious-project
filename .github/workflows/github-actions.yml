@@ -20,5 +20,9 @@ jobs:
         run: npm install --force
       - name: build project
         run: npm run build:prod
+      - name: typescript lint
+        run: npm run lint:ts
+      - name: styles lint
+        run: npm run lint:scss
       - name: unit test
         run: npm run test:unit

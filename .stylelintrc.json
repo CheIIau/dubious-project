@@ -26,6 +26,11 @@
                 "resolveNestedSelectors": true,
                 "message": "Expected class selector \"%s\" to match BEM CSS pattern"
             }
-        ]
-    }
+        ],
+        "comment-empty-line-before": null,
+        "no-duplicate-selectors": null
+    },
+    "ignoreFiles": [
+        "src/app/styles/tailwind-output.scss"
+    ]
 }
