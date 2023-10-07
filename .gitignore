@@ -10,6 +10,7 @@ lerna-debug.log*
 /build
 node_modules
 dist
+extractedTranslations
 dist-ssr
 *.local
 

@@ -1,7 +1,6 @@
-import { fireEvent, render, screen } from '@testing-library/react'
+import { fireEvent, screen } from '@testing-library/react'
 import { Sidebar } from 'src/widgets/Sidebar/SidebarIndex'
 import {
-    testAttribute,
     renderWithTranslation,
     getStringClasses
 } from 'test/helpers'

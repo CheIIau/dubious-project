@@ -8,6 +8,11 @@ declare module '*.module.scss' {
     export default classes
 }
 
+declare module '*.scss' {
+    const classes: { [key: string]: string }
+    export default classes
+}
+
 declare module '*.svg' {
     import React from 'react'
     const svg: React.FC<React.SVGProps<SVGSVGElement>>

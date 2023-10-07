@@ -1,5 +1,5 @@
 import { RouterPaths } from 'src/app/providers/router/lib/router'
-import { classNames } from '../../../shared/lib/classNames/classNames'
+import { classNames } from '../../../shared/lib/style/classNames'
 import { FC, PropsWithChildren } from 'react'
 import classes from './Navbar.module.scss'
 import { AppLink, appLinkTheme } from 'src/shared/ui/AppLink/AppLink'
@@ -15,7 +15,7 @@ export const Navbar: FC<NavbarProps> = ({ className }) => {
         <div className={classNames(classes.navbar, {}, [className])}>
             <div className={classes.links}>
                 <AppLink
-                    theme={appLinkTheme.secondary}
+                    theme={appLinkTheme.primary}
                     to={RouterPaths.main}
                     className={classes['main-link']}
                 >

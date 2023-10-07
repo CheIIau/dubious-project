@@ -1,6 +1,6 @@
 import { FC, PropsWithChildren } from 'react'
 import { LinkProps, NavLink } from 'react-router-dom'
-import { classNames } from 'src/shared/lib/classNames/classNames'
+import { classNames } from 'src/shared/lib/style/classNames'
 import classes from './AppLink.module.scss'
 
 export const appLinkTheme = {

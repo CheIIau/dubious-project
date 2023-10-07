@@ -1,5 +1,5 @@
 import { FC, PropsWithChildren } from 'react'
-import { classNames } from 'src/shared/lib/classNames/classNames'
+import { classNames } from 'src/shared/lib/style/classNames'
 import classes from './NotFoundPage.module.scss'
 import { useTranslation } from 'react-i18next'
 

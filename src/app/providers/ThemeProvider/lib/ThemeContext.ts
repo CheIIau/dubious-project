@@ -5,9 +5,11 @@ export const THEME = {
     dark: 'dark'
 } as const
 
+export type ThemeType = keyof typeof THEME
+
 export interface ThemeContextProps {
-    theme: keyof typeof THEME
-    setTheme: (theme: keyof typeof THEME) => void
+    theme: ThemeType
+    setTheme: (theme: ThemeType) => void
 }
 
 export const ThemeContext = createContext<
