@@ -14,8 +14,10 @@
         "lint:scss:fix": "npx stylelint \"**/*.scss\" --fix",
         "test:unit": "vitest",
         "test:unit:coverage": "vitest run --coverage",
+        "test:screenshots": "npx loki test",
+        "test:screenshots:approve": "npx loki approve",
         "storybook": "storybook dev -p 6006 -c ./config/.storybook",
-        "build-storybook": "storybook build ./config/.storybook",
+        "storybook:build": "storybook build ./config/.storybook",
         "tailwind": "npx tailwindcss -i ./src/app/styles/tailwind.scss -o ./src/app/styles/tailwind-output.scss"
     },
     "keywords": [],
@@ -94,5 +96,20 @@
         "last 1 version",
         "> 1%",
         "not dead"
-    ]
+    ],
+    "loki": {
+        "configurations": {
+            "chrome.laptop": {
+                "target": "chrome.app",
+                "width": 1366,
+                "height": 768,
+                "deviceScaleFactor": 1,
+                "mobile": false
+            },
+            "chrome.iphone7": {
+                "target": "chrome.app",
+                "preset": "iPhone 7"
+            }
+        }
+    }
 }
