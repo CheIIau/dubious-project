@@ -17,7 +17,7 @@ export const Navbar: FC<NavbarProps> = ({ className }) => {
                 <AppLink
                     theme={appLinkTheme.primary}
                     to={RouterPaths.main}
-                    className={classes['main-link']}
+                    className='mr-4'
                 >
                     {t('main:mainPage')}
                 </AppLink>

@@ -1,35 +1,35 @@
 module.exports = {
     settings: {
         react: {
-            version: 'detect'
-        }
+            version: 'detect',
+        },
     },
     env: {
         browser: true,
-        es2021: true
+        es2021: true,
     },
     extends: [
         'eslint:recommended',
         'plugin:@typescript-eslint/recommended',
         'plugin:react/recommended',
         'plugin:i18next/recommended',
-        'plugin:storybook/recommended'
+        'plugin:storybook/recommended',
     ],
     overrides: [
         {
             env: {
-                node: true
+                node: true,
             },
             files: ['.eslintrc.{js,cjs}'],
             parserOptions: {
-                sourceType: 'script'
-            }
-        }
+                sourceType: 'script',
+            },
+        },
     ],
     parser: '@typescript-eslint/parser',
     parserOptions: {
         ecmaVersion: 'latest',
-        sourceType: 'module'
+        sourceType: 'module',
     },
     plugins: ['@typescript-eslint', 'react', 'i18next'],
     rules: {
@@ -43,9 +43,10 @@ module.exports = {
             {
                 argsIgnorePattern: '^_',
                 varsIgnorePattern: '^_',
-                caughtErrorsIgnorePattern: '^_'
-            }
+                caughtErrorsIgnorePattern: '^_',
+            },
         ],
-        'i18next/no-literal-string': 'warn'
-    }
+        'i18next/no-literal-string': 'warn',
+        '@typescript-eslint/ban-ts-comment': 'off',
+    },
 }

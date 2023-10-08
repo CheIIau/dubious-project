@@ -1,6 +1,6 @@
 /* eslint-disable i18next/no-literal-string */
 import { render, screen } from '@testing-library/react'
-import { Button, THEME_BUTTON } from 'src/shared/ui/Button/Button'
+import { Button, BUTTON_THEME } from 'src/shared/ui/Button/Button'
 
 describe('Button.tsx', () => {
     it('renders with right text', () => {
@@ -15,9 +15,9 @@ describe('Button.tsx', () => {
         const text = 'Button'
 
         const button = render(<Button>{text}</Button>)
-        expect(button.container.innerHTML).not.toContain(THEME_BUTTON.clear)
+        expect(button.container.innerHTML).not.toContain(BUTTON_THEME.clear)
 
-        button.rerender(<Button theme={THEME_BUTTON.clear}>{text}</Button>)
-        expect(button.container.innerHTML).toContain(THEME_BUTTON.clear)
+        button.rerender(<Button theme={BUTTON_THEME.clear}>{text}</Button>)
+        expect(button.container.innerHTML).toContain(BUTTON_THEME.clear)
     })
 })

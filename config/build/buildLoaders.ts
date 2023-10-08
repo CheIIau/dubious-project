@@ -1,6 +1,7 @@
 import webpack from 'webpack'
 import { BuildOptions } from './types/config'
 import { buildCssLoader } from './loaders/cssLoader'
+import { languages } from '../../src/shared/config/i18n/const'
 
 export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
     const fileLoader = {
@@ -35,7 +36,7 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
                     [
                         'i18next-extract',
                         {
-                            locales: ['ru-RU', 'en'],
+                            locales: languages,
                             keyAsDefaultValue: true
                         }
                     ]

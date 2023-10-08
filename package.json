@@ -1,5 +1,5 @@
 {
-    "name": "ulbitv",
+    "name": "dubious-project",
     "version": "1.0.0",
     "description": "",
     "main": "index.tsx",
@@ -16,8 +16,9 @@
         "test:unit:coverage": "vitest run --coverage",
         "test:screenshots": "npx loki test",
         "test:screenshots:approve": "npx loki approve",
-        "storybook": "storybook dev -p 6006 -c ./config/.storybook",
-        "storybook:build": "storybook build ./config/.storybook",
+        "test:screenshots:ci": "npx loki --requireReference --reactUri file:./storybook-static",
+        "storybook": "npx tailwindcss -i ./src/app/styles/tailwind.scss -o ./src/app/styles/tailwind-output.scss && storybook dev -p 6006 -c ./config/.storybook",
+        "storybook:build": "npx tailwindcss -i ./src/app/styles/tailwind.scss -o ./src/app/styles/tailwind-output.scss && storybook build ./config/.storybook",
         "tailwind": "npx tailwindcss -i ./src/app/styles/tailwind.scss -o ./src/app/styles/tailwind-output.scss"
     },
     "keywords": [],
@@ -96,20 +97,5 @@
         "last 1 version",
         "> 1%",
         "not dead"
-    ],
-    "loki": {
-        "configurations": {
-            "chrome.laptop": {
-                "target": "chrome.app",
-                "width": 1366,
-                "height": 768,
-                "deviceScaleFactor": 1,
-                "mobile": false
-            },
-            "chrome.iphone7": {
-                "target": "chrome.app",
-                "preset": "iPhone 7"
-            }
-        }
-    }
+    ]
 }

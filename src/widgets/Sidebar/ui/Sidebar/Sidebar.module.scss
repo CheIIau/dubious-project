@@ -4,10 +4,19 @@
     background: var(--inverted-bg-color);
     position: relative;
     transition: width 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .collapsed {
     width: var(--sidebar-width-collapsed);
+
+    .switchers {
+        flex-direction: column;
+        height: 80px;
+    }
+
 }
 
 .switchers {
@@ -15,15 +24,16 @@
     position: absolute;
     bottom: 20px;
     display: flex;
-    justify-content: center;
-}
-
-.lang {
-    margin-left: 20px;
+    justify-content: space-between;
+    max-width: 90px;
 }
 
 .menu-button {
     display: flex;
     width: 100%;
     justify-content: center;
+}
+
+.links {
+    display: flex;
 }
