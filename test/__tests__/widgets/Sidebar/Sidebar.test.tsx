@@ -1,11 +1,6 @@
 import { fireEvent, render, screen } from '@testing-library/react'
 import { Sidebar } from 'src/widgets/Sidebar/SidebarIndex'
-import {
-    getStringClasses,
-    withRouter,
-    withTranslation
-} from 'test/helpers'
-
+import { getStringClasses, renderWrapper } from 'test/helpers'
 // example how to mock
 // vi.mock("../src/Icon", () => {
 //     return {
@@ -36,7 +31,7 @@ describe('Sidebar.tsx', () => {
     const collapsedClass = 'collapsed'
 
     it('collapses sidebar on click', async () => {
-        const renderResult = render(withRouter(withTranslation(<Sidebar />)) )
+        const renderResult = render(renderWrapper(<Sidebar />, { route: '/' }))
         // можно в принципе выцепить компонент через родителя, а не через screen
         // const sidebarComponent =
         //     renderResult.container.querySelector(sidebarSelector)
@@ -51,7 +46,7 @@ describe('Sidebar.tsx', () => {
         fireEvent.click(menuButton!)
 
         expect(getStringClasses(sidebarComponent!)).not.toContain(
-            collapsedClass
+            collapsedClass,
         )
     })
 })

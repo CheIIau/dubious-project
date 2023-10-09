@@ -3,6 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 import { Sidebar } from 'src/widgets/Sidebar/SidebarIndex'
 import { THEME } from 'src/app/providers/ThemeProvider/themeProviderIndex'
 import { ThemeDecorator } from 'src/shared/config/storybook/decorators/ThemeDecorator'
+import { RouterDecorator } from 'src/shared/config/storybook/decorators/RouterDecorator'
 
 const meta = {
     title: 'widget/Sidebar',
@@ -19,6 +20,7 @@ const meta = {
             description: 'Given classes',
         },
     },
+    decorators: [RouterDecorator]
 } satisfies Meta<typeof Sidebar>
 
 export default meta

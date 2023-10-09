@@ -31,6 +31,9 @@
         "src/**/*.ts",
         "src/**/*.d.ts",
         "src/**/*.tsx",
+        "test/**/*.ts",
+        "test/**/*.d.ts",
+        "test/**/*.tsx",
         "**/*.ts",
         "**/*.tsx",
         "**/*.d.ts"
