@@ -21,14 +21,16 @@
             }
         ],
         "selector-class-pattern": [
-            "^[a-z]([-]?[a-z0-9]+)*(__[a-z0-9]([-]?[a-z0-9]+)*)?(--[a-z0-9]([-]?[a-z0-9]+)*)?$",
+            "^[a-z]([-]?[a-z0-9]+)*(__[a-z0-9]([-]?[a-z0-9]+)*)?(_[a-z0-9]([-]?[a-z0-9]+)*)?$",
             {
                 "resolveNestedSelectors": true,
                 "message": "Expected class selector \"%s\" to match BEM CSS pattern"
             }
         ],
         "comment-empty-line-before": null,
-        "no-duplicate-selectors": null
+        "no-duplicate-selectors": null,
+        "at-rule-empty-line-before": null,
+        "no-invalid-position-at-import-rule": null
     },
     "ignoreFiles": [
         "src/app/styles/tailwind-output.scss"

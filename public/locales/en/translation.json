@@ -1,5 +1,6 @@
 {
     "notFound": "Page not found",
     "error": "An error has occurred ;(",
-    "refresh": "Refresh the page"
+    "refresh": "Refresh the page",
+    "hideSidebar": "Hide sidebar"
 }

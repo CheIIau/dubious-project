@@ -1,6 +1,11 @@
+/* need to add "files.associations": { "*.scss": "postcss" } to vscode to avoid warnings */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @import './reset';
 @import './variables/vars';
 @import './themes/light';
 @import './themes/dark';
-@import './tailwind';
 @import './global'
+

@@ -5,7 +5,6 @@ import LightIcon from 'src/shared/assets/icons/light_mode.svg?react'
 import DarkIcon from 'src/shared/assets/icons/dark_mode.svg?react'
 import { THEME } from 'src/app/providers/ThemeProvider/themeProviderIndex'
 import { Button, BUTTON_THEME } from 'src/shared/ui/Button/Button'
-import { fillIcon } from 'src/shared/lib/style/icons'
 
 interface ThemeSwitcherProps extends PropsWithChildren {
     className?: string
@@ -21,9 +20,9 @@ export const ThemeSwitcher: FC<ThemeSwitcherProps> = ({ className }) => {
             onClick={toggleTheme}
         >
             {theme === THEME.dark ? (
-                <DarkIcon fill={fillIcon(theme)} />
+                <DarkIcon className='icon' />
             ) : (
-                <LightIcon fill={fillIcon(theme)} />
+                <LightIcon className='icon' />
             )}
         </Button>
     )

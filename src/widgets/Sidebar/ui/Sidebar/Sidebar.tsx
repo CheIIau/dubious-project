@@ -3,21 +3,22 @@ import { classNames } from 'src/shared/lib/style/classNames'
 import classes from './Sidebar.module.scss'
 import { ThemeSwitcher } from 'src/widgets/ThemeSwitcher/themeSwitcherIndex'
 import { LangSwitcher } from 'src/widgets/LangSwitcher/ui/LangSwitcher'
-import MenuIcon from 'src/shared/assets/icons/menu.svg?react'
 import { Button, BUTTON_THEME } from 'src/shared/ui/Button/Button'
-import { fillIcon } from 'src/shared/lib/style/icons'
-import { useTheme } from 'src/app/providers/ThemeProvider/themeProviderIndex'
 import { AppLink, appLinkTheme } from 'src/shared/ui/AppLink/AppLink'
 import { RouterPaths } from 'src/app/providers/router/lib/router'
 import { useTranslation } from 'react-i18next'
+
+import MenuIcon from 'src/shared/assets/icons/menu.svg?react'
+import HomeIcon from 'src/shared/assets/icons/home.svg?react'
+import AboutIcon from 'src/shared/assets/icons/doc.svg?react'
+
 interface SidebarProps extends PropsWithChildren {
     className?: string
 }
 
 export const Sidebar: FC<SidebarProps> = ({ className }) => {
-    const { t } = useTranslation(['about', 'main'])
+    const { t } = useTranslation(['about', 'main', 'translation'])
     const [collapsed, setCollapsed] = useState(true)
-    const { theme } = useTheme()
 
     const onToggle = () => {
         setCollapsed(!collapsed)
@@ -38,20 +39,53 @@ export const Sidebar: FC<SidebarProps> = ({ className }) => {
                 theme={BUTTON_THEME['background-inverted']}
                 onClick={onToggle}
             >
-                <MenuIcon fill={fillIcon(theme)} />
+                <div className="flex flex-row justify-between px-2 w-full">
+                    <p className="mr-4">{t('translation:hideSidebar')}</p>
+                    <MenuIcon className="icon" />
+                </div>
             </Button>
-            <div className={classNames(classes.links, {}, ['mt-7'])}>
+            {/* <div className={classNames(classes.links, {}, ['mt-3'])}>
+                <div>
+                    <AppLink
+                        theme={appLinkTheme.primary}
+                        to={RouterPaths.main}
+                        className={classes.link}
+                    >
+                        <HomeIcon className="icon mr-3" />
+                        <span className={classes.link__text}>
+                            {t('main:mainPage')}
+                        </span>
+                    </AppLink>
+                </div>
+                <div>
+                    <AppLink
+                        theme={appLinkTheme.secondary}
+                        to={RouterPaths.about}
+                        className={classes.link}
+                    >
+                        <AboutIcon className="icon mr-3" />
+                        <span className={classes.link__text}>
+                            {t('about:aboutPage')}
+                        </span>
+                    </AppLink>
+                </div>
+            </div> */}
+            <div className={classNames(classes.links, {}, ['mt-3'])}>
                 <AppLink
                     theme={appLinkTheme.primary}
                     to={RouterPaths.main}
+                    className={classes.link}
                 >
-                    {t('main:mainPage')}
+                    <HomeIcon className="icon"  />
+                    <span className={classNames(classes.link__text)}>{t('main:mainPage')}</span>
                 </AppLink>
                 <AppLink
                     theme={appLinkTheme.secondary}
                     to={RouterPaths.about}
+                    className={classes.link}
                 >
-                    {t('about:aboutPage')}
+                    <AboutIcon className="icon"  />
+                    <span className={classNames(classes.link__text)}>{t('about:aboutPage')}</span>
                 </AppLink>
             </div>
             <div className={classes.switchers}>
