@@ -15,7 +15,8 @@ export const buildCssLoader = (isDev: boolean): webpack.RuleSetRule => {
                         auto: (resPath: string) =>
                             !!resPath.includes('.module.'),
                         localIdentName: isDev
-                            ? '[path][name]__[local]--[hash:base64:5]'
+                            ? '[path][name]__[local]'
+                            // ? '[path][name]__[local]--[hash:base64:5]'
                             : '[hash:base64:8]'
                     }
                 }

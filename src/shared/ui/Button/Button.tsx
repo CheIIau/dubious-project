@@ -13,12 +13,14 @@ interface ButtonProps
 
 export const BUTTON_THEME = {
     clear: 'clear',
+    ['clear-inverted']: 'clear-inverted',
     outline: 'outline',
     background: 'background',
     ['background-inverted']: 'background-inverted',
 } as const
 
 export const BUTTON_SIZE = {
+    s: 'size_s',
     m: 'size_m',
     l: 'size_l',
     xl: 'size_xl',

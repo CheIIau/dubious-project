@@ -1,7 +1,7 @@
 import { FC, PropsWithChildren } from 'react'
 import { classNames } from 'src/shared/lib/style/classNames'
 import { useTranslation } from 'react-i18next'
-import { Button, BUTTON_THEME } from 'src/shared/ui/Button/Button'
+import { Button } from 'src/shared/ui/Button/Button'
 import TranslateIcon from 'src/shared/assets/icons/translate.svg?react'
 import { languages } from 'src/shared/config/i18n/const'
 interface LangSwitcherProps extends PropsWithChildren {
@@ -25,7 +25,7 @@ export const LangSwitcher: FC<LangSwitcherProps> = ({ className }) => {
     return (
         <Button
             className={classNames('', {}, [className])}
-            theme={BUTTON_THEME.clear}
+            theme='clear'
             onClick={toggle}
         >
             <TranslateIcon fill={iconColor(i18n.language as typeof languages[number])} />

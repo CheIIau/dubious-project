@@ -31,7 +31,7 @@ module.exports = {
         ecmaVersion: 'latest',
         sourceType: 'module',
     },
-    plugins: ['@typescript-eslint', 'react', 'i18next'],
+    plugins: ['@typescript-eslint', 'react', 'i18next', 'react-hooks'],
     rules: {
         indent: ['warn', 4],
         'linebreak-style': ['warn', 'windows'],
@@ -48,5 +48,7 @@ module.exports = {
         ],
         'i18next/no-literal-string': 'warn',
         '@typescript-eslint/ban-ts-comment': 'off',
+        'react-hooks/rules-of-hooks': 'error',
+        'react-hooks/exhaustive-deps': 'warn',
     },
 }

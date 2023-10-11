@@ -3,7 +3,7 @@ import { classNames } from 'src/shared/lib/style/classNames'
 import classes from './Sidebar.module.scss'
 import { ThemeSwitcher } from 'src/widgets/ThemeSwitcher/themeSwitcherIndex'
 import { LangSwitcher } from 'src/widgets/LangSwitcher/ui/LangSwitcher'
-import { Button, BUTTON_THEME } from 'src/shared/ui/Button/Button'
+import { Button } from 'src/shared/ui/Button/Button'
 import { AppLink, appLinkTheme } from 'src/shared/ui/AppLink/AppLink'
 import { RouterPaths } from 'src/app/providers/router/lib/router'
 import { useTranslation } from 'react-i18next'
@@ -36,7 +36,7 @@ export const Sidebar: FC<SidebarProps> = ({ className }) => {
             <Button
                 data-testid="menu-button"
                 className={classNames(classes['menu-button'])}
-                theme={BUTTON_THEME['background-inverted']}
+                theme={'background-inverted'}
                 onClick={onToggle}
             >
                 <div className="flex flex-row justify-between px-2 w-full">

@@ -7,12 +7,21 @@
     color: var(--bg-color);
 }
 
-.clear {
+.clear,
+.clear-inverted {
     padding: 0;
     border: none;
     background: none;
     outline: none;
+
+}
+
+.clear {
     color: var(--inverted-bg-color);
+}
+
+.clear-inverted {
+    color: var(--bg-color);
 }
 
 .outline {
@@ -50,6 +59,10 @@
         width: var(--font-line-xl);
         height: var(--font-line-xl);
     }
+}
+
+.size_s {
+    font: var(--font-s);
 }
 
 .size_m {

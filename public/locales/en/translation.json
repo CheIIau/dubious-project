@@ -2,5 +2,6 @@
     "notFound": "Page not found",
     "error": "An error has occurred ;(",
     "refresh": "Refresh the page",
-    "hideSidebar": "Hide sidebar"
+    "hideSidebar": "Hide sidebar",
+    "singIn": "Sign in"
 }

@@ -1,33 +1,35 @@
-import { RouterPaths } from 'src/app/providers/router/lib/router'
 import { classNames } from '../../../shared/lib/style/classNames'
-import { FC, PropsWithChildren } from 'react'
+import { FC, PropsWithChildren, useCallback, useState } from 'react'
 import classes from './Navbar.module.scss'
-import { AppLink, appLinkTheme } from 'src/shared/ui/AppLink/AppLink'
 import { useTranslation } from 'react-i18next'
+import { Modal } from 'src/shared/ui/Modal/Modal'
+import { Button } from 'src/shared/ui/Button/Button'
 
 interface NavbarProps extends PropsWithChildren {
     className?: string
 }
 
 export const Navbar: FC<NavbarProps> = ({ className }) => {
-    const { t } = useTranslation(['about', 'main'])
+    const { t } = useTranslation()
+    const [authModal, setAuthModal] = useState(false)
+
+    const onToggleModal = useCallback(() => {
+        setAuthModal((show) => !show)
+    }, [])
     return (
         <div className={classNames(classes.navbar, {}, [className])}>
-            <div className={classes.links}>
-                <AppLink
-                    theme={appLinkTheme.primary}
-                    to={RouterPaths.main}
-                    className='mr-4'
-                >
-                    {t('main:mainPage')}
-                </AppLink>
-                <AppLink
-                    theme={appLinkTheme.secondary}
-                    to={RouterPaths.about}
-                >
-                    {t('about:aboutPage')}
-                </AppLink>
-            </div>
+            <Button
+                theme="clear-inverted"
+                onClick={onToggleModal}
+            >
+                {t('singIn')}
+            </Button>
+            <Modal
+                isOpen={authModal}
+                onClose={onToggleModal}
+            >
+                asd
+            </Modal>
         </div>
     )
 }
