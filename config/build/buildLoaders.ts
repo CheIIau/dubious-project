@@ -1,5 +1,5 @@
-import webpack from 'webpack'
-import { BuildOptions } from './types/config'
+import type webpack from 'webpack'
+import type { BuildOptions } from './types/config'
 import { buildCssLoader } from './loaders/cssLoader'
 import { languages } from '../../src/shared/config/i18n/const'
 

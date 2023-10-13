@@ -14,7 +14,7 @@ declare module '*.scss' {
 }
 
 declare module '*.svg' {
-    import React from 'react'
+    import type React from 'react'
     const svg: React.FC<React.SVGProps<SVGSVGElement>>
     export default svg
 }

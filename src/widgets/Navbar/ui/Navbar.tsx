@@ -1,12 +1,13 @@
 import { classNames } from '../../../shared/lib/style/classNames'
-import { FC, PropsWithChildren, useCallback, useState } from 'react'
+import type { FC, PropsWithChildren} from 'react'
+import { useCallback, useState } from 'react'
 import classes from './Navbar.module.scss'
 import { useTranslation } from 'react-i18next'
 import { Modal } from 'src/shared/ui/Modal/Modal'
 import { Button } from 'src/shared/ui/Button/Button'
 
 interface NavbarProps extends PropsWithChildren {
-    className?: string
+    readonly className?: string
 }
 
 export const Navbar: FC<NavbarProps> = ({ className }) => {

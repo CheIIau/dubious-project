@@ -1,11 +1,11 @@
-import { FC, PropsWithChildren } from 'react'
+import type { FC, PropsWithChildren } from 'react'
 import { classNames } from 'src/shared/lib/style/classNames'
 import classes from './ErrorPage.module.scss'
 import { useTranslation } from 'react-i18next'
 import { Button } from 'src/shared/ui/Button/Button'
 
 interface ErrorPageProps extends PropsWithChildren {
-    className?: string
+    readonly className?: string
 }
 
 const ErrorPage: FC<ErrorPageProps> = ({ className }) => {

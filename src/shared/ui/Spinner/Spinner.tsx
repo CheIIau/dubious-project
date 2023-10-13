@@ -1,11 +1,11 @@
-import { FC, PropsWithChildren } from 'react'
+import type { FC, PropsWithChildren } from 'react'
 import { classNames } from 'src/shared/lib/style/classNames'
 import classes from './Spinner.module.scss'
 
 interface SpinnerProps extends PropsWithChildren {
-    className?: string
-    color?: string
-    size?: string
+    readonly className?: string
+    readonly color?: string
+    readonly size?: string
 }
 
 export const Spinner: FC<SpinnerProps> = ({ className, color, size }) => {

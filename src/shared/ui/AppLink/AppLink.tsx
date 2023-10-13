@@ -1,5 +1,6 @@
-import { FC, PropsWithChildren } from 'react'
-import { LinkProps, NavLink } from 'react-router-dom'
+import type { FC, PropsWithChildren } from 'react'
+import type { LinkProps} from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import { classNames } from 'src/shared/lib/style/classNames'
 import classes from './AppLink.module.scss'
 
@@ -9,8 +10,8 @@ export const appLinkTheme = {
 } as const
 
 interface AppLinkProps extends LinkProps, PropsWithChildren {
-    className?: string
-    theme?: keyof typeof appLinkTheme
+    readonly className?: string
+    readonly theme?: keyof typeof appLinkTheme
 }
 
 export const AppLink: FC<AppLinkProps> = (props) => {

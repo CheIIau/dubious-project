@@ -1,10 +1,10 @@
-import { FC, PropsWithChildren } from 'react'
+import type { FC, PropsWithChildren } from 'react'
 import { classNames } from 'src/shared/lib/style/classNames'
 import classes from './PageLoader.module.scss'
 import { Spinner } from 'src/shared/ui/Spinner/Spinner'
 
 interface PageLoaderProps extends PropsWithChildren {
-    className?: string
+    readonly className?: string
 }
 
 export const PageLoader: FC<PageLoaderProps> = ({ className }) => {

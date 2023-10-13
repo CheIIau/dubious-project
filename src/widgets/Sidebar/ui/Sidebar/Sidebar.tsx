@@ -1,4 +1,5 @@
-import { FC, PropsWithChildren, useState } from 'react'
+import type { FC, PropsWithChildren} from 'react'
+import { useState } from 'react'
 import { classNames } from 'src/shared/lib/style/classNames'
 import classes from './Sidebar.module.scss'
 import { ThemeSwitcher } from 'src/widgets/ThemeSwitcher/themeSwitcherIndex'
@@ -13,7 +14,7 @@ import HomeIcon from 'src/shared/assets/icons/home.svg?react'
 import AboutIcon from 'src/shared/assets/icons/doc.svg?react'
 
 interface SidebarProps extends PropsWithChildren {
-    className?: string
+    readonly className?: string
 }
 
 export const Sidebar: FC<SidebarProps> = ({ className }) => {

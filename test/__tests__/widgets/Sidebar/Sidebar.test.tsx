@@ -1,4 +1,5 @@
 import { fireEvent, render, screen } from '@testing-library/react'
+import i18next from 'i18next'
 import { Sidebar } from 'src/widgets/Sidebar/SidebarIndex'
 import { getStringClasses, renderWrapper } from 'test/helpers'
 // example how to mock
@@ -25,7 +26,7 @@ import { getStringClasses, renderWrapper } from 'test/helpers'
 //     }
 // }))
 
-describe('Sidebar.tsx', () => {
+describe('Sidebar', () => {
     const sidebarSelector = 'sidebar'
     const menuAttributeValue = 'menu-button'
     const collapsedClass = 'collapsed'
@@ -37,16 +38,15 @@ describe('Sidebar.tsx', () => {
         //     renderResult.container.querySelector(sidebarSelector)
         const sidebarComponent = screen.getByTestId(sidebarSelector)
         expect(sidebarComponent).not.toBe(null)
-        expect(getStringClasses(sidebarComponent!)).toContain(collapsedClass)
+        expect(getStringClasses(sidebarComponent)).toContain(collapsedClass)
         // const buttons = await renderResult.findAllByRole('button')
         // const menuButton = buttons.find((button) => button.getAttribute('data-testid') === menuAttributeValue)
         const menuButton = renderResult.getByTestId(menuAttributeValue)
+        console.log(menuButton.textContent)
         expect(menuButton).not.toBe(undefined)
 
-        fireEvent.click(menuButton!)
+        fireEvent.click(menuButton)
 
-        expect(getStringClasses(sidebarComponent!)).not.toContain(
-            collapsedClass,
-        )
+        expect(getStringClasses(sidebarComponent)).not.toContain(collapsedClass)
     })
 })

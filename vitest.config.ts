@@ -10,9 +10,12 @@ export default defineConfig({
             // Matches vitest tests in any subfolder of 'src' or into 'test/vitest/__tests__'
             // Matches all files with extension 'js', 'jsx', 'ts' and 'tsx'
             'src/**/*.vitest.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}',
-            'test/__tests__/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'
+            'test/__tests__/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}',
         ],
-        globals: true
+        globals: true,
     },
-    plugins: [tsconfigPaths(), svgr()]
+    plugins: [tsconfigPaths(), svgr()],
+    define: {
+        __IS_DEV__: true
+    }
 })

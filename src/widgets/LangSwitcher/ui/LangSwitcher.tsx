@@ -1,11 +1,11 @@
-import { FC, PropsWithChildren } from 'react'
+import type { FC, PropsWithChildren } from 'react'
 import { classNames } from 'src/shared/lib/style/classNames'
 import { useTranslation } from 'react-i18next'
 import { Button } from 'src/shared/ui/Button/Button'
 import TranslateIcon from 'src/shared/assets/icons/translate.svg?react'
-import { languages } from 'src/shared/config/i18n/const'
+import type { languages } from 'src/shared/config/i18n/const'
 interface LangSwitcherProps extends PropsWithChildren {
-    className?: string
+    readonly className?: string
 }
 
 export const LangSwitcher: FC<LangSwitcherProps> = ({ className }) => {

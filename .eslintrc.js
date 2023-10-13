@@ -10,7 +10,7 @@ module.exports = {
     },
     extends: [
         'eslint:recommended',
-        'plugin:@typescript-eslint/recommended',
+        'plugin:@typescript-eslint/strict',
         'plugin:react/recommended',
         'plugin:i18next/recommended',
         'plugin:storybook/recommended',
@@ -50,5 +50,8 @@ module.exports = {
         '@typescript-eslint/ban-ts-comment': 'off',
         'react-hooks/rules-of-hooks': 'error',
         'react-hooks/exhaustive-deps': 'warn',
+        '@typescript-eslint/consistent-type-imports': 'error',
+        '@typescript-eslint/no-non-null-assertion': 'warn',
+        'react/prefer-read-only-props': 'error',
     },
 }

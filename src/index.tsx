@@ -6,17 +6,20 @@ import { ThemeProvider } from 'src/app/providers/ThemeProvider/themeProviderInde
 import './shared/config/i18n/i18n'
 import ErrorBoundary from './app/providers/ErrorBoundary/ErrorBoundary'
 import { Spinner } from './shared/ui/Spinner/Spinner'
+import { StoreProvider } from './app/providers/StoreProvider/storeProviderIndex'
 
 //тут errorboundary по сути не нужен, т.к. все ошибки перехватывает роутер
 createRoot(document.getElementById('root') as HTMLElement).render(
     <StrictMode>
         <ErrorBoundary>
-            <ThemeProvider>
-                <RouterProvider
-                    router={router}
-                    fallbackElement={<Spinner />}
-                />
-            </ThemeProvider>
+            <StoreProvider>
+                <ThemeProvider>
+                    <RouterProvider
+                        router={router}
+                        fallbackElement={<Spinner />}
+                    />
+                </ThemeProvider>
+            </StoreProvider>
         </ErrorBoundary>
-    </StrictMode>
+    </StrictMode>,
 )

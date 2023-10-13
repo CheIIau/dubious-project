@@ -1,6 +1,7 @@
-import {
+import type {
     FC,
-    PropsWithChildren,
+    PropsWithChildren} from 'react'
+import {
     useCallback,
     useEffect,
     useRef,
@@ -11,9 +12,9 @@ import classes from './Modal.module.scss'
 import { Portal } from '../Portal/Portal'
 
 interface ModalProps extends PropsWithChildren {
-    isOpen: boolean
-    className?: string
-    onClose?: () => void
+    readonly isOpen: boolean
+    readonly className?: string
+    readonly onClose?: () => void
 }
 
 export const Modal: FC<ModalProps> = (props) => {
@@ -38,7 +39,7 @@ export const Modal: FC<ModalProps> = (props) => {
 
     const mods: Record<string, boolean> = {
         [classes.opened]: isOpen,
-        [classes['isClosing']]: isClosing,
+        [classes['is-closing']]: isClosing,
     }
     const onKeyDown = useCallback(
         (event: KeyboardEvent) => {

@@ -1,14 +1,14 @@
-import { ButtonHTMLAttributes, FC, PropsWithChildren } from 'react'
+import type { ButtonHTMLAttributes, FC, PropsWithChildren } from 'react'
 import { classNames } from 'src/shared/lib/style/classNames'
 import classes from './Button.module.scss'
 
 interface ButtonProps
     extends PropsWithChildren,
         ButtonHTMLAttributes<HTMLButtonElement> {
-    className?: string
-    theme?: keyof typeof BUTTON_THEME
-    square?: boolean
-    size?: keyof typeof BUTTON_SIZE
+    readonly className?: string
+    readonly theme?: keyof typeof BUTTON_THEME
+    readonly square?: boolean
+    readonly size?: keyof typeof BUTTON_SIZE
 }
 
 export const BUTTON_THEME = {
