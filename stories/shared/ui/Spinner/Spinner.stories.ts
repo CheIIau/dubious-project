@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
+import { THEME } from 'src/app/providers/ThemeProvider/themeProviderIndex'
 import { ThemeDecorator } from 'src/shared/config/storybook/decorators/ThemeDecorator'
 
 import { Spinner } from 'src/shared/ui/Spinner/Spinner'
@@ -35,7 +36,7 @@ export const Light: Story = {
 
 export const Dark: Story = {
     args: {},
-    decorators: [ThemeDecorator('dark')],
+    decorators: [ThemeDecorator(THEME.dark)],
 }
 
 export const Small: Story = {

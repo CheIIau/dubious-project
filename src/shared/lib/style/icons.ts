@@ -1,7 +1,7 @@
-import type { ThemeType } from 'src/app/providers/ThemeProvider/themeProviderIndex'
+import { THEME, type ThemeType } from 'src/app/providers/ThemeProvider/themeProviderIndex'
 
 export function fillIcon(theme: ThemeType) {
-    if (theme === 'dark') {
+    if (theme === THEME.dark) {
         return '#202028'
     }
     return '#f9f9fe'

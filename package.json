@@ -106,5 +106,6 @@
         "> 1%",
         "not dead"
     ],
-    "sideEffects": false
+    "sideEffects": ["*.scss", "./src/shared/config/i18n/i18n.ts"]
+
 }

@@ -1,5 +1,5 @@
 import type { FC, PropsWithChildren } from 'react'
-import { useTheme } from 'src/app/providers/ThemeProvider/themeProviderIndex'
+import { THEME, useTheme } from 'src/app/providers/ThemeProvider/themeProviderIndex'
 import { classNames } from 'src/shared/lib/style/classNames'
 import LightIcon from 'src/shared/assets/icons/light_mode.svg?react'
 import DarkIcon from 'src/shared/assets/icons/dark_mode.svg?react'
@@ -18,7 +18,7 @@ export const ThemeSwitcher: FC<ThemeSwitcherProps> = ({ className }) => {
             className={classNames('', {}, [className])}
             onClick={toggleTheme}
         >
-            {theme === 'dark' ? (
+            {theme === THEME.dark ? (
                 <DarkIcon className='icon' />
             ) : (
                 <LightIcon className='icon' />

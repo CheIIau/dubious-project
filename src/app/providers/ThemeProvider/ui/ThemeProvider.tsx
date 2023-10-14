@@ -1,11 +1,10 @@
-import type { FC, PropsWithChildren} from 'react'
-import React, { useMemo, useState } from 'react'
-import type {
-    ThemeType} from '../lib/ThemeContext'
+import type { FC, PropsWithChildren } from 'react'
+import { useMemo, useState } from 'react'
+import type { ThemeType } from '../lib/ThemeContext'
 import {
     LOCAL_STORAGE_THEME_KEY,
     THEME,
-    ThemeContext
+    ThemeContext,
 } from '../lib/ThemeContext'
 
 const defaultTheme =

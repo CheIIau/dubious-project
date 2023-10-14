@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
+import { THEME } from 'src/app/providers/ThemeProvider/themeProviderIndex'
 import ErrorPage from 'src/pages/ErrorPage/ErrorPage'
 import { ThemeDecorator } from 'src/shared/config/storybook/decorators/ThemeDecorator'
 
@@ -28,5 +29,5 @@ export const Light: Story = {
 
 export const Dark: Story = {
     args: {},
-    decorators: [ThemeDecorator('dark')],
+    decorators: [ThemeDecorator(THEME.dark)],
 }
