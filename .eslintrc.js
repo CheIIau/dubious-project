@@ -53,5 +53,6 @@ module.exports = {
         '@typescript-eslint/consistent-type-imports': 'error',
         '@typescript-eslint/no-non-null-assertion': 'warn',
         'react/prefer-read-only-props': 'error',
+        '@typescript-eslint/no-explicit-any': 'warn',
     },
 }

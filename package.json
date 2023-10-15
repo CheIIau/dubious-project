@@ -6,6 +6,7 @@
     "scripts": {
         "watch": "webpack --watch",
         "start": "webpack serve --env port=3000",
+        "start:dev-server": "npx ts-node ./json-server/jsonServerIndex.ts",
         "build:prod": "webpack --env mode=production",
         "build:dev": "webpack --env mode=development",
         "lint:ts": "eslint \"**/*.{ts,tsx}\"",
@@ -42,6 +43,7 @@
         "@storybook/testing-library": "^0.2.2",
         "@svgr/webpack": "^8.1.0",
         "@testing-library/react": "^14.0.0",
+        "@types/json-server": "^0.14.5",
         "@types/node": "^20.7.1",
         "@types/react": "^18.2.23",
         "@types/react-dom": "^18.2.8",
@@ -61,6 +63,7 @@
         "file-loader": "^6.2.0",
         "happy-dom": "^12.8.0",
         "html-webpack-plugin": "^5.5.3",
+        "json-server": "^0.17.4",
         "loki": "^0.32.0",
         "mini-css-extract-plugin": "^2.7.6",
         "open-cli": "^7.2.0",
@@ -106,6 +109,8 @@
         "> 1%",
         "not dead"
     ],
-    "sideEffects": ["*.scss", "./src/shared/config/i18n/i18n.ts"]
-
+    "sideEffects": [
+        "*.scss",
+        "./src/shared/config/i18n/i18n.ts"
+    ]
 }
