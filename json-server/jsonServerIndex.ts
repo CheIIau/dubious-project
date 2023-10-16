@@ -2,7 +2,7 @@ import fs from 'node:fs'
 import jsonServer from 'json-server'
 import path from 'path'
 
-export interface User {
+interface User {
     username: string
     password: string
 }

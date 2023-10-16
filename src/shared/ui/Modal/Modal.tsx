@@ -8,11 +8,20 @@ interface ModalProps extends PropsWithChildren {
     readonly isOpen: boolean
     readonly className?: string
     readonly onClose?: () => void
+    readonly lazy?: boolean
 }
 
 export const Modal: FC<ModalProps> = (props) => {
-    const { className, onClose, isOpen, children } = props
+    const { className, onClose, isOpen, children, lazy } = props
     const [isClosing, setIsClosing] = useState(false)
+    const [isMounted, setIsMounted] = useState(false)
+
+    useEffect(() => {
+        if (isOpen) {
+            setIsMounted(true)
+        }
+    }, [isOpen])
+
     const ANIMATION_DELAY = 200
     const timerRef = useRef<ReturnType<typeof setTimeout>>()
 
@@ -24,7 +33,7 @@ export const Modal: FC<ModalProps> = (props) => {
                 setIsClosing(false)
             }, ANIMATION_DELAY)
         }
-    }, [onClose])
+    }, [onClose, setIsClosing])
 
     const onContentClick = (event: React.MouseEvent) => {
         event.stopPropagation()
@@ -53,11 +62,13 @@ export const Modal: FC<ModalProps> = (props) => {
         }
     }, [isOpen, onKeyDown])
 
+    if (lazy && !isMounted) {
+        return null
+    }
+
     return (
         <Portal>
-            <div
-                className={classNames(classes.modal, mods, [className])}
-            >
+            <div className={classNames(classes.modal, mods, [className])}>
                 <div
                     className={classes.overlay}
                     onClick={closeHandler}

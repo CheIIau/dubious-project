@@ -54,5 +54,6 @@ module.exports = {
         '@typescript-eslint/no-non-null-assertion': 'warn',
         'react/prefer-read-only-props': 'error',
         '@typescript-eslint/no-explicit-any': 'warn',
+        'react/prop-types': 'off'
     },
 }

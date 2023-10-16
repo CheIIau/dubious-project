@@ -3,5 +3,7 @@
     "error": "An error has occurred ;(",
     "refresh": "Refresh the page",
     "hideSidebar": "Hide sidebar",
-    "singIn": "Sign in"
+    "singIn": "Sign in",
+    "enterUsername": "Enter username",
+    "enterPassword": "Enter password"
 }
