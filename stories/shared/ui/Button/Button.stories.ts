@@ -86,3 +86,9 @@ export const ExtraLarge: Story = {
         size: 'xl',
     },
 }
+
+export const Disabled: Story = {
+    args: {
+        disabled: true
+    },
+}

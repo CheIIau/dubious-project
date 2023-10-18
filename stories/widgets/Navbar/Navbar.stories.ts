@@ -4,6 +4,7 @@ import { Navbar } from 'src/widgets/Navbar/NavbarIndex'
 import { ThemeDecorator } from 'src/shared/config/storybook/decorators/ThemeDecorator'
 import { RouterDecorator } from 'src/shared/config/storybook/decorators/RouterDecorator'
 import { THEME } from 'src/app/providers/ThemeProvider/themeProviderIndex'
+import { StoreDecorator } from 'src/shared/config/storybook/decorators/StoreDecorator'
 
 const meta = {
     title: 'widget/Navbar',
@@ -20,7 +21,7 @@ const meta = {
             description: 'Given classes',
         },
     },
-    decorators: [RouterDecorator],
+    decorators: [RouterDecorator, StoreDecorator({ user: { authData: null } })],
 } satisfies Meta<typeof Navbar>
 
 export default meta
@@ -33,4 +34,14 @@ export const Light: Story = {
 export const Dark: Story = {
     args: {},
     decorators: [ThemeDecorator(THEME.dark)],
+}
+
+export const SignedUser: Story = {
+    decorators: [
+        StoreDecorator({ user: { authData: { username: '123', id: '123' } } }),
+    ],
+}
+
+export const UnsignedUser: Story = {
+    decorators: [StoreDecorator({ user: { authData: null } })],
 }

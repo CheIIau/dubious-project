@@ -4,6 +4,8 @@
     "refresh": "Refresh the page",
     "hideSidebar": "Hide sidebar",
     "singIn": "Sign in",
+    "singOut": "Sign out",
     "enterUsername": "Enter username",
-    "enterPassword": "Enter password"
+    "enterPassword": "Enter password",
+    "authorizationForm": "Authorization form"
 }

@@ -45,32 +45,6 @@ export const Sidebar: FC<SidebarProps> = ({ className }) => {
                     <MenuIcon className="icon" />
                 </div>
             </Button>
-            {/* <div className={classNames(classes.links, {}, ['mt-3'])}>
-                <div>
-                    <AppLink
-                        theme={appLinkTheme.primary}
-                        to={RouterPaths.main}
-                        className={classes.link}
-                    >
-                        <HomeIcon className="icon mr-3" />
-                        <span className={classes.link__text}>
-                            {t('main:mainPage')}
-                        </span>
-                    </AppLink>
-                </div>
-                <div>
-                    <AppLink
-                        theme={appLinkTheme.secondary}
-                        to={RouterPaths.about}
-                        className={classes.link}
-                    >
-                        <AboutIcon className="icon mr-3" />
-                        <span className={classes.link__text}>
-                            {t('about:aboutPage')}
-                        </span>
-                    </AppLink>
-                </div>
-            </div> */}
             <div className={classNames(classes.links, {}, ['mt-3'])}>
                 <AppLink
                     theme={appLinkTheme.primary}

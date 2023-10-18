@@ -9,6 +9,7 @@ interface ButtonProps
     readonly theme?: keyof typeof BUTTON_THEME
     readonly square?: boolean
     readonly size?: keyof typeof BUTTON_SIZE
+    readonly disabled?: boolean
 }
 
 export const BUTTON_THEME = {
@@ -31,6 +32,7 @@ export const Button: FC<ButtonProps> = (props) => {
         className,
         children,
         theme,
+        disabled,
         size = 'm',
         square,
         ...otherProps
@@ -38,6 +40,7 @@ export const Button: FC<ButtonProps> = (props) => {
 
     const mods: Record<string, boolean> = {
         [classes.square]: !!square,
+        [classes.disabled]: !!disabled
     }
 
     const additional = [
@@ -49,6 +52,7 @@ export const Button: FC<ButtonProps> = (props) => {
     return (
         <button
             className={classNames(classes.button, mods, additional)}
+            disabled={disabled}
             {...otherProps}
         >
             {children}

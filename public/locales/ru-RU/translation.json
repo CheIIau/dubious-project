@@ -4,6 +4,8 @@
     "refresh": "Обновить страницу",
     "hideSidebar": "Скрыть боковую панель",
     "singIn": "Войти",
+    "singOut": "Выйти",
     "enterUsername": "Введите имя",
-    "enterPassword": "Введите пароль"
+    "enterPassword": "Введите пароль",
+    "authorizationForm": "Форма авторизации"
 }

@@ -1,16 +1,16 @@
 import type { FC, PropsWithChildren } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
 import { Button } from 'src/shared/ui/Button/Button'
 import { counterActions } from '../model/slice/counterSlice'
-import { getCounterValue } from '../model/selectors/counterSelector'
+import {
+    useAppDispatch,
+    useAppSelector,
+} from 'src/app/providers/StoreProvider/config/store'
 
 interface CounterProps extends PropsWithChildren {}
 
 export const Counter: FC<CounterProps> = () => {
-    const dispatch = useDispatch()
-    const counterValue = useSelector(
-        getCounterValue
-    )
+    const dispatch = useAppDispatch()
+    const counterValue = useAppSelector((state) => state.counter.value)
     const inc = () => {
         dispatch(counterActions.increment())
     }
