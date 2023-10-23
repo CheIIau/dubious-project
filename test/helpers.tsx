@@ -1,15 +1,17 @@
-import type { ReactNode } from 'react'
+import { Suspense, type ReactNode } from 'react'
 import { I18nextProvider } from 'react-i18next'
 import i18nForTest from './i18Config'
 import { MemoryRouter } from 'react-router-dom'
-import type { StateSchema} from 'src/app/providers/StoreProvider/storeProviderIndex'
+import type { StateSchema } from 'src/app/providers/StoreProvider/storeProviderIndex'
 import { StoreProvider } from 'src/app/providers/StoreProvider/storeProviderIndex'
 import type { DeepPartial } from '@reduxjs/toolkit'
+import type { ReducersList } from 'src/shared/lib/components/DynamicModuleLoader'
+import { DynamicModuleLoader } from 'src/shared/lib/components/DynamicModuleLoader'
 
 export const testAttribute = 'data-testid'
 export interface RenderWrapperOptions {
     route?: string
-    initialState? : DeepPartial<StateSchema>
+    initialState?: DeepPartial<StateSchema>
 }
 
 export function renderWrapper(
@@ -30,4 +32,22 @@ export function renderWrapper(
 
 export function getStringClasses(component: Element) {
     return Array.from(component.classList).join(' ')
+}
+
+export interface DynamicReducerWrapperOptions {
+    readonly reducers: ReducersList
+    readonly removeAfterUnmount?: boolean
+}
+
+export function dynamicReducerWrapper(
+    component: ReactNode,
+    options: DynamicReducerWrapperOptions,
+) {
+    return (
+        <DynamicModuleLoader
+            reducers={options.reducers}
+        >
+            <Suspense>{component}</Suspense>
+        </DynamicModuleLoader>
+    )
 }

@@ -9,8 +9,9 @@
         "start:dev-server": "npx ts-node ./json-server/jsonServerIndex.ts",
         "build:prod": "webpack --env mode=production",
         "build:dev": "webpack --env mode=development",
-        "lint:ts": "eslint \"**/*.{ts,tsx}\"",
-        "lint:ts:fix": "eslint \"**/*.{ts,tsx}\" --fix",
+        "lint:eslint:ts": "eslint \"**/*.{ts,tsx}\"",
+        "lint:eslint:ts:fix": "eslint \"**/*.{ts,tsx}\" --fix",
+        "lint:typescript:ts": "tsc --noEmit",
         "lint:scss": "npx stylelint \"**/*.scss\"",
         "lint:scss:fix": "npx stylelint \"**/*.scss\" --fix",
         "test:unit": "vitest",
@@ -23,7 +24,8 @@
         "tailwind": "npx tailwindcss -i ./src/app/styles/tailwind.scss -o ./src/app/styles/tailwind-output.scss",
         "visual:report": "npm run visual:report:json && npm run visual:report:html && open-cli ./.loki/report.html",
         "visual:report:json": "node ./.loki/scripts/generate-visual-json-report.js",
-        "visual:report:html": "reg-cli --from .loki/report.json --report .loki/report.html"
+        "visual:report:html": "reg-cli --from .loki/report.json --report .loki/report.html",
+        "remove:prod": "rm -rf ./build"
     },
     "keywords": [],
     "author": "",

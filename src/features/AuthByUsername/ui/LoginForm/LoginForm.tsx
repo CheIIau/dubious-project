@@ -16,12 +16,13 @@ interface LoginFormProps extends PropsWithChildren {
     readonly className?: string
 }
 
-export const LoginForm: FC<LoginFormProps> = ({ className }) => {
+const LoginForm: FC<LoginFormProps> = ({ className }) => {
     const { t } = useTranslation()
     const dispatch = useAppDispatch()
     const { username, password, loading, error } = useAppSelector(
         (state) => state.loginForm,
     )
+    
     const onChangeUsername = (value: string) => {
         dispatch(loginActions.setUsername(value))
     }
@@ -73,3 +74,5 @@ export const LoginForm: FC<LoginFormProps> = ({ className }) => {
         </div>
     )
 }
+
+export default LoginForm

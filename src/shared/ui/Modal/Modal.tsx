@@ -15,7 +15,7 @@ export const Modal: FC<ModalProps> = (props) => {
     const { className, onClose, isOpen, children, lazy } = props
     const [isClosing, setIsClosing] = useState(false)
     const [isMounted, setIsMounted] = useState(false)
-
+    
     useEffect(() => {
         if (isOpen) {
             setIsMounted(true)

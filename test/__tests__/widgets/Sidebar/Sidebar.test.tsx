@@ -1,5 +1,4 @@
 import { fireEvent, render, screen } from '@testing-library/react'
-import { useTranslation } from 'react-i18next'
 // import i18next from 'i18next'
 import { Sidebar } from 'src/widgets/Sidebar/SidebarIndex'
 import { getStringClasses, renderWrapper } from 'test/helpers'

@@ -1,8 +1,9 @@
-import type { FC, PropsWithChildren } from 'react'
+import { Suspense, type FC, type PropsWithChildren, lazy } from 'react'
 import { classNames } from 'src/shared/lib/style/classNames'
 import classes from './LoginModal.module.scss'
 import { Modal } from 'src/shared/ui/Modal/Modal'
-import { LoginForm } from '../LoginForm/LoginForm'
+import { Spinner } from 'src/shared/ui/Spinner/Spinner'
+const LoginForm = lazy(() => import('../LoginForm/LoginForm'))
 
 interface LoginModalProps extends PropsWithChildren {
     readonly className?: string
@@ -10,7 +11,11 @@ interface LoginModalProps extends PropsWithChildren {
     readonly onClose?: () => void
 }
 
-export const LoginModal: FC<LoginModalProps> = ({ className, isOpen, onClose }) => {
+export const LoginModal: FC<LoginModalProps> = ({
+    className,
+    isOpen,
+    onClose,
+}) => {
     return (
         <Modal
             isOpen={isOpen}
@@ -18,7 +23,9 @@ export const LoginModal: FC<LoginModalProps> = ({ className, isOpen, onClose }) 
             onClose={onClose}
             lazy
         >
-            <LoginForm></LoginForm>
+            <Suspense fallback={<Spinner />}>
+                <LoginForm />
+            </Suspense>
         </Modal>
     )
 }

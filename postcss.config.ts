@@ -5,7 +5,7 @@ import autoprefixer from 'autoprefixer'
 //@ts-expect-error
 import tailwindNesting from 'tailwindcss/nesting'
 
-const config: ConfigFn = ({ env }) => ({
+const config: ConfigFn = ({ env: _env }) => ({
     plugins: [
         postcssPresetEnv({
             stage: 3,

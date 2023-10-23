@@ -5,5 +5,5 @@ export const getCounter = (state: StateSchema) => state.counter
 
 export const getCounterValue = createSelector(
     getCounter,
-    (counter) => counter.value,
+    (counter) => counter?.value,
 )

@@ -10,8 +10,8 @@ import { userActions } from 'src/entities/User/userIndex'
 
 const App = () => {
     const dispatch = useAppDispatch()
-    
-    useEffect(()=>{
+
+    useEffect(() => {
         dispatch(userActions.initAuthData())
     })
 
