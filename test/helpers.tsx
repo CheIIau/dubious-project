@@ -4,9 +4,10 @@ import i18nForTest from './i18Config'
 import { MemoryRouter } from 'react-router-dom'
 import type { StateSchema } from 'src/app/providers/StoreProvider/storeProviderIndex'
 import { StoreProvider } from 'src/app/providers/StoreProvider/storeProviderIndex'
-import type { DeepPartial } from '@reduxjs/toolkit'
+import type { AnyAction, DeepPartial, ThunkDispatch } from '@reduxjs/toolkit'
 import type { ReducersList } from 'src/shared/lib/components/DynamicModuleLoader'
 import { DynamicModuleLoader } from 'src/shared/lib/components/DynamicModuleLoader'
+import type { AsyncThunkAction } from '@reduxjs/toolkit'
 
 export const testAttribute = 'data-testid'
 export interface RenderWrapperOptions {
@@ -44,10 +45,31 @@ export function dynamicReducerWrapper(
     options: DynamicReducerWrapperOptions,
 ) {
     return (
-        <DynamicModuleLoader
-            reducers={options.reducers}
-        >
+        <DynamicModuleLoader reducers={options.reducers}>
             <Suspense>{component}</Suspense>
         </DynamicModuleLoader>
     )
+}
+
+type ActionCreatorType<Return, Arg, RejectedValue> = (
+    arg: Arg,
+) => AsyncThunkAction<Return, Arg, { rejectValue: RejectedValue }>
+
+export class MockAsyncThunk<Return, Arg, RejectedValue> {
+    dispatch: ThunkDispatch<unknown, unknown, AnyAction>
+    getState: () => StateSchema
+    actionCreator: ActionCreatorType<Return, Arg, RejectedValue>
+
+    constructor(actionCreator: ActionCreatorType<Return, Arg, RejectedValue>) {
+        this.actionCreator = actionCreator
+        this.dispatch = vi.fn()
+        this.getState = vi.fn()
+    }
+
+    async callThunk(arg: Arg) {
+        const action = this.actionCreator(arg)
+        const result = await action(this.dispatch, this.getState, undefined)
+
+        return result
+    }
 }

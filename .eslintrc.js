@@ -33,7 +33,7 @@ module.exports = {
     },
     plugins: ['@typescript-eslint', 'react', 'i18next', 'react-hooks'],
     rules: {
-        indent: ['warn', 4],
+        // indent: ['warn', 4],
         'linebreak-style': ['warn', 'windows'],
         quotes: ['warn', 'single'],
         semi: ['warn', 'never'],
@@ -54,6 +54,7 @@ module.exports = {
         '@typescript-eslint/no-non-null-assertion': 'warn',
         'react/prefer-read-only-props': 'error',
         '@typescript-eslint/no-explicit-any': 'warn',
-        'react/prop-types': 'off'
+        'react/prop-types': 'off',
+        indent: 'off',
     },
 }

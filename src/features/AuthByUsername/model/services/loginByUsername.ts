@@ -21,7 +21,7 @@ export const loginByUsername = createAsyncThunk<
         })
 
         if (!response.data?.id) {
-            throw new Error()
+            throw new Error('No id in server response')
         }
         localStorage.setItem(
             USER_LOCALSTORAGE_KEY,

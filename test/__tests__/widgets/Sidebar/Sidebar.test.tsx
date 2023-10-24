@@ -42,7 +42,6 @@ describe('Sidebar', () => {
         // const buttons = await renderResult.findAllByRole('button')
         // const menuButton = buttons.find((button) => button.getAttribute('data-testid') === menuAttributeValue)
         const menuButton = renderResult.getByTestId(menuAttributeValue)
-        console.log(menuButton.textContent)
         expect(menuButton).not.toBe(undefined)
 
         fireEvent.click(menuButton)

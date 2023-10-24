@@ -4,6 +4,7 @@ import {
     StoreProvider,
     type StateSchema,
 } from 'src/app/providers/StoreProvider/storeProviderIndex'
+import type { DeepPartialSpecial } from 'src/app/types/otherTypes'
 
 export const StoreDecorator: (
     state: DeepPartialSpecial<StateSchema>,
@@ -23,11 +24,3 @@ export const StoreDecorator: (
         )
     }
 }
-// DeepPartial special for prevent arrays having undefined elements
-type DeepPartialSpecial<T> = T extends any[]
-    ? T
-    : T extends Record<string, any>
-    ? {
-          [P in keyof T]?: DeepPartialSpecial<T[P]>
-      }
-    : T
