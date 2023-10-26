@@ -6,23 +6,21 @@ import { Button } from 'src/shared/ui/Button/Button'
 import { Input } from 'src/shared/ui/Input/Input'
 import { loginActions } from '../../model/slice/loginSlice'
 import { loginByUsername } from '../../model/services/loginByUsername'
-import {
-    useAppDispatch,
-    useAppSelector,
-} from 'src/app/providers/StoreProvider/config/store'
 import { TEXT_THEME, Text } from 'src/shared/ui/Text/Text'
+import { useAppDispatch, useAppSelector } from 'src/shared/lib/hooks/store'
 
 interface LoginFormProps extends PropsWithChildren {
     readonly className?: string
+    readonly onSuccess: () => void
 }
 
-const LoginForm: FC<LoginFormProps> = ({ className }) => {
+const LoginForm: FC<LoginFormProps> = ({ className, onSuccess }) => {
     const { t } = useTranslation()
     const dispatch = useAppDispatch()
     const { username, password, loading, error } = useAppSelector(
         (state) => state.loginForm,
     )
-    
+
     const onChangeUsername = (value: string) => {
         dispatch(loginActions.setUsername(value))
     }
@@ -30,8 +28,11 @@ const LoginForm: FC<LoginFormProps> = ({ className }) => {
         dispatch(loginActions.setPassword(value))
     }
 
-    const onLogin = () => {
-        dispatch(loginByUsername({ username, password }))
+    const onLogin = async () => {
+        const result = await dispatch(loginByUsername({ username, password }))
+        if (result.meta.requestStatus === 'fulfilled') {
+            onSuccess()
+        }
     }
 
     return (

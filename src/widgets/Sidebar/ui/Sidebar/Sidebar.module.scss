@@ -41,12 +41,6 @@
     align-items: center;
 }
 
-.link__text {
-    opacity: 1;
-    margin-left: 8px;
-    animation: fadeIn 0.7s;
-}
-
 .collapsed {
     width: var(--sidebar-width-collapsed);
 
@@ -55,12 +49,6 @@
         height: 80px;
     }
 
-    .link__text {
-        margin-left: 0;
-        width: 0;
-        animation: fadeOut 0s;
-        opacity: 0;
-    }
 }
 
 @keyframes fade-in {

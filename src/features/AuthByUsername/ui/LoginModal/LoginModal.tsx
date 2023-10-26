@@ -8,7 +8,7 @@ const LoginForm = lazy(() => import('../LoginForm/LoginForm'))
 interface LoginModalProps extends PropsWithChildren {
     readonly className?: string
     readonly isOpen: boolean
-    readonly onClose?: () => void
+    readonly onClose: () => void
 }
 
 export const LoginModal: FC<LoginModalProps> = ({
@@ -24,7 +24,7 @@ export const LoginModal: FC<LoginModalProps> = ({
             lazy
         >
             <Suspense fallback={<Spinner />}>
-                <LoginForm />
+                <LoginForm onSuccess={onClose} />
             </Suspense>
         </Modal>
     )

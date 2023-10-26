@@ -5,8 +5,8 @@ import { classNames } from 'src/shared/lib/style/classNames'
 import { Navbar } from 'src/widgets/Navbar/NavbarIndex'
 import { Sidebar } from 'src/widgets/Sidebar/SidebarIndex'
 import { PageLoader } from 'src/widgets/PageLoader/PageLoader'
-import { useAppDispatch } from './providers/StoreProvider/config/store'
 import { userActions } from 'src/entities/User/userIndex'
+import { useAppDispatch } from 'src/shared/lib/hooks/store'
 
 const App = () => {
     const dispatch = useAppDispatch()

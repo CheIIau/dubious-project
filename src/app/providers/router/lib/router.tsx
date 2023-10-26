@@ -4,17 +4,12 @@ import { lazy } from 'react'
 import NotFoundPage from 'src/pages/NotFoundPage/NotFoundPage'
 import ErrorPage from 'src/pages/ErrorPage/ErrorPage'
 import App from 'src/app/App'
-import RoutesWrapper from 'src/app/providers/router/ui/RoutesWrapper'
+import { RoutesWrapper } from '../routerIndex'
+import { RouterPaths } from './routeList'
 
 const MainPage = lazy(() => import('src/pages/MainPage/MainPage'))
 const AboutPage = lazy(() => import('src/pages/AboutPage/AboutPage'))
-
-export const RouterPaths = {
-    app: '/',
-    main: '',
-    about: '/about',
-    _notFound: '/*'
-} as const
+const ProfilePage = lazy(() => import('src/pages/ProfilePage/ProfilePage'))
 
 const router = createBrowserRouter([
     {
@@ -36,9 +31,13 @@ const router = createBrowserRouter([
                         element: <AboutPage />
                     },
                     {
+                        path: RouterPaths.profile,
+                        element: <ProfilePage />
+                    },
+                    {
                         path: RouterPaths._notFound,
                         element: <NotFoundPage />
-                    }
+                    },
                 ]
             }
         ]

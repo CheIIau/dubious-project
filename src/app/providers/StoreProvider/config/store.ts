@@ -3,12 +3,9 @@ import { configureStore } from '@reduxjs/toolkit'
 // import type { StateSchema } from './StateSchema'
 import { userReducer } from 'src/entities/User/userIndex'
 import { loginReducer } from 'src/features/AuthByUsername/authByUsernameIndex'
-import type { TypedUseSelectorHook } from 'react-redux'
-import { useDispatch, useSelector, useStore } from 'react-redux'
 import { rtkErrorLogger as logger } from './middlewares'
 import { createReducerManager } from './reducerManager'
-import type { ReduxStoreWithManager, StateSchema } from './StateSchema'
-import type { Action as BasicAction, AnyAction } from 'redux'
+import type { StateSchema } from './StateSchema'
 
 export function createStore(
     initialState?: StateSchema,
@@ -36,10 +33,3 @@ export function createStore(
 }
 
 export type AppDispatch = ReturnType<typeof createStore>['dispatch']
-
-export const useAppDispatch: () => AppDispatch = useDispatch
-export const useAppSelector: TypedUseSelectorHook<StateSchema> = useSelector
-export const useAppStore = useStore as <
-    State = unknown,
-    Action extends BasicAction<any> = AnyAction,
->() => ReduxStoreWithManager<State, Action>

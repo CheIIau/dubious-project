@@ -5,8 +5,8 @@ import classes from './Navbar.module.scss'
 import { useTranslation } from 'react-i18next'
 import { Button } from 'src/shared/ui/Button/Button'
 import { LoginModal } from 'src/features/AuthByUsername/authByUsernameIndex'
-import { useAppDispatch, useAppSelector } from 'src/app/providers/StoreProvider/config/store'
 import { userActions } from 'src/entities/User/userIndex'
+import { useAppDispatch, useAppSelector } from 'src/shared/lib/hooks/store'
 
 interface NavbarProps extends PropsWithChildren {
     readonly className?: string
@@ -27,33 +27,33 @@ export const Navbar: FC<NavbarProps> = ({ className }) => {
 
     const authData = useAppSelector((state) => state.user.authData)
 
-    if (authData) {
-        return (
-            <div className={classNames(classes.navbar, {}, [className])}>
-                <Button
-                    theme="clear-inverted"
-                    onClick={onLogout}
-                >
-                    {t('singOut')}
-                </Button>
-            </div>
-        )
-    }
-
     return (
         <div className={classNames(classes.navbar, {}, [className])}>
-            <Button
-                theme="clear-inverted"
-                onClick={onToggleModal}
-            >
-                {t('singIn')}
-            </Button>
-            <LoginModal
-                isOpen={authModal}
-                onClose={onToggleModal}
-            >
-                {t('singIn')}
-            </LoginModal>
+            {authData ? (
+                <>
+                    <Button
+                        theme="clear-inverted"
+                        onClick={onLogout}
+                    >
+                        {t('singOut')}
+                    </Button>
+                </>
+            ) : (
+                <>
+                    <Button
+                        theme="clear-inverted"
+                        onClick={onToggleModal}
+                    >
+                        {t('singIn')}
+                    </Button>
+                    <LoginModal
+                        isOpen={authModal}
+                        onClose={onToggleModal}
+                    >
+                        {t('singIn')}
+                    </LoginModal>
+                </>
+            )}
         </div>
     )
 }

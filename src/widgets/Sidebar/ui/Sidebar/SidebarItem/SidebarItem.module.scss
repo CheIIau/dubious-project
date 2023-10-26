@@ -1,0 +1,38 @@
+.sidebar-item {
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+}
+
+.sidebar-item__text {
+    opacity: 1;
+    margin-left: 8px;
+    animation: fadeIn 0.7s;
+}
+
+.sidebar-item__text_collapsed {
+    margin-left: 0;
+    width: 0;
+    animation: fadeOut 0s;
+    opacity: 0;
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fade-out {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}

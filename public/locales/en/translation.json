@@ -7,5 +7,6 @@
     "singOut": "Sign out",
     "enterUsername": "Enter username",
     "enterPassword": "Enter password",
-    "authorizationForm": "Authorization form"
+    "authorizationForm": "Authorization form",
+    "profile": "Profile"
 }

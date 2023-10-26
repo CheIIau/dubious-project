@@ -1,25 +1,38 @@
-import type { FC, PropsWithChildren} from 'react'
+import type { FC, PropsWithChildren } from 'react'
 import { useState } from 'react'
 import { classNames } from 'src/shared/lib/style/classNames'
 import classes from './Sidebar.module.scss'
 import { ThemeSwitcher } from 'src/widgets/ThemeSwitcher/themeSwitcherIndex'
 import { LangSwitcher } from 'src/widgets/LangSwitcher/ui/LangSwitcher'
 import { Button } from 'src/shared/ui/Button/Button'
-import { AppLink, appLinkTheme } from 'src/shared/ui/AppLink/AppLink'
-import { RouterPaths } from 'src/app/providers/router/lib/router'
 import { useTranslation } from 'react-i18next'
+import { SidebarItem } from './SidebarItem/SidebarItem'
 
 import MenuIcon from 'src/shared/assets/icons/menu.svg?react'
-import HomeIcon from 'src/shared/assets/icons/home.svg?react'
-import AboutIcon from 'src/shared/assets/icons/doc.svg?react'
+import { sidebarItemsList } from '../../model/sidebarItems'
 
 interface SidebarProps extends PropsWithChildren {
     readonly className?: string
 }
 
+// export const sidebarItemsList: SidebarItemProps[] = [
+//     {
+//         path: RouterPaths.main,
+//         theme: appLinkTheme.primary,
+//         text: i18next.t('translation:enterPassword'),
+//         icon: <HomeIcon className="icon" />,
+//     },
+//     {
+//         path: RouterPaths.about,
+//         theme: appLinkTheme.secondary,
+//         text: i18next.t('about:aboutPage'),
+//         icon: <AboutIcon className="icon" />,
+//     },
+// ]
+
 export const Sidebar: FC<SidebarProps> = ({ className }) => {
-    const { t } = useTranslation(['about', 'main', 'translation'])
-    const [collapsed, setCollapsed] = useState(true)
+    const { t } = useTranslation()
+    const [collapsed, setCollapsed] = useState(false)
 
     const onToggle = () => {
         setCollapsed(!collapsed)
@@ -41,27 +54,30 @@ export const Sidebar: FC<SidebarProps> = ({ className }) => {
                 onClick={onToggle}
             >
                 <div className="flex flex-row justify-between px-2 w-full">
-                    <p className="mr-4">{t('translation:hideSidebar')}</p>
+                    <p className="mr-4">{t('hideSidebar')}</p>
                     <MenuIcon className="icon" />
                 </div>
             </Button>
             <div className={classNames(classes.links, {}, ['mt-3'])}>
-                <AppLink
-                    theme={appLinkTheme.primary}
-                    to={RouterPaths.main}
-                    className={classes.link}
-                >
-                    <HomeIcon className="icon"  />
-                    <span className={classNames(classes.link__text)}>{t('main:mainPage')}</span>
-                </AppLink>
-                <AppLink
-                    theme={appLinkTheme.secondary}
-                    to={RouterPaths.about}
-                    className={classes.link}
-                >
-                    <AboutIcon className="icon"  />
-                    <span className={classNames(classes.link__text)}>{t('about:aboutPage')}</span>
-                </AppLink>
+                {sidebarItemsList.map((item) => (
+                    <SidebarItem
+                        {...item}
+                        key={item.path}
+                        collapsed={collapsed}
+                    />
+                ))}
+                {/* <SidebarItem
+                    path={RouterPaths.main}
+                    icon={<HomeIcon className="icon" />}
+                    text={t('mainPage')}
+                    collapsed={collapsed}
+                />
+                <SidebarItem
+                    path={RouterPaths.about}
+                    icon={<AboutIcon className="icon" />}
+                    text={t('mainPage')}
+                    collapsed={collapsed}
+                /> */}
             </div>
             <div className={classes.switchers}>
                 <ThemeSwitcher />
