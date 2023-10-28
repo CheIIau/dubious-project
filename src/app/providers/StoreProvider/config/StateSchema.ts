@@ -7,6 +7,7 @@ import type {
     ReducersMapObject,
 } from '@reduxjs/toolkit'
 import type { CounterSchema } from 'src/entities/Counter/counderIndex'
+import type { ProfileSchema } from 'src/entities/Profile/profileIndex'
 import type { UserSchema } from 'src/entities/User/userIndex'
 import type { LoginSchema } from 'src/features/AuthByUsername/authByUsernameIndex'
 
@@ -16,6 +17,7 @@ export interface StateSchema {
     loginForm: LoginSchema
 
     // there might be async reducers
+    profile?: ProfileSchema
 }
 
 export type StateSchemaKey = keyof StateSchema

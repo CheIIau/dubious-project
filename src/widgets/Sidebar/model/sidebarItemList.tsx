@@ -4,7 +4,6 @@ import { appLinkTheme } from 'src/shared/ui/AppLink/AppLink'
 import HomeIcon from 'src/shared/assets/icons/home.svg?react'
 import PersonIcon from 'src/shared/assets/icons/person.svg?react'
 import AboutIcon from 'src/shared/assets/icons/doc.svg?react'
-import 'src/shared/config/i18n/i18n'
 
 export const sidebarItemsList: SidebarItemProps[] = [
     {

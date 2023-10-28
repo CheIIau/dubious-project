@@ -4,7 +4,7 @@ import {
     StoreProvider,
     type StateSchema,
 } from 'src/app/providers/StoreProvider/storeProviderIndex'
-import type { DeepPartialSpecial } from 'src/app/types/otherTypes'
+import type { DeepPartialSpecial } from 'src/shared/types/helpers'
 
 export const StoreDecorator: (
     state: DeepPartialSpecial<StateSchema>,
