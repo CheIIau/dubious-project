@@ -1,7 +1,8 @@
 import { fireEvent, render, screen } from '@testing-library/react'
 // import i18next from 'i18next'
 import { Sidebar } from 'src/widgets/Sidebar/SidebarIndex'
-import { getStringClasses, renderWrapper } from 'test/helpers'
+import { getStringClasses } from 'test/helpers/other'
+import { renderWrapper } from 'test/helpers/renderWrapper'
 // example how to mock
 // vi.mock("../src/Icon", () => {
 //     return {

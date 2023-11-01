@@ -1,9 +1,9 @@
-
+import { resources as resourcesEnum } from '../../../app/types/i18n/resources'
 
 export const languages = ['ru-RU', 'en'] as const
 export const defaultLanguage = 'en'
 export const fallbackLanguage = 'ru-RU'
-export const ns = ['translation', 'about', 'main']
+export const ns = getKeys(resourcesEnum)
 
 export const resources = ns.reduce((acc, n) => {
     languages.forEach((lng) => {
@@ -18,3 +18,7 @@ export const resources = ns.reduce((acc, n) => {
     })
     return acc
 }, {})
+
+function getKeys<T extends object>(obj: T): (keyof T)[] {
+    return Object.keys(obj) as (keyof T)[]
+}

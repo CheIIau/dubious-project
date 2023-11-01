@@ -1,24 +1,15 @@
-import axios from 'axios'
+import type { User } from 'src/entities/User/userIndex'
 import { userActions } from 'src/entities/User/userIndex'
-import { loginByUsername } from 'src/features/AuthByUsername/model/services/loginByUsername'
-import { MockAsyncThunk } from 'test/helpers'
-
-vi.mock('axios')
-
-const mockedAxios = vi.mocked(axios, true)
+import type { LoginByUsernameProps } from 'src/features/AuthByUsername/authByUsernameIndex'
+import { loginByUsername } from 'src/features/AuthByUsername/authByUsernameIndex'
+import { MockAsyncThunk } from 'test/helpers/mockAsyncThunk'
 
 describe('loginByUsername', () => {
     const USERNAME = 'user'
     const ID = '321'
     const PASSWORD = '111'
     const USER_DATA = { username: USERNAME, id: ID }
-    // let dispatch: Dispatch
-    // let getState: () => StateSchema
-
-    // beforeEach(() => {
-    //     dispatch = vi.fn()
-    //     getState = vi.fn()
-    // })
+    let thunk: MockAsyncThunk<User, LoginByUsernameProps, string>
 
     describe('positive scenario', () => {
         // или можно мокнуть определенные запросы
@@ -32,14 +23,12 @@ describe('loginByUsername', () => {
         //     }
         // })
 
-        beforeAll(() => {
-            mockedAxios.post.mockReturnValue(
-                Promise.resolve({ data: USER_DATA }),
-            )
+        beforeEach(() => {
+            thunk = new MockAsyncThunk(loginByUsername)
+            thunk.api.post.mockReturnValue(Promise.resolve({ data: USER_DATA }))
         })
 
         it('calls dispatch function with initial data', async () => {
-            const thunk = new MockAsyncThunk(loginByUsername)
 
             await thunk.callThunk({
                 username: USERNAME,
@@ -52,18 +41,16 @@ describe('loginByUsername', () => {
         })
 
         it('makes post request', async () => {
-            const thunk = new MockAsyncThunk(loginByUsername)
 
             await thunk.callThunk({
                 username: USERNAME,
                 password: PASSWORD,
             })
 
-            expect(mockedAxios.post).toHaveBeenCalled()
+            expect(thunk.api.post).toHaveBeenCalled()
         })
 
         it('sets request status to fulfilled', async () => {
-            const thunk = new MockAsyncThunk(loginByUsername)
 
             const result = await thunk.callThunk({
                 username: USERNAME,
@@ -74,7 +61,6 @@ describe('loginByUsername', () => {
         })
 
         it('calls dispatch 3 times', async () => {
-            const thunk = new MockAsyncThunk(loginByUsername)
 
             await thunk.callThunk({
                 username: USERNAME,
@@ -88,7 +74,6 @@ describe('loginByUsername', () => {
         })
 
         it('returns user data', async () => {
-            const thunk = new MockAsyncThunk(loginByUsername)
 
             const result = await thunk.callThunk({
                 username: USERNAME,
@@ -100,11 +85,13 @@ describe('loginByUsername', () => {
     })
 
     describe('when server returns 403 error', () => {
-        beforeAll(() => {
-            mockedAxios.post.mockReturnValue(Promise.resolve({ status: 403 }))
+
+        beforeEach(() => {
+            thunk = new MockAsyncThunk(loginByUsername)
+            thunk.api.post.mockReturnValue(Promise.resolve({ status: 403 }))
         })
+
         it('not calls dispatch function', async () => {
-            const thunk = new MockAsyncThunk(loginByUsername)
 
             await thunk.callThunk({
                 username: USERNAME,
@@ -117,7 +104,6 @@ describe('loginByUsername', () => {
         })
 
         it('sets request status to rejected', async () => {
-            const thunk = new MockAsyncThunk(loginByUsername)
 
             const result = await thunk.callThunk({
                 username: USERNAME,

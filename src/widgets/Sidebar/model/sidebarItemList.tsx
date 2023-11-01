@@ -21,7 +21,7 @@ export const sidebarItemsList: SidebarItemProps[] = [
     {
         path: RouterPaths.profile,
         theme: appLinkTheme.secondary,
-        text: 'profile',
+        text: 'profile:profile',
         icon: <PersonIcon className="icon" />,
     },
 ]

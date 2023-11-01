@@ -1,6 +1,7 @@
 import { fireEvent, render, screen } from '@testing-library/react'
-import { dynamicReducerWrapper, renderWrapper } from 'test/helpers'
 import Counter, { counterReducer } from 'src/entities/Counter/counderIndex'
+import { dynamicReducerWrapper } from 'test/helpers/dynamicReducerWrapper'
+import { renderWrapper } from 'test/helpers/renderWrapper'
 
 describe('Counter', () => {
     const VALUE_TEST_ID = 'value-text'

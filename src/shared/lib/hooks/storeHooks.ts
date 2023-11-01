@@ -5,7 +5,7 @@ import type {
     AppDispatch,
     StateSchema,
 } from 'src/app/providers/StoreProvider/storeProviderIndex'
-import type { ReduxStoreWithManager } from 'src/app/providers/StoreProvider/config/StateSchema'
+import type { ReduxStoreWithManager } from 'src/app/providers/StoreProvider/storeProviderIndex'
 
 export const useAppDispatch: () => AppDispatch = useDispatch
 

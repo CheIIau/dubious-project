@@ -1,10 +1,10 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
-import axios from 'axios'
+import type { ThunkConfig } from 'src/app/providers/StoreProvider/storeProviderIndex'
 import { userActions, type User } from 'src/entities/User/userIndex'
-import { API_URL, type ServiceError } from 'src/shared/config/axios/config'
+import type { ServiceError } from 'src/shared/api/api'
 import { USER_LOCALSTORAGE_KEY } from 'src/shared/const/localstorage'
 
-interface LoginByUsernameProps {
+export interface LoginByUsernameProps {
     username: string
     password: string
 }
@@ -12,10 +12,10 @@ interface LoginByUsernameProps {
 export const loginByUsername = createAsyncThunk<
     User,
     LoginByUsernameProps,
-    { rejectValue: string }
+    ThunkConfig<string>
 >('login/loginByUsername', async ({ username, password }, thunkApi) => {
     try {
-        const response = await axios.post<User>(`${API_URL}/login`, {
+        const response = await thunkApi.extra.api.post<User>('/login', {
             username,
             password,
         })
@@ -23,10 +23,12 @@ export const loginByUsername = createAsyncThunk<
         if (!response.data?.id) {
             throw new Error('No id in server response')
         }
+
         localStorage.setItem(
             USER_LOCALSTORAGE_KEY,
             JSON.stringify(response.data),
         )
+
         thunkApi.dispatch(userActions.setAuthData(response.data))
 
         return response.data

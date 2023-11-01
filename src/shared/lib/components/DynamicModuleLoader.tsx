@@ -1,7 +1,7 @@
 import { useEffect, type FC, type PropsWithChildren } from 'react'
 import type { StateSchemaKey } from 'src/app/providers/StoreProvider/config/StateSchema'
 import type { Reducer } from '@reduxjs/toolkit'
-import { useAppDispatch, useAppStore } from '../hooks/store'
+import { useAppDispatch, useAppStore } from '../hooks/storeHooks'
 
 export type ReducersList = {
     [key in StateSchemaKey]?: Reducer

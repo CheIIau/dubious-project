@@ -7,7 +7,7 @@ import { Input } from 'src/shared/ui/Input/Input'
 import { loginActions } from '../../model/slice/loginSlice'
 import { loginByUsername } from '../../model/services/loginByUsername'
 import { TEXT_THEME, Text } from 'src/shared/ui/Text/Text'
-import { useAppDispatch, useAppSelector } from 'src/shared/lib/hooks/store'
+import { useAppDispatch, useAppSelector } from 'src/shared/lib/hooks/storeHooks'
 
 interface LoginFormProps extends PropsWithChildren {
     readonly className?: string

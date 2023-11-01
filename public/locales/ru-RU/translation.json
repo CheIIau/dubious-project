@@ -7,6 +7,5 @@
     "singOut": "Выйти",
     "enterUsername": "Введите имя",
     "enterPassword": "Введите пароль",
-    "authorizationForm": "Форма авторизации",
-    "profile": "Профиль"
+    "authorizationForm": "Форма авторизации"
 }

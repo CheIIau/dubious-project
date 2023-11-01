@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next'
 import { Button } from 'src/shared/ui/Button/Button'
 import { LoginModal } from 'src/features/AuthByUsername/authByUsernameIndex'
 import { userActions } from 'src/entities/User/userIndex'
-import { useAppDispatch, useAppSelector } from 'src/shared/lib/hooks/store'
+import { useAppDispatch, useAppSelector } from 'src/shared/lib/hooks/storeHooks'
 
 interface NavbarProps extends PropsWithChildren {
     readonly className?: string

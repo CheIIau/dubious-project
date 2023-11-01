@@ -6,6 +6,7 @@ import { loginReducer } from 'src/features/AuthByUsername/authByUsernameIndex'
 import { rtkErrorLogger as logger } from './middlewares'
 import { createReducerManager } from './reducerManager'
 import type { StateSchema } from './StateSchema'
+import { $api } from 'src/shared/api/api'
 
 export function createStore(
     initialState?: StateSchema,
@@ -25,7 +26,13 @@ export function createStore(
         devTools: __IS_DEV__,
         preloadedState: initialState,
         middleware: (getDefaultMiddleware) =>
-            getDefaultMiddleware().concat(logger),
+            getDefaultMiddleware({
+                thunk: {
+                    extraArgument: {
+                        api: $api,
+                    },
+                },
+            }).concat(logger),
     })
     ///@ts-expect-error
     store.reducerManager = reducerManager
