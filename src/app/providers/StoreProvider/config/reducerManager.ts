@@ -14,8 +14,7 @@ export function createReducerManager(
 
         reduce: (state: StateSchema | undefined, action: AnyAction) => {
             if (keysToRemove.length > 0) {
-                ///@ts-expect-error
-                state = { ...state }
+                state = { ...state } as StateSchema
                 for (const key of keysToRemove) {
                     if (state) {
                         // eslint-disable-next-line @typescript-eslint/no-dynamic-delete

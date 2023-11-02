@@ -1,5 +1,6 @@
 import type { FC, PropsWithChildren } from 'react'
 import { useCallback, useEffect, useRef, useState } from 'react'
+import type { Mods } from 'src/shared/lib/style/classNames'
 import { classNames } from 'src/shared/lib/style/classNames'
 import classes from './Modal.module.scss'
 import { Portal } from '../Portal/Portal'
@@ -15,7 +16,7 @@ export const Modal: FC<ModalProps> = (props) => {
     const { className, onClose, isOpen, children, lazy } = props
     const [isClosing, setIsClosing] = useState(false)
     const [isMounted, setIsMounted] = useState(false)
-    
+
     useEffect(() => {
         if (isOpen) {
             setIsMounted(true)
@@ -39,7 +40,7 @@ export const Modal: FC<ModalProps> = (props) => {
         event.stopPropagation()
     }
 
-    const mods: Record<string, boolean> = {
+    const mods: Mods = {
         [classes.opened]: isOpen,
         [classes['is-closing']]: isClosing,
     }

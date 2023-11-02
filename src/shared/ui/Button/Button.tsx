@@ -1,4 +1,5 @@
 import type { ButtonHTMLAttributes, FC, PropsWithChildren } from 'react'
+import type { Mods} from 'src/shared/lib/style/classNames'
 import { classNames } from 'src/shared/lib/style/classNames'
 import classes from './Button.module.scss'
 
@@ -38,9 +39,9 @@ export const Button: FC<ButtonProps> = (props) => {
         ...otherProps
     } = props
 
-    const mods: Record<string, boolean> = {
+    const mods: Mods = {
         [classes.square]: !!square,
-        [classes.disabled]: !!disabled
+        [classes.disabled]: !!disabled,
     }
 
     const additional = [

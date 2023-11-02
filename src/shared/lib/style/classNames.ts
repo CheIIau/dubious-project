@@ -1,6 +1,8 @@
+export type Mods = Record<string, boolean>
+
 export function classNames(
     className: string,
-    mods: Record<string, boolean> = {},
+    mods: Mods = {},
     additional: Array<string | undefined> = [],
 ): string {
     return [
