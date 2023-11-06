@@ -10,7 +10,6 @@ import {
     profileActions,
     profileReducer,
 } from 'src/entities/Profile/profileIndex'
-import { useTranslation } from 'react-i18next'
 import { useAppDispatch, useAppSelector } from 'src/shared/lib/hooks/storeHooks'
 import { ProfilePageHeader } from './ui/ProfilePageHeader/ProfilePageHeader'
 
@@ -23,8 +22,8 @@ const reducers: ReducersList = {
 }
 
 const ProfilePage: FC<ProfilePageProps> = ({ className }) => {
-    const { t } = useTranslation()
     const dispatch = useAppDispatch()
+    //можно было бы убрать селектор полностью и возвращать из стейта объект, но сделал просто так
     const profile = useAppSelector(getProfile)
 
     useEffect(() => {
@@ -38,9 +37,37 @@ const ProfilePage: FC<ProfilePageProps> = ({ className }) => {
         [dispatch],
     )
 
-    const onChangeLastname = useCallback((value?: string) => {
-        dispatch(profileActions.updateProfile({ lastname: value }))
-    }, [dispatch])
+    const onChangeLastname = useCallback(
+        (value?: string) => {
+            dispatch(profileActions.updateProfile({ lastname: value }))
+        },
+        [dispatch],
+    )
+
+    const onChangeAge = useCallback(
+        (value?: string) => {
+            if (value && +value > 0) {
+                return dispatch(
+                    profileActions.updateProfile({
+                        age: +value,
+                    }),
+                )
+            }
+            dispatch(
+                profileActions.updateProfile({
+                    age: undefined,
+                }),
+            )
+        },
+        [dispatch],
+    )
+
+    const onChangeCity = useCallback(
+        (value?: string) => {
+            dispatch(profileActions.updateProfile({ city: value }))
+        },
+        [dispatch],
+    )
 
     return (
         <DynamicModuleLoader
@@ -52,12 +79,14 @@ const ProfilePage: FC<ProfilePageProps> = ({ className }) => {
             >
                 <ProfilePageHeader className="mb-3" />
                 <ProfileCard
-                    data={profile?.data}
+                    data={profile?.form}
                     error={profile?.error}
                     loading={profile?.loading}
                     readonly={profile?.readonly}
                     onChangeFirstname={onChangeFirstname}
                     onChangeLastname={onChangeLastname}
+                    onChangeCity={onChangeCity}
+                    onChangeAge={onChangeAge}
                 />
             </div>
         </DynamicModuleLoader>

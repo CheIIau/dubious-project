@@ -17,6 +17,7 @@ export const BUTTON_THEME = {
     clear: 'clear',
     ['clear-inverted']: 'clear-inverted',
     outline: 'outline',
+    ['outline-red']: 'outline-red',
     background: 'background',
     ['background-inverted']: 'background-inverted',
 } as const

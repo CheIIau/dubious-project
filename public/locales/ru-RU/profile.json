@@ -2,5 +2,7 @@
   "profile": "Профиль",
   "edit": "Редактировать",
   "yourFirstname": "Ваше имя",
-  "yourLastname": "Ваша фамилия"
+  "yourLastname": "Ваша фамилия",
+  "city": "Город",
+  "age": "Возраст"
 }

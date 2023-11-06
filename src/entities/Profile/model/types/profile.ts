@@ -13,6 +13,7 @@ export interface Profile {
 
 export interface ProfileSchema {
     data: Profile | null
+    form: Profile | null
     error: string | null
     loading: boolean
     readonly: boolean

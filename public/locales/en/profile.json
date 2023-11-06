@@ -2,5 +2,7 @@
   "profile": "Profile",
   "edit": "Edit",
   "yourFirstname": "Your firstname",
-  "yourLastname": "Your lastname"
+  "yourLastname": "Your lastname",
+  "city": "City",
+  "age": "Age"
 }

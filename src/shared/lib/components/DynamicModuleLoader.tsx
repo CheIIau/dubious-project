@@ -19,9 +19,10 @@ export const DynamicModuleLoader: FC<DynamicModuleLoaderProps> = ({
 }) => {
     const store = useAppStore()
     const dispatch = useAppDispatch()
+
     useEffect(() => {
         Object.entries(reducers).forEach(([key, reducer]) => {
-             store.reducerManager.add(key as StateSchemaKey, reducer)
+            store.reducerManager.add(key as StateSchemaKey, reducer)
             dispatch({ type: `@INIT ${key} reducer` })
         })
 
@@ -33,7 +34,7 @@ export const DynamicModuleLoader: FC<DynamicModuleLoaderProps> = ({
                 })
             }
         }
-    }, [])
+    }, [dispatch, reducers, removeAfterUnmount, store.reducerManager])
 
     return <>{children}</>
 }

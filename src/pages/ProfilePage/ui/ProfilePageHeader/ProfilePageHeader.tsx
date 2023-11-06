@@ -5,7 +5,7 @@ import { Text } from 'src/shared/ui/Text/Text'
 import { Button, BUTTON_THEME } from 'src/shared/ui/Button/Button'
 import { useTranslation } from 'react-i18next'
 import { useAppDispatch, useAppSelector } from 'src/shared/lib/hooks/storeHooks'
-import { profileActions } from 'src/entities/Profile/profileIndex'
+import { profileActions, updateProfileData } from 'src/entities/Profile/profileIndex'
 
 interface ProfilePageHeaderProps extends PropsWithChildren {
     readonly className?: string
@@ -21,10 +21,15 @@ export const ProfilePageHeader: FC<ProfilePageHeaderProps> = ({
     const dispatch = useAppDispatch()
     const onEdit = useCallback(() => {
         dispatch(profileActions.setReadonly(false))
-    }, [])
+    }, [dispatch])
+
     const onCancelEdit = useCallback(() => {
-        dispatch(profileActions.setReadonly(true))
-    }, [])
+        dispatch(profileActions.cancelEdit())
+    }, [dispatch])
+
+    const onSave = useCallback(() => {
+        dispatch(updateProfileData())
+    }, [dispatch])
 
     return (
         <div
@@ -42,13 +47,22 @@ export const ProfilePageHeader: FC<ProfilePageHeaderProps> = ({
                     {t('profile:edit')}
                 </Button>
             ) : (
-                <Button
-                    theme={BUTTON_THEME.outline}
-                    className="ml-auto"
-                    onClick={onCancelEdit}
-                >
-                    {t('cancel')}
-                </Button>
+                <>
+                    <Button
+                        theme={BUTTON_THEME.outline}
+                        className="ml-auto"
+                        onClick={onSave}
+                    >
+                        {t('translation:save')}
+                    </Button>
+                    <Button
+                        theme={BUTTON_THEME['outline-red']}
+                        className="ml-3"
+                        onClick={onCancelEdit}
+                    >
+                        {t('cancel')}
+                    </Button>
+                </>
             )}
         </div>
     )

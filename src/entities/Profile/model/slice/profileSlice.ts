@@ -2,12 +2,14 @@ import type { PayloadAction } from '@reduxjs/toolkit'
 import { createSlice, isAnyOf } from '@reduxjs/toolkit'
 import type { Profile } from '../../profileIndex'
 import { fetchProfileData, type ProfileSchema } from '../../profileIndex'
+import { updateProfileData } from '../services/updateProfileData/updateProfileData'
 
 const initialState: ProfileSchema = {
     readonly: true,
     loading: false,
     error: null,
     data: null,
+    form: null,
 }
 
 const profileSlice = createSlice({
@@ -18,32 +20,46 @@ const profileSlice = createSlice({
             state.readonly = action.payload
         },
         updateProfile: (state, action: PayloadAction<Partial<Profile>>) => {
-            state.data = {
+            state.form = {
                 ...state.data,
-                ...action.payload
+                ...action.payload,
             }
+        },
+        cancelEdit: (state) => {
+            state.readonly = true
+            state.form = state.data
         },
     },
     extraReducers(builder) {
         builder
-            .addCase(fetchProfileData.pending, (_state, _action) => {})
-            .addCase(
-                fetchProfileData.fulfilled,
-                (state, action: PayloadAction<Profile>) => {
-                    state.loading = false
-                    state.data = action.payload
+            // .addCase(fetchProfileData.pending, (_state, _action) => {})
+            .addMatcher(
+                isAnyOf(fetchProfileData.pending, updateProfileData.pending),
+                (state) => {
+                    state.error = null
+                    state.loading = true
                 },
             )
-            .addCase(fetchProfileData.rejected, (state, action) => {
-                if (action.payload) {
-                    state.error = action.payload
-                }
-                state.loading = false
-            })
-            .addMatcher(isAnyOf(fetchProfileData.pending), (state) => {
-                state.error = null
-                state.loading = true
-            })
+            .addMatcher(
+                isAnyOf(fetchProfileData.rejected, updateProfileData.rejected),
+                (state, action) => {
+                    if (action.payload) {
+                        state.error = action.payload
+                    }
+                    state.loading = false
+                },
+            )
+            .addMatcher(
+                isAnyOf(
+                    fetchProfileData.fulfilled,
+                    updateProfileData.fulfilled,
+                ),
+                (state, action) => {
+                    state.loading = false
+                    state.data = action.payload
+                    state.form = action.payload
+                },
+            )
     },
 })
 

@@ -9,5 +9,6 @@
     "enterPassword": "Введите пароль",
     "authorizationForm": "Форма авторизации",
     "tryToRefreshThePage": "Попробуйте обновить страницу",
-    "cancel": "Отменить"
+    "cancel": "Отменить",
+    "save": "Сохранить"
 }
