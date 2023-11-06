@@ -1,8 +1,13 @@
-.header {
-    display: flex;
-}
-
 .profile-card {
     padding: 20px;
     border: 2px solid var(--inverted-bg-color);
+    border-radius: 10px;
+}
+
+.loading,
+.error {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 300px;
 }

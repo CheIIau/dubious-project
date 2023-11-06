@@ -29,7 +29,6 @@ describe('loginByUsername', () => {
         })
 
         it('calls dispatch function with initial data', async () => {
-
             await thunk.callThunk({
                 username: USERNAME,
                 password: PASSWORD,
@@ -41,7 +40,6 @@ describe('loginByUsername', () => {
         })
 
         it('makes post request', async () => {
-
             await thunk.callThunk({
                 username: USERNAME,
                 password: PASSWORD,
@@ -51,7 +49,6 @@ describe('loginByUsername', () => {
         })
 
         it('sets request status to fulfilled', async () => {
-
             const result = await thunk.callThunk({
                 username: USERNAME,
                 password: PASSWORD,
@@ -61,7 +58,6 @@ describe('loginByUsername', () => {
         })
 
         it('calls dispatch 3 times', async () => {
-
             await thunk.callThunk({
                 username: USERNAME,
                 password: PASSWORD,
@@ -74,7 +70,6 @@ describe('loginByUsername', () => {
         })
 
         it('returns user data', async () => {
-
             const result = await thunk.callThunk({
                 username: USERNAME,
                 password: PASSWORD,
@@ -85,14 +80,12 @@ describe('loginByUsername', () => {
     })
 
     describe('when server returns 403 error', () => {
-
         beforeEach(() => {
             thunk = new MockAsyncThunk(loginByUsername)
             thunk.api.post.mockReturnValue(Promise.resolve({ status: 403 }))
         })
 
         it('not calls dispatch function', async () => {
-
             await thunk.callThunk({
                 username: USERNAME,
                 password: PASSWORD,
@@ -104,7 +97,6 @@ describe('loginByUsername', () => {
         })
 
         it('sets request status to rejected', async () => {
-
             const result = await thunk.callThunk({
                 username: USERNAME,
                 password: PASSWORD,

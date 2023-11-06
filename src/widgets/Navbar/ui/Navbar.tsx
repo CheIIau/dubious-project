@@ -23,7 +23,7 @@ export const Navbar: FC<NavbarProps> = ({ className }) => {
 
     const onLogout = useCallback(() => {
         dispatch(userActions.logout())
-    }, [])
+    }, [dispatch])
 
     const authData = useAppSelector((state) => state.user.authData)
 

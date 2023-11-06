@@ -7,5 +7,7 @@
     "singOut": "Выйти",
     "enterUsername": "Введите имя",
     "enterPassword": "Введите пароль",
-    "authorizationForm": "Форма авторизации"
+    "authorizationForm": "Форма авторизации",
+    "tryToRefreshThePage": "Попробуйте обновить страницу",
+    "cancel": "Отменить"
 }
