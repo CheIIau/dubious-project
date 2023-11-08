@@ -10,6 +10,7 @@ const initialState: ProfileSchema = {
     error: null,
     data: null,
     form: null,
+    validateError: null,
 }
 
 const profileSlice = createSlice({
@@ -21,18 +22,30 @@ const profileSlice = createSlice({
         },
         updateProfile: (state, action: PayloadAction<Partial<Profile>>) => {
             state.form = {
-                ...state.data,
+                ...state.form,
                 ...action.payload,
             }
         },
         cancelEdit: (state) => {
             state.readonly = true
             state.form = state.data
+            state.validateError = null
         },
     },
     extraReducers(builder) {
         builder
-            // .addCase(fetchProfileData.pending, (_state, _action) => {})
+            .addCase(updateProfileData.pending, (state, _action) => {
+                state.readonly = true
+                state.validateError = null
+            })
+            .addCase(updateProfileData.rejected, (state, action) => {
+                if (typeof action.payload === 'string') {
+                    state.error = action.payload
+                } else if (Array.isArray(action.payload)) {
+                    state.validateError = action.payload
+                }
+                state.loading = false
+            })
             .addMatcher(
                 isAnyOf(fetchProfileData.pending, updateProfileData.pending),
                 (state) => {
@@ -40,15 +53,12 @@ const profileSlice = createSlice({
                     state.loading = true
                 },
             )
-            .addMatcher(
-                isAnyOf(fetchProfileData.rejected, updateProfileData.rejected),
-                (state, action) => {
-                    if (action.payload) {
-                        state.error = action.payload
-                    }
-                    state.loading = false
-                },
-            )
+            .addMatcher(isAnyOf(fetchProfileData.rejected), (state, action) => {
+                if (action.payload) {
+                    state.error = action.payload
+                }
+                state.loading = false
+            })
             .addMatcher(
                 isAnyOf(
                     fetchProfileData.fulfilled,

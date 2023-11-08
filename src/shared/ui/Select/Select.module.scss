@@ -1,0 +1,28 @@
+.select-wrapper {
+    display: flex;
+}
+
+.select {
+    background: none;
+    outline: none;
+    color: var(--primary-color);
+    padding: 2px 10px 2px 2px;
+    border: 1px solid var(--primary-color);
+    border-radius: 4px;
+}
+
+.option {
+    color: var(--inverted-primary-color);
+    background: var(--bg-color)
+}
+
+.label__disabled {
+    opacity: 0.7;
+}
+
+.readonly,
+.label__disabled {
+    &:hover {
+        cursor: not-allowed;
+    }
+}

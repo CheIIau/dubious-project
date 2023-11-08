@@ -11,3 +11,14 @@
     justify-content: center;
     height: 300px;
 }
+
+.avatar-wrapper {
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    width: 100%;
+}
+
+.editable {
+    border: 2px solid var(--primary-color);
+}

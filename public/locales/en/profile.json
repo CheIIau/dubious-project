@@ -1,8 +1,17 @@
 {
-  "profile": "Profile",
-  "edit": "Edit",
-  "yourFirstname": "Your firstname",
-  "yourLastname": "Your lastname",
-  "city": "City",
-  "age": "Age"
+    "profile": "Profile",
+    "edit": "Edit",
+    "yourFirstname": "Your firstname",
+    "yourLastname": "Your lastname",
+    "country": "Country",
+    "city": "City",
+    "age": "Age",
+    "username": "Username",
+    "avatarLink": "Avatar link",
+    "chooseCurrency": "Choose currency",
+    "chooseCountry": "Choose country",
+    "incorrectUserData": "Incorrect user data",
+    "incorrectAge": "Incorrect age",
+    "incorrectCity": "Incorrect city",
+    "noData": "No data"
 }

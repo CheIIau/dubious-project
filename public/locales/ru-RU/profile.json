@@ -1,8 +1,17 @@
 {
-  "profile": "Профиль",
-  "edit": "Редактировать",
-  "yourFirstname": "Ваше имя",
-  "yourLastname": "Ваша фамилия",
-  "city": "Город",
-  "age": "Возраст"
+    "profile": "Профиль",
+    "edit": "Редактировать",
+    "yourFirstname": "Ваше имя",
+    "yourLastname": "Ваша фамилия",
+    "city": "Город",
+    "country": "Страна",
+    "age": "Возраст",
+    "username": "Юзернейм",
+    "avatarLink": "Ссылка на аватар",
+    "chooseCurrency": "Выберите валюту",
+    "chooseCountry": "Выберите страну",
+    "incorrectUserData": "Некорректные данные пользователя",
+    "incorrectAge": "Некорректный возраст",
+    "incorrectCity": "Некорректный город",
+    "noData": "Нет данных"
 }
