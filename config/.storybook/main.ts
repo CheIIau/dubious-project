@@ -11,6 +11,7 @@ const config: StorybookConfig = {
         '@storybook/addon-onboarding',
         '@storybook/addon-interactions',
         'storybook-react-i18next',
+        'storybook-addon-mock',
     ],
     framework: {
         name: '@storybook/react-webpack5',

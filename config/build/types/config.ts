@@ -13,6 +13,7 @@ export interface BuildOptions {
     paths: BuildPaths
     isDev: boolean;
     port: number
+    project: 'storybook' | 'frontend' | 'unit_test'
 }
 
 export interface BuildEnv {

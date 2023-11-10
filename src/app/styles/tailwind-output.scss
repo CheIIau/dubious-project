@@ -533,6 +533,10 @@ video {
   position: static;
 }
 
+.mb-1 {
+  margin-bottom: 0.25rem;
+}
+
 .mb-2 {
   margin-bottom: 0.5rem;
 }
@@ -591,6 +595,10 @@ video {
 
 .justify-between {
   justify-content: space-between;
+}
+
+.p-1 {
+  padding: 0.25rem;
 }
 
 .p-10 {

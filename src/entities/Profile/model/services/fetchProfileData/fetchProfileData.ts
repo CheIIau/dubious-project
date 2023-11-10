@@ -10,6 +10,10 @@ export const fetchProfileData = createAsyncThunk<
 >('profile/fetchProfileData', async (_, thunkApi) => {
     try {
         const response = await thunkApi.extra.api.get<Profile>('/profile')
+        
+        if (!response.data) {
+            return thunkApi.rejectWithValue('No Data')
+        }
 
         return response.data
     } catch (e) {

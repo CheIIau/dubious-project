@@ -23,3 +23,4 @@ declare module '*.png'
 declare module '*.jpg'
 
 declare const __IS_DEV__: boolean
+declare const __PROJECT__: 'storybook' | 'frontend' | 'unit_test'

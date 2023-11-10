@@ -16,6 +16,6 @@ export default defineConfig({
     },
     plugins: [tsconfigPaths(), svgr()],
     define: {
-        __IS_DEV__: true
-    }
+        __IS_DEV__: true,
+    },
 })

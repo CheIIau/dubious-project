@@ -1,5 +1,5 @@
 import webpack, { DefinePlugin, RuleSetRule } from 'webpack'
-import { BuildPaths } from '../build/types/config'
+import { BuildOptions, BuildPaths } from '../build/types/config'
 import path from 'path'
 import { buildCssLoader } from '../build/loaders/cssLoader'
 
@@ -36,6 +36,7 @@ export default ({ config }: { config: webpack.Configuration }) => {
     config.plugins?.push(
         new DefinePlugin({
             __IS_DEV__: true,
+            __PROJECT__: JSON.stringify('storybook' as BuildOptions['project']),
         }),
     )
 
