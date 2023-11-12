@@ -128,6 +128,7 @@ const ProfilePage: FC<ProfilePageProps> = ({ className }) => {
             >
                 <ProfilePageHeader className="mb-3" />
                 <ProfileCard
+                    
                     data={profile?.form}
                     error={profile?.error}
                     loading={profile?.loading}

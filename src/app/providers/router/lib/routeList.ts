@@ -1,6 +1,6 @@
 export const RouterPaths = {
-    app: '/',
-    main: '',
+    app: '',
+    main: '/',
     about: '/about',
     profile: '/profile',
     _notFound: '/*'

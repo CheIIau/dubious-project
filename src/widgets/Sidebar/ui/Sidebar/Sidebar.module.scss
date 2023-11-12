@@ -1,12 +1,31 @@
-.sidebar {
-    height: calc(100vh - var(--navbar-height));
+.sidebar-wrapper {
+    height: 100%;
     width: var(--sidebar-width);
     background: var(--inverted-bg-color);
     position: relative;
-    transition: width 0.3s;
+    transition: 0.3s;
+}
+
+.sidebar {
+    width: var(--sidebar-width);
+    height: calc(100vh - var(--navbar-height));
+    background: var(--inverted-bg-color);
+    position: fixed;
+    transition: 0.3s;
     display: flex;
     flex-direction: column;
     align-items: center;
+    z-index: 2;
+}
+
+.block {
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    background-color: var(--inverted-bg-color);
+    transition: 0.3s;
+    height: 100%;
+    width: var(--sidebar-width);
 }
 
 .switchers {
@@ -25,6 +44,7 @@
     right: 0;
     width: var(--sidebar-width);
     display: flex;
+    transition: 0.3s;
     justify-content: center;
 }
 

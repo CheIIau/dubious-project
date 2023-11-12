@@ -6,6 +6,7 @@ import ErrorPage from 'src/pages/ErrorPage/ErrorPage'
 import App from 'src/app/App'
 import { RoutesWrapper } from '../routerIndex'
 import { RouterPaths } from './routeList'
+import { PrivateRouteWrapper } from '../ui/PrivateRouteWrapper'
 
 const MainPage = lazy(() => import('src/pages/MainPage/MainPage'))
 const AboutPage = lazy(() => import('src/pages/AboutPage/AboutPage'))
@@ -18,30 +19,34 @@ const router = createBrowserRouter([
         errorElement: <ErrorPage />,
         children: [
             {
-                path: '',
+                path: RouterPaths.app,
                 element: <RoutesWrapper />,
                 errorElement: <ErrorPage />,
                 children: [
                     {
                         path: RouterPaths.main,
-                        element: <MainPage />
+                        element: <MainPage />,
                     },
                     {
                         path: RouterPaths.about,
-                        element: <AboutPage />
+                        element: <AboutPage />,
                     },
                     {
                         path: RouterPaths.profile,
-                        element: <ProfilePage />
+                        element: (
+                            <PrivateRouteWrapper>
+                                <ProfilePage />
+                            </PrivateRouteWrapper>
+                        ),
                     },
                     {
                         path: RouterPaths._notFound,
-                        element: <NotFoundPage />
+                        element: <NotFoundPage />,
                     },
-                ]
-            }
-        ]
-    }
+                ],
+            },
+        ],
+    },
 ])
 
 export { router }

@@ -6,14 +6,16 @@ import { Navbar } from 'src/widgets/Navbar/NavbarIndex'
 import { Sidebar } from 'src/widgets/Sidebar/SidebarIndex'
 import { PageLoader } from 'src/widgets/PageLoader/PageLoader'
 import { userActions } from 'src/entities/User/userIndex'
-import { useAppDispatch } from 'src/shared/lib/hooks/storeHooks'
+import { useAppDispatch, useAppSelector } from 'src/shared/lib/hooks/storeHooks'
 
 const App = () => {
     const dispatch = useAppDispatch()
 
+    const userInited = useAppSelector((state) => state.user._inited)
+
     useEffect(() => {
         dispatch(userActions.initAuthData())
-    })
+    }, [dispatch])
 
     return (
         <div className={classNames('app', {}, [])}>
@@ -22,7 +24,7 @@ const App = () => {
                 <Sidebar />
                 <Suspense fallback={<PageLoader />}>
                     <div className="page-wrapper">
-                        <Outlet />
+                        {userInited && <Outlet />}
                     </div>
                 </Suspense>
             </div>

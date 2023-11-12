@@ -6,10 +6,12 @@ body {
 .app {
     background: var(--bg-color);
     min-height: 100vh;
+    transition: 0.3s;
 }
 
 .content-page {
     display: flex;
+    position: relative;
 }
 
 .page-wrapper {

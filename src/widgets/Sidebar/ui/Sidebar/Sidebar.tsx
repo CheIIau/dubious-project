@@ -34,31 +34,42 @@ export const Sidebar: FC<SidebarProps> = ({ className }) => {
 
     return (
         <div
-            className={classNames(
-                classes.sidebar,
-                { [classes.collapsed]: collapsed },
-                [className],
-            )}
-            data-testid="sidebar"
+            className={classNames(classes['sidebar-wrapper'], {
+                [classes.collapsed]: collapsed,
+            })}
         >
-            <Button
-                data-testid="menu-button"
-                className={classNames(classes['menu-button'])}
-                theme={'background-inverted'}
-                onClick={onToggle}
+            <div
+                className={classNames(
+                    classes.sidebar,
+                    { [classes.collapsed]: collapsed },
+                    [className],
+                )}
+                data-testid="sidebar"
             >
-                <div className="flex flex-row justify-between px-2 w-full">
-                    <p className="mr-4">{t('translation:hideSidebar')}</p>
-                    <MenuIcon className="icon" />
+                <Button
+                    data-testid="menu-button"
+                    className={classNames(classes['menu-button'])}
+                    theme={'background-inverted'}
+                    onClick={onToggle}
+                >
+                    <div className="flex flex-row justify-between px-2 w-full">
+                        <p className="mr-4">{t('translation:hideSidebar')}</p>
+                        <MenuIcon className="icon" />
+                    </div>
+                </Button>
+                <div className={classNames(classes.links, {}, ['mt-3'])}>
+                    {itemsList}
                 </div>
-            </Button>
-            <div className={classNames(classes.links, {}, ['mt-3'])}>
-                {itemsList}
+                <div className={classes.switchers}>
+                    <ThemeSwitcher />
+                    <LangSwitcher />
+                </div>
             </div>
-            <div className={classes.switchers}>
-                <ThemeSwitcher />
-                <LangSwitcher />
-            </div>
+            <div
+                className={classNames(classes['block'], {
+                    [classes.collapsed]: collapsed,
+                })}
+            />
         </div>
     )
 }
