@@ -6,6 +6,7 @@ import { AppLink } from 'src/shared/ui/AppLink/AppLink'
 import type { RouterPaths } from 'src/app/providers/router/routerIndex'
 import { useTranslation } from 'react-i18next'
 import type i18next from 'i18next'
+import { useAppSelector } from 'src/shared/lib/hooks/storeHooks'
 
 export interface SidebarItemProps extends PropsWithChildren {
     readonly path: (typeof RouterPaths)[keyof typeof RouterPaths]
@@ -16,6 +17,7 @@ export interface SidebarItemProps extends PropsWithChildren {
     readonly icon?: ReactElement
     readonly theme?: keyof typeof appLinkTheme
     readonly collapsed?: boolean
+    readonly authOnly?: boolean
 }
 
 export const SidebarItem: FC<SidebarItemProps> = ({
@@ -24,8 +26,16 @@ export const SidebarItem: FC<SidebarItemProps> = ({
     icon,
     theme = 'primary',
     collapsed = false,
+    authOnly
 }) => {
     const { t } = useTranslation()
+
+    const isAuth = useAppSelector((state) => state.user.authData)
+
+    if (authOnly && !isAuth) {
+        return null
+    }
+
     return (
         <AppLink
             theme={theme}

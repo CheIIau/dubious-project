@@ -7,6 +7,7 @@ import type {
     ReducersMapObject,
 } from '@reduxjs/toolkit'
 import type { AxiosInstance } from 'axios'
+import type { ArticleDetailsSchema } from 'src/entities/Article/articleIndex'
 import type { CounterSchema } from 'src/entities/Counter/counderIndex'
 import type { ProfileSchema } from 'src/entities/Profile/profileIndex'
 import type { UserSchema } from 'src/entities/User/userIndex'
@@ -15,10 +16,11 @@ import type { LoginSchema } from 'src/features/AuthByUsername/authByUsernameInde
 export interface StateSchema {
     user: UserSchema
     loginForm: LoginSchema
-    
+
     // below is async reducers
     profile?: ProfileSchema
     counter?: CounterSchema
+    articleDetails?: ArticleDetailsSchema
 }
 
 export type StateSchemaKey = keyof StateSchema
@@ -38,7 +40,6 @@ export interface ReduxStoreWithManager<
 > extends EnhancedStore<S, A> {
     reducerManager: ReducerManager
 }
-
 
 export interface ThunkExtraArg {
     api: AxiosInstance

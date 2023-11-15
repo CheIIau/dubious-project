@@ -4,6 +4,7 @@ import { appLinkTheme } from 'src/shared/ui/AppLink/AppLink'
 import HomeIcon from 'src/shared/assets/icons/home.svg?react'
 import PersonIcon from 'src/shared/assets/icons/person.svg?react'
 import AboutIcon from 'src/shared/assets/icons/doc.svg?react'
+import Article from 'src/shared/assets/icons/article_details.svg?react'
 
 export const sidebarItemsList: SidebarItemProps[] = [
     {
@@ -23,5 +24,13 @@ export const sidebarItemsList: SidebarItemProps[] = [
         theme: appLinkTheme.secondary,
         text: 'profile:profile',
         icon: <PersonIcon className="icon" />,
+        authOnly: true,
+    },
+    {
+        path: RouterPaths.articles,
+        theme: appLinkTheme.secondary,
+        text: 'article:articles',
+        icon: <Article className="icon" />,
+        authOnly: true,
     },
 ]

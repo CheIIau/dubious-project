@@ -15,7 +15,13 @@ interface SidebarProps extends PropsWithChildren {
 }
 
 export const Sidebar: FC<SidebarProps> = ({ className }) => {
-    const { t } = useTranslation(['about', 'main', 'translation', 'profile'])
+    const { t } = useTranslation([
+        'about',
+        'main',
+        'translation',
+        'profile',
+        'article',
+    ])
     const [collapsed, setCollapsed] = useState(true)
 
     const onToggle = () => {
