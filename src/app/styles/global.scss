@@ -12,13 +12,22 @@ body {
 .content-page {
     display: flex;
     position: relative;
+    flex-wrap: nowrap;
+    width: 100%;
 }
 
 .page-wrapper {
     flex-grow: 1;
     padding: 20px;
+    width: 100%;
+    height: calc(100vh - var(--navbar-height));
+    overflow-y: auto;
 }
 
 .icon {
     fill: var(--bg-color);
+}
+
+.icon-inverted {
+    fill: var(--inverted-bg-color);
 }

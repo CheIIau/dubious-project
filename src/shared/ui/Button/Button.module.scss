@@ -5,6 +5,10 @@
     padding: 3px 11px;
     border-radius: 4px;
     color: var(--bg-color);
+
+    &:hover {
+        opacity: 0.7;
+    }
 }
 
 .clear,
@@ -29,6 +33,7 @@
     color: var(--primary-color);
     background: transparent;
 }
+
 .outline-red {
     border: 1px solid var(--red-light);
     color: var(--red-light);

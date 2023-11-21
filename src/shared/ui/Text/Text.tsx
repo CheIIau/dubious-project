@@ -9,14 +9,24 @@ export const TEXT_THEME = {
 
 interface TextProps extends PropsWithChildren {
     readonly className?: string
-    readonly title?: string
-    readonly text?: string
+    readonly title?: string | number
+    readonly text?: string | number
     readonly theme?: keyof typeof TEXT_THEME
 }
 
-export const Text: FC<TextProps> = ({ className, text, title, theme = TEXT_THEME.primary }) => {
+export const Text: FC<TextProps> = ({
+    className,
+    text,
+    title,
+    theme = TEXT_THEME.primary,
+}) => {
     return (
-        <div className={classNames(classes.text, {}, [className, classes[theme]])}>
+        <div
+            className={classNames(classes.text, {}, [
+                className,
+                classes[theme],
+            ])}
+        >
             {title && <p className={classes.title}>{title}</p>}
             {text && <p className={classes.text}>{text}</p>}
         </div>

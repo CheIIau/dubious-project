@@ -71,11 +71,6 @@ export const Sidebar: FC<SidebarProps> = ({ className }) => {
                     <LangSwitcher />
                 </div>
             </div>
-            <div
-                className={classNames(classes['block'], {
-                    [classes.collapsed]: collapsed,
-                })}
-            />
         </div>
     )
 }
