@@ -1,5 +1,7 @@
 {
   "articles": "Статьи",
   "articleDetails": "Детали статьи",
-  "notFound": "Статья не найдена"
+  "notFound": "Статья не найдена",
+  "comments": "Комментарии",
+  "noComments": "Нет комментариев"
 }

@@ -8,7 +8,7 @@ describe('loginByUsername', () => {
     const USERNAME = 'user'
     const ID = '321'
     const PASSWORD = '111'
-    const USER_DATA = { username: USERNAME, id: ID }
+    const USER_DATA: User = { username: USERNAME, id: ID, avatar: 'asd' }
     let thunk: MockAsyncThunk<User, LoginByUsernameProps, string>
 
     describe('positive scenario', () => {

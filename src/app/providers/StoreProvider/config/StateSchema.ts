@@ -12,6 +12,7 @@ import type { CounterSchema } from 'src/entities/Counter/counderIndex'
 import type { ProfileSchema } from 'src/entities/Profile/profileIndex'
 import type { UserSchema } from 'src/entities/User/userIndex'
 import type { LoginSchema } from 'src/features/AuthByUsername/authByUsernameIndex'
+import type { ArticleDetailsCommentSchema } from 'src/pages/ArticleDetailsPage/ArticleDetailsPageIndex'
 
 export interface StateSchema {
     user: UserSchema
@@ -21,6 +22,7 @@ export interface StateSchema {
     profile?: ProfileSchema
     counter?: CounterSchema
     articleDetails?: ArticleDetailsSchema
+    articleDetailsComments?: ArticleDetailsCommentSchema
 }
 
 export type StateSchemaKey = keyof StateSchema
