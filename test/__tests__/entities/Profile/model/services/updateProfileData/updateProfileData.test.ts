@@ -10,7 +10,7 @@ const ERROR_MESSAGE = 'error' as const
 vi.mock(
     'src/entities/Profile/model/services/validateProfileData/validateProfileData',
     () => ({
-        validateProfileData: vi.fn((profile: Profile)=>{
+        validateProfileData: vi.fn((profile: Profile) => {
             if (!profile.age) {
                 return [ERROR_MESSAGE]
             }
@@ -21,6 +21,7 @@ vi.mock(
 
 describe('updateProfileData', () => {
     const USER_DATA = {
+        id: '1',
         firstname: 'John',
         lastname: 'Doe',
         age: 31,
@@ -33,7 +34,7 @@ describe('updateProfileData', () => {
 
     let thunk: MockAsyncThunk<
         Profile,
-        undefined,
+        string,
         string | ValidateProfileErrorKeyType[]
     >
 
@@ -46,27 +47,28 @@ describe('updateProfileData', () => {
         })
 
         it('makes put request', async () => {
-            await import('src/entities/Profile/model/services/validateProfileData/validateProfileData')
-            await thunk.callThunk()
+            await import(
+                'src/entities/Profile/model/services/validateProfileData/validateProfileData'
+            )
+            await thunk.callThunk(USER_DATA.id)
 
             expect(thunk.api.put).toHaveBeenCalled()
         })
 
         it('sets request status to fulfilled', async () => {
-            const result = await thunk.callThunk()
+            const result = await thunk.callThunk(USER_DATA.id)
 
             expect(result.meta.requestStatus).toBe('fulfilled')
         })
 
         it('calls dispatch 2 times', async () => {
-            await thunk.callThunk()
+            await thunk.callThunk(USER_DATA.id)
 
             expect(thunk.dispatch).toHaveBeenCalledTimes(2)
         })
 
         it('returns user data', async () => {
-            const result = await thunk.callThunk()
-1
+            const result = await thunk.callThunk(USER_DATA.id)
             expect(result.payload).toEqual(USER_DATA)
         })
     })
@@ -80,13 +82,13 @@ describe('updateProfileData', () => {
         })
 
         it('sets request status to rejected', async () => {
-            const result = await thunk.callThunk()
+            const result = await thunk.callThunk(USER_DATA.id)
 
             expect(result.meta.requestStatus).toBe('rejected')
         })
 
         it('returns error message', async () => {
-            const result = await thunk.callThunk()
+            const result = await thunk.callThunk(USER_DATA.id)
 
             expect(result.payload).toEqual([ERROR_MESSAGE])
         })
@@ -101,8 +103,8 @@ describe('updateProfileData', () => {
         })
 
         it('sets request status to rejected', async () => {
-            const result = await thunk.callThunk()
-            
+            const result = await thunk.callThunk(USER_DATA.id)
+
             expect(result.meta.requestStatus).toBe('rejected')
         })
     })

@@ -85,12 +85,12 @@ export const ArticleDetails = memo<ArticleDetailsProps>(
                     <Skeleton
                         width={300}
                         height={32}
-                        className="mt-5"
+                        className="mt-5 max-w-full"
                     />
                     <Skeleton
                         width={600}
                         height={24}
-                        className="mt-4"
+                        className="mt-4 max-w-full"
                     />
                     <Skeleton
                         width="100%"
@@ -118,24 +118,24 @@ export const ArticleDetails = memo<ArticleDetailsProps>(
                 <div className="mt-2 flex flex-col">
                     <Avatar
                         size={200}
-                        src={article!.img}
+                        src={article.img}
                         className="self-center"
                     />
                     <Text
-                        title={article!.title}
-                        text={article!.subtitle}
+                        title={article.title}
+                        text={article.subtitle}
                     />
                     <div className="flex mt-2">
                         <EyeIcon className="icon-inverted" />
                         <Text
-                            text={article!.views}
+                            text={article.views}
                             className="ml-2"
                         />
                     </div>
                     <div className="flex mt-2">
                         <CalendarIcon className="icon-inverted" />
                         <Text
-                            text={article!.createdAt}
+                            text={article.createdAt}
                             className="ml-2"
                         />
                     </div>
@@ -147,7 +147,6 @@ export const ArticleDetails = memo<ArticleDetailsProps>(
         return (
             <DynamicModuleLoader
                 reducers={reducers}
-                removeAfterUnmount
             >
                 <div
                     className={classNames(classes['article-details'], {}, [

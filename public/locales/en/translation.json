@@ -10,5 +10,7 @@
   "authorizationForm": "Authorization form",
   "tryToRefreshThePage": "Try to refresh the page",
   "cancel": "Cancel",
-  "save": "Save"
+  "save": "Save",
+  "enterComment": "Enter comment",
+  "send": "Send"
 }

@@ -2,6 +2,7 @@ import type { CountriesType, CurrenciesType } from 'src/shared/types/common'
 import type { VALIDATE_PROFILE_ERROR_MESSAGES_KEYS } from '../const/const'
 
 export interface Profile {
+    id?: string
     firstname?: string
     lastname?: string
     age?: number

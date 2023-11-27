@@ -1,4 +1,10 @@
-import { useEffect, type FC, type PropsWithChildren } from 'react'
+import {
+    useEffect,
+    type FC,
+    type PropsWithChildren,
+    lazy,
+    useCallback,
+} from 'react'
 import { classNames } from 'src/shared/lib/style/classNames'
 import classes from './ArticleDetailsPage.module.scss'
 import { useTranslation } from 'react-i18next'
@@ -13,7 +19,11 @@ import {
     getArticleComments,
 } from '../../model/slices/articleDetailsCommentsSlice'
 import { useAppDispatch, useAppSelector } from 'src/shared/lib/hooks/storeHooks'
-import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticle'
+import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticle/fetchCommentsByArticle'
+import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle'
+const AddCommentForm = lazy(
+    () => import('src/features/addCommentForm/addCommentFormIndex'),
+)
 
 interface ArticleDetailsPageProps extends PropsWithChildren {
     readonly className?: string
@@ -32,6 +42,10 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = ({ className }) => {
     )
     const dispatch = useAppDispatch()
 
+    const onSendComment = useCallback((text: string) => {
+        dispatch(addCommentForArticle(text))
+    }, [dispatch])
+
     if (!id) {
         return (
             <div className={classNames('', {}, [className])}>
@@ -43,19 +57,17 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = ({ className }) => {
     // eslint-disable-next-line react-hooks/rules-of-hooks
     useEffect(() => {
         dispatch(fetchCommentsByArticleId(id))
-    }, [dispatch])
+    }, [dispatch, id])
 
     return (
-        <DynamicModuleLoader
-            reducers={reducers}
-            removeAfterUnmount
-        >
+        <DynamicModuleLoader reducers={reducers}>
             <div className={classNames('', {}, [className])}>
                 <ArticleDetails id={id} />
                 <Text
-                    className="mt-4"
+                    className="mt-4 mb-2"
                     title={t('comments')}
                 />
+                <AddCommentForm onSendComment={onSendComment} />
                 <CommentList
                     comments={comments}
                     loading={articleDetailsCommentsLoading}

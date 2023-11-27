@@ -38,7 +38,7 @@ const router = createBrowserRouter([
                         element: <AboutPage />,
                     },
                     {
-                        path: RouterPaths.profile,
+                        path: RouterPaths.profile + '/:id',
                         element: (
                             <PrivateRouteWrapper>
                                 <ProfilePage />

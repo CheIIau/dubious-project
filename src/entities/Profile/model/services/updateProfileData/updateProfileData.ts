@@ -7,9 +7,9 @@ import type { ValidateProfileErrorKeyType } from '../../types/profile'
 
 export const updateProfileData = createAsyncThunk<
     Profile,
-    undefined,
+    string,
     ThunkConfig<string | ValidateProfileErrorKeyType[]>
->('profile/updateProfileData', async (_, thunkApi) => {
+>('profile/updateProfileData', async (userId, thunkApi) => {
     const { extra, rejectWithValue, getState } = thunkApi
     try {
         const formData = getState().profile?.form
@@ -23,7 +23,10 @@ export const updateProfileData = createAsyncThunk<
             return rejectWithValue(errors)
         }
 
-        const response = await extra.api.put<Profile>('/profile', formData)
+        const response = await extra.api.put<Profile>(
+            '/profile/' + userId,
+            formData,
+        )
 
         if (!response.data) {
             return thunkApi.rejectWithValue('No Data')

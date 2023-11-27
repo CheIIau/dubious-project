@@ -18,8 +18,23 @@ export const CommentList: FC<CommentListProps> = ({
     loading,
 }) => {
     const { t } = useTranslation('article')
+
+    if (loading) {
+        return (
+            <div className={classNames('', {}, [className])}>
+                {new Array(3).fill('').map((comment) => (
+                    <CommentCard
+                        className="mt-4"
+                        loading={true}
+                        key={comment}
+                    />
+                ))}
+            </div>
+        )
+    }
+
     return (
-        <div className={classNames(classes.commentlist, {}, [className])}>
+        <div className={classNames('', {}, [className])}>
             {comments?.length ? (
                 comments.map((comment) => (
                     <CommentCard

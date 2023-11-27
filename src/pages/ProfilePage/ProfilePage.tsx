@@ -16,6 +16,7 @@ import type { COUNTRIES, CURRENCIES } from 'src/shared/const/enums'
 import { TEXT_THEME, Text } from 'src/shared/ui/Text/Text'
 import { useTranslation } from 'react-i18next'
 import { VALIDATE_PROFILE_ERROR_MESSAGES_KEYS } from 'src/entities/Profile/model/const/const'
+import { useParams } from 'react-router-dom'
 
 interface ProfilePageProps extends PropsWithChildren {
     readonly className?: string
@@ -47,9 +48,13 @@ const ProfilePage: FC<ProfilePageProps> = ({ className }) => {
         ),
     }
 
+    const { id } = useParams<{ id: string }>()
+
     useEffect(() => {
-        dispatch(fetchProfileData())
-    }, [dispatch])
+        if (id) {
+            dispatch(fetchProfileData(id))
+        }
+    }, [dispatch, id])
 
     const onChangeFirstname = useCallback(
         (value?: string) => {
@@ -121,14 +126,12 @@ const ProfilePage: FC<ProfilePageProps> = ({ className }) => {
     return (
         <DynamicModuleLoader
             reducers={reducers}
-            removeAfterUnmount
         >
             <div
                 className={classNames(classes['profile-page'], {}, [className])}
             >
                 <ProfilePageHeader className="mb-3" />
                 <ProfileCard
-                    
                     data={profile?.form}
                     error={profile?.error}
                     loading={profile?.loading}

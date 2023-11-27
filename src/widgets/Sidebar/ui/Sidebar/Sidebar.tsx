@@ -7,9 +7,10 @@ import { LangSwitcher } from 'src/widgets/LangSwitcher/ui/LangSwitcher'
 import { Button } from 'src/shared/ui/Button/Button'
 import { useTranslation } from 'react-i18next'
 import { SidebarItem } from './SidebarItem/SidebarItem'
-import { sidebarItemsList } from '../../model/sidebarItemList'
 
 import MenuIcon from 'src/shared/assets/icons/menu.svg?react'
+import { useAppSelector } from 'src/shared/lib/hooks/storeHooks'
+import { getSidebarItems } from '../../model/sidebarItemList'
 interface SidebarProps extends PropsWithChildren {
     readonly className?: string
 }
@@ -24,6 +25,8 @@ export const Sidebar: FC<SidebarProps> = ({ className }) => {
     ])
     const [collapsed, setCollapsed] = useState(true)
 
+    const sidebarItemsList = useAppSelector(getSidebarItems)
+
     const onToggle = () => {
         setCollapsed(!collapsed)
     }
@@ -36,7 +39,7 @@ export const Sidebar: FC<SidebarProps> = ({ className }) => {
                 collapsed={collapsed}
             />
         ))
-    }, [collapsed])
+    }, [collapsed, sidebarItemsList])
 
     return (
         <div

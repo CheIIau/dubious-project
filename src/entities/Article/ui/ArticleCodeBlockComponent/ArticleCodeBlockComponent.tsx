@@ -6,7 +6,7 @@ import { Code } from 'src/shared/ui/Code/Code'
 
 interface ArticleCodeBlockComponentProps extends PropsWithChildren {
     readonly className?: string
-    readonly block?: ArticleCodeBlock
+    readonly block: ArticleCodeBlock
 }
 
 export const ArticleCodeBlockComponent: FC<ArticleCodeBlockComponentProps> = ({
@@ -19,7 +19,7 @@ export const ArticleCodeBlockComponent: FC<ArticleCodeBlockComponentProps> = ({
                 className,
             ])}
         >
-            <Code text={block!.code} />
+            <Code text={block.code} />
         </div>
     )
 }

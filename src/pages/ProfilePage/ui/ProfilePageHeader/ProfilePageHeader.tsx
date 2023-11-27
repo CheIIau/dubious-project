@@ -21,6 +21,10 @@ export const ProfilePageHeader = memo<ProfilePageHeaderProps>(
 
         const readonly = useAppSelector((store) => store.profile?.readonly)
 
+        const currentUserId = useAppSelector((state) => state.user.authData?.id)
+        const profileId = useAppSelector((state) => state.profile?.data?.id)
+        const canEdit = currentUserId === profileId
+
         const dispatch = useAppDispatch()
         const onEdit = useCallback(() => {
             dispatch(profileActions.setReadonly(false))
@@ -31,41 +35,45 @@ export const ProfilePageHeader = memo<ProfilePageHeaderProps>(
         }, [dispatch])
 
         const onSave = useCallback(() => {
-            dispatch(updateProfileData())
+            if (currentUserId) {
+                dispatch(updateProfileData(currentUserId))
+            }
         }, [dispatch])
 
         return (
             <div
-                className={classNames(classes['profile-page-header'], {}, [
-                    className,
-                ])}
+                className={classNames('flex justify-between', {}, [className])}
             >
                 <Text title={t('profile:profile')} />
-                {readonly ? (
-                    <Button
-                        theme={BUTTON_THEME.outline}
-                        className="ml-auto"
-                        onClick={onEdit}
-                    >
-                        {t('profile:edit')}
-                    </Button>
-                ) : (
-                    <>
-                        <Button
-                            theme={BUTTON_THEME.outline}
-                            className="ml-auto"
-                            onClick={onSave}
-                        >
-                            {t('translation:save')}
-                        </Button>
-                        <Button
-                            theme={BUTTON_THEME['outline-red']}
-                            className="ml-3"
-                            onClick={onCancelEdit}
-                        >
-                            {t('cancel')}
-                        </Button>
-                    </>
+                {canEdit && (
+                    <div>
+                        {readonly ? (
+                            <Button
+                                theme={BUTTON_THEME.outline}
+                                className="ml-auto"
+                                onClick={onEdit}
+                            >
+                                {t('profile:edit')}
+                            </Button>
+                        ) : (
+                            <>
+                                <Button
+                                    theme={BUTTON_THEME.outline}
+                                    className="ml-auto"
+                                    onClick={onSave}
+                                >
+                                    {t('translation:save')}
+                                </Button>
+                                <Button
+                                    theme={BUTTON_THEME['outline-red']}
+                                    className="ml-3"
+                                    onClick={onCancelEdit}
+                                >
+                                    {t('cancel')}
+                                </Button>
+                            </>
+                        )}
+                    </div>
                 )}
             </div>
         )

@@ -5,10 +5,12 @@ import type { Comment } from '../../commentIndex'
 import { Avatar } from 'src/shared/ui/Avatar/Avatar'
 import { Text } from 'src/shared/ui/Text/Text'
 import { Skeleton } from 'src/shared/ui/Skeleton/Skeleton'
+import { AppLink } from 'src/shared/ui/AppLink/AppLink'
+import { RouterPaths } from 'src/app/providers/router/routerIndex'
 
 interface CommentCardProps extends PropsWithChildren {
     readonly className?: string
-    readonly comment: Comment
+    readonly comment?: Comment
     readonly loading: boolean
 }
 
@@ -42,22 +44,29 @@ export const CommentCard: FC<CommentCardProps> = ({
             </div>
         )
     }
-    return (
-        <div className={classNames(classes['comment-card'], {}, [className])}>
-            <div className={classes.header}>
-                <Avatar
-                    size={30}
-                    src={comment.user.avatar}
-                />
+    if (comment) {
+        return (
+            <div
+                className={classNames(classes['comment-card'], {}, [className])}
+            >
+                <AppLink to={`${RouterPaths.profile}/${comment.user.id}`}>
+                    <div className={classes.header}>
+                        <Avatar
+                            size={30}
+                            src={comment.user.avatar}
+                        />
+                        <Text
+                            className="ml-3"
+                            text={comment.user.username}
+                        />
+                    </div>
+                </AppLink>
+
                 <Text
-                    className="ml-3"
-                    text={comment.user.username}
+                    className="mt-3"
+                    text={comment.text}
                 />
             </div>
-            <Text
-                className="mt-3"
-                text={comment.text}
-            />
-        </div>
-    )
+        )
+    }
 }

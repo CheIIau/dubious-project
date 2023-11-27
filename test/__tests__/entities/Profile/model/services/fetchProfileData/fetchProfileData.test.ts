@@ -13,7 +13,7 @@ describe('fetchProfileData', () => {
         username: 'admin',
         avatar: 'https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg',
     }
-    let thunk: MockAsyncThunk<Profile, undefined, string>
+    let thunk: MockAsyncThunk<Profile, string, string>
 
     describe('positive scenario', () => {
         beforeEach(() => {
@@ -22,25 +22,25 @@ describe('fetchProfileData', () => {
         })
 
         it('makes get request', async () => {
-            await thunk.callThunk()
+            await thunk.callThunk('1')
 
             expect(thunk.api.get).toHaveBeenCalled()
         })
 
         it('sets request status to fulfilled', async () => {
-            const result = await thunk.callThunk()
+            const result = await thunk.callThunk('1')
 
             expect(result.meta.requestStatus).toBe('fulfilled')
         })
 
         it('calls dispatch 2 times', async () => {
-            await thunk.callThunk()
+            await thunk.callThunk('1')
 
             expect(thunk.dispatch).toHaveBeenCalledTimes(2)
         })
 
         it('returns user data', async () => {
-            const result = await thunk.callThunk()
+            const result = await thunk.callThunk('1')
 
             expect(result.payload).toEqual(USER_DATA)
         })
@@ -53,7 +53,7 @@ describe('fetchProfileData', () => {
         })
 
         it('sets request status to rejected', async () => {
-            const result = await thunk.callThunk()
+            const result = await thunk.callThunk('1')
             
             expect(result.meta.requestStatus).toBe('rejected')
         })

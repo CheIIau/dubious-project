@@ -30,7 +30,7 @@ export class MockAsyncThunk<Return, Arg, RejectedValue> {
         this.api = mockedAxios
     }
 
-    async callThunk(arg?: Arg) {
+    async callThunk(arg: Arg) {
         const action = this.actionCreator(arg as any)
         const result = await action(this.dispatch, this.getState, {
             api: this.api,

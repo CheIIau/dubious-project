@@ -8,6 +8,7 @@ import {
 
 describe('profileSlice', () => {
     const USER_DATA = {
+        id: '1',
         firstname: 'John',
         lastname: 'Doe',
         age: 31,
@@ -52,7 +53,7 @@ describe('profileSlice', () => {
         expect(
             profileReducer(
                 state as ProfileSchema,
-                updateProfileData.fulfilled(USER_DATA, '', undefined),
+                updateProfileData.fulfilled(USER_DATA, '', USER_DATA.id),
             ),
         ).toContain({
             loading: false,

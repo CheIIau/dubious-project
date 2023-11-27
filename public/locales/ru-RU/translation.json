@@ -1,14 +1,16 @@
 {
-    "notFound": "Страница не найдена",
-    "error": "Произошла ошибка ;(",
-    "refresh": "Обновить страницу",
-    "hideSidebar": "Скрыть боковую панель",
-    "singIn": "Войти",
-    "singOut": "Выйти",
-    "enterUsername": "Введите имя",
-    "enterPassword": "Введите пароль",
-    "authorizationForm": "Форма авторизации",
-    "tryToRefreshThePage": "Попробуйте обновить страницу",
-    "cancel": "Отменить",
-    "save": "Сохранить"
+  "notFound": "Страница не найдена",
+  "error": "Произошла ошибка ;(",
+  "refresh": "Обновить страницу",
+  "hideSidebar": "Скрыть боковую панель",
+  "singIn": "Войти",
+  "singOut": "Выйти",
+  "enterUsername": "Введите имя",
+  "enterPassword": "Введите пароль",
+  "authorizationForm": "Форма авторизации",
+  "tryToRefreshThePage": "Попробуйте обновить страницу",
+  "cancel": "Отменить",
+  "save": "Сохранить",
+  "enterComment": "Введите комментарий",
+  "send": "Отправить"
 }
