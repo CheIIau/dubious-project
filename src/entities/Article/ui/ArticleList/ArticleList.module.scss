@@ -1,0 +1,13 @@
+.article-list {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.grid {
+    justify-content: space-evenly;
+}
+
+.list {
+    display: flex;
+    flex-flow: column wrap;
+}

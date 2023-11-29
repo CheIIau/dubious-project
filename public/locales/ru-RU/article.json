@@ -3,5 +3,7 @@
   "articleDetails": "Детали статьи",
   "notFound": "Статья не найдена",
   "comments": "Комментарии",
-  "noComments": "Нет комментариев"
+  "noComments": "Нет комментариев",
+  "read": "Читать",
+  "backToTheList": "Назад к списку"
 }

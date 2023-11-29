@@ -6,7 +6,6 @@ import {
     useCallback,
 } from 'react'
 import { classNames } from 'src/shared/lib/style/classNames'
-import classes from './ArticleDetailsPage.module.scss'
 import { useTranslation } from 'react-i18next'
 import { ArticleDetails } from 'src/entities/Article/articleIndex'
 import { useParams } from 'react-router-dom'
@@ -21,6 +20,9 @@ import {
 import { useAppDispatch, useAppSelector } from 'src/shared/lib/hooks/storeHooks'
 import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticle/fetchCommentsByArticle'
 import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle'
+import { BUTTON_THEME, Button } from 'src/shared/ui/Button/Button'
+import { AppLink } from 'src/shared/ui/AppLink/AppLink'
+import { RouterPaths } from 'src/app/providers/router/routerIndex'
 const AddCommentForm = lazy(
     () => import('src/features/addCommentForm/addCommentFormIndex'),
 )
@@ -42,9 +44,12 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = ({ className }) => {
     )
     const dispatch = useAppDispatch()
 
-    const onSendComment = useCallback((text: string) => {
-        dispatch(addCommentForArticle(text))
-    }, [dispatch])
+    const onSendComment = useCallback(
+        (text: string) => {
+            dispatch(addCommentForArticle(text))
+        },
+        [dispatch],
+    )
 
     if (!id) {
         return (
@@ -62,6 +67,11 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = ({ className }) => {
     return (
         <DynamicModuleLoader reducers={reducers}>
             <div className={classNames('', {}, [className])}>
+                <AppLink to={RouterPaths.articles}>
+                    <Button theme={BUTTON_THEME.outline}>
+                        {t('backToTheList')}
+                    </Button>
+                </AppLink>
                 <ArticleDetails id={id} />
                 <Text
                     className="mt-4 mb-2"

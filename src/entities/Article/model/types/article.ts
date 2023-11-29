@@ -1,5 +1,8 @@
+import type { User } from 'src/entities/User/userIndex'
+
 export interface Article {
     id: string
+    user: User
     title: string
     subtitle: string
     img: string
@@ -46,4 +49,14 @@ export const ARTICLE_TYPE = {
     it: 'IT',
     science: 'science',
     economics: 'economics',
+} as const
+
+export const ARTICLE_VIEW = {
+    LIST: 'LIST',
+    GRID: 'GRID',
+} as const
+
+export const viewClassesMapping = {
+    GRID: 'grid',
+    LIST: 'list',
 } as const

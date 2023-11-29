@@ -1,11 +1,17 @@
 .orange {
-    --bg-color: #faf4fb;
-    --inverted-bg-color: #bd5012;
+    --bg-color: #f9f5fa;
+    --bg-color-rbg: 249, 245, 250;
+    --inverted-bg-color-rbg: 191, 81, 18;
+    --inverted-bg-color: rgb(191 81 18);
     --primary-color: #9a1a0e;
     --secondary-color: #d01f0e;
     --inverted-primary-color: #dbd5dc;
     --inverted-secondary-color: #faf4fb;
+
     //skeleton
     --skeleton-color: #f7d5c1;
     --skeleton-shadow: #ffc6a5;
+
+    //card
+    --card-bg: #e3e3e7;
 }

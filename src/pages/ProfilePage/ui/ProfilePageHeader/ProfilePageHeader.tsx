@@ -1,6 +1,5 @@
 import { useCallback, type PropsWithChildren, memo } from 'react'
 import { classNames } from 'src/shared/lib/style/classNames'
-import classes from './ProfilePageHeader.module.scss'
 import { Text } from 'src/shared/ui/Text/Text'
 import { Button, BUTTON_THEME } from 'src/shared/ui/Button/Button'
 import { useTranslation } from 'react-i18next'
@@ -38,7 +37,7 @@ export const ProfilePageHeader = memo<ProfilePageHeaderProps>(
             if (currentUserId) {
                 dispatch(updateProfileData(currentUserId))
             }
-        }, [dispatch])
+        }, [currentUserId, dispatch])
 
         return (
             <div

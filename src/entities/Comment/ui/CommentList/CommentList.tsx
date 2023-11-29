@@ -1,6 +1,5 @@
 import type { FC, PropsWithChildren } from 'react'
 import { classNames } from 'src/shared/lib/style/classNames'
-import classes from './CommentList.module.scss'
 import { useTranslation } from 'react-i18next'
 import { Text } from 'src/shared/ui/Text/Text'
 import { CommentCard } from '../CommentCard/CommentCard'
@@ -22,11 +21,11 @@ export const CommentList: FC<CommentListProps> = ({
     if (loading) {
         return (
             <div className={classNames('', {}, [className])}>
-                {new Array(3).fill('').map((comment) => (
+                {new Array(3).fill('').map((comment, index) => (
                     <CommentCard
                         className="mt-4"
                         loading={true}
-                        key={comment}
+                        key={index}
                     />
                 ))}
             </div>

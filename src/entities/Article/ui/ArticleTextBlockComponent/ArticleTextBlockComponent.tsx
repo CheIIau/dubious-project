@@ -1,6 +1,5 @@
 import type { FC, PropsWithChildren } from 'react'
 import { classNames } from 'src/shared/lib/style/classNames'
-import classes from './ArticleTextBlockComponent.module.scss'
 import type { ArticleTextBlock } from '../../model/types/article'
 import { Text } from 'src/shared/ui/Text/Text'
 interface ArticleTextBlockComponentProps extends PropsWithChildren {
@@ -14,7 +13,7 @@ export const ArticleTextBlockComponent: FC<ArticleTextBlockComponentProps> = ({
 }) => {
     return (
         <div
-            className={classNames(classes.articletextblockcomponent, {}, [
+            className={classNames('', {}, [
                 className,
             ])}
         >

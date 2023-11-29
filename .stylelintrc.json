@@ -30,7 +30,8 @@
         "comment-empty-line-before": null,
         "no-duplicate-selectors": null,
         "at-rule-empty-line-before": null,
-        "no-invalid-position-at-import-rule": null
+        "no-invalid-position-at-import-rule": null,
+        "scss/double-slash-comment-whitespace-inside": null
     },
     "ignoreFiles": [
         "src/app/styles/tailwind-output.scss"

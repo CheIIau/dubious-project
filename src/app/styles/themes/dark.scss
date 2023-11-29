@@ -1,11 +1,17 @@
 .dark {
     --bg-color: #202028;
-    --inverted-bg-color: #f9f9fe;
+    --bg-color-rbg: 32, 32, 40;
+    --inverted-bg-color-rbg: 251, 251, 254;
+    --inverted-bg-color: rgb(251 251 254);
     --primary-color: #009a00;
     --secondary-color: #6f4d4d;
     --inverted-primary-color: #1f871f;
     --inverted-secondary-color: #a8a8a8;
+
     //skeleton
     --skeleton-color: #5b5b5b;
     --skeleton-shadow: #5c5c5c;
+
+    //card
+    --card-bg: #2f2f3b;
 }
