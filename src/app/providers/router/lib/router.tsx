@@ -12,10 +12,10 @@ const MainPage = lazy(() => import('src/pages/MainPage/MainPage'))
 const AboutPage = lazy(() => import('src/pages/AboutPage/AboutPage'))
 const ProfilePage = lazy(() => import('src/pages/ProfilePage/ProfilePage'))
 const ArticlesPage = lazy(
-    () => import('src/pages/ArticlesPage/ArticlesPageIndex'),
+    () => import('src/pages/ArticlesPage/articlesPageIndex'),
 )
 const ArticleDetailsPage = lazy(
-    () => import('src/pages/ArticleDetailsPage/ArticleDetailsPageIndex'),
+    () => import('src/pages/ArticleDetailsPage/articleDetailsPageIndex'),
 )
 
 const router = createBrowserRouter([
