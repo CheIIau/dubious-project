@@ -17,6 +17,7 @@ import { TEXT_THEME, Text } from 'src/shared/ui/Text/Text'
 import { useTranslation } from 'react-i18next'
 import { VALIDATE_PROFILE_ERROR_MESSAGES_KEYS } from 'src/entities/Profile/model/const/const'
 import { useParams } from 'react-router-dom'
+import { Page } from 'src/shared/ui/Page/Page'
 
 interface ProfilePageProps extends PropsWithChildren {
     readonly className?: string
@@ -127,7 +128,7 @@ const ProfilePage: FC<ProfilePageProps> = ({ className }) => {
         <DynamicModuleLoader
             reducers={reducers}
         >
-            <div
+            <Page
                 className={classNames(classes['profile-page'], {}, [className])}
             >
                 <ProfilePageHeader className="mb-3" />
@@ -157,7 +158,7 @@ const ProfilePage: FC<ProfilePageProps> = ({ className }) => {
                         ))}
                     </div>
                 )}
-            </div>
+            </Page>
         </DynamicModuleLoader>
     )
 }

@@ -18,6 +18,9 @@ import { useAppDispatch, useAppSelector } from 'src/shared/lib/hooks/storeHooks'
 import { fetchArticlesList } from '../../model/services/fetchArticlesList'
 import { TEXT_THEME, Text } from 'src/shared/ui/Text/Text'
 import { useTranslation } from 'react-i18next'
+import { Page } from 'src/shared/ui/Page/Page'
+import { useInfiniteScroll } from 'src/shared/lib/hooks/useInfiniteScroll'
+import { fetchNextArtclesPage } from '../../model/services/fetchNextArticlesPage'
 
 interface ArticlesPageProps extends PropsWithChildren {
     readonly className?: string
@@ -37,7 +40,7 @@ const ArticlesPage: FC<ArticlesPageProps> = ({ className }) => {
     const view = useAppSelector(
         (state) => state.articlesPage?.view || ARTICLE_VIEW.GRID,
     )
-    
+
     const error = useAppSelector((state) => state.articlesPage?.error)
 
     const onChangeView = useCallback(
@@ -48,8 +51,16 @@ const ArticlesPage: FC<ArticlesPageProps> = ({ className }) => {
     )
 
     useEffect(() => {
-        dispatch(fetchArticlesList())
         dispatch(articlesPageActions.initState())
+        dispatch(
+            fetchArticlesList({
+                page: 1,
+            }),
+        )
+    }, [dispatch])
+
+    const onLoadNextPart = useCallback(() => {
+        dispatch(fetchNextArtclesPage())
     }, [dispatch])
 
     if (error) {
@@ -65,7 +76,10 @@ const ArticlesPage: FC<ArticlesPageProps> = ({ className }) => {
 
     return (
         <DynamicModuleLoader reducers={reducers}>
-            <div className={classNames('', {}, [className])}>
+            <Page
+                onScrollEnd={onLoadNextPart}
+                className={classNames('', {}, [className])}
+            >
                 <ArticleViewSelector
                     view={view}
                     onViewClick={onChangeView}
@@ -76,7 +90,7 @@ const ArticlesPage: FC<ArticlesPageProps> = ({ className }) => {
                     articles={articles}
                     loading={loading}
                 />
-            </div>
+            </Page>
         </DynamicModuleLoader>
     )
 }

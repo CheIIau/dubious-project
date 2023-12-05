@@ -23,9 +23,7 @@ const App = () => {
             <div className="content-page">
                 <Sidebar />
                 <Suspense fallback={<PageLoader />}>
-                    <div className="page-wrapper">
-                        {userInited && <Outlet />}
-                    </div>
+                    {userInited && <Outlet />}
                 </Suspense>
             </div>
         </div>

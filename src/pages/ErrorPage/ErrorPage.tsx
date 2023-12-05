@@ -3,6 +3,7 @@ import { classNames } from 'src/shared/lib/style/classNames'
 import classes from './ErrorPage.module.scss'
 import { useTranslation } from 'react-i18next'
 import { Button } from 'src/shared/ui/Button/Button'
+import { Page } from 'src/shared/ui/Page/Page'
 
 interface ErrorPageProps extends PropsWithChildren {
     readonly className?: string
@@ -16,7 +17,7 @@ const ErrorPage: FC<ErrorPageProps> = ({ className }) => {
     }
 
     return (
-        <div className={classNames(classes['error-page'], {}, [className])}>
+        <Page className={classNames(classes['error-page'], {}, [className])}>
             <p className={classes['error-page__text']}>{t('error')}</p>
             <Button
                 className={classes['error-page__refresh-button']}
@@ -24,7 +25,7 @@ const ErrorPage: FC<ErrorPageProps> = ({ className }) => {
             >
                 {t('refresh')}
             </Button>
-        </div>
+        </Page>
     )
 }
 

@@ -23,6 +23,7 @@ import { addCommentForArticle } from '../../model/services/addCommentForArticle/
 import { BUTTON_THEME, Button } from 'src/shared/ui/Button/Button'
 import { AppLink } from 'src/shared/ui/AppLink/AppLink'
 import { RouterPaths } from 'src/app/providers/router/routerIndex'
+import { Page } from 'src/shared/ui/Page/Page'
 const AddCommentForm = lazy(
     () => import('src/features/addCommentForm/addCommentFormIndex'),
 )
@@ -53,9 +54,9 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = ({ className }) => {
 
     if (!id) {
         return (
-            <div className={classNames('', {}, [className])}>
+            <Page className={classNames('', {}, [className])}>
                 {t('notFound')}
-            </div>
+            </Page>
         )
     }
 
@@ -66,7 +67,7 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = ({ className }) => {
 
     return (
         <DynamicModuleLoader reducers={reducers}>
-            <div className={classNames('', {}, [className])}>
+            <Page className={classNames('', {}, [className])}>
                 <AppLink to={RouterPaths.articles}>
                     <Button theme={BUTTON_THEME.outline}>
                         {t('backToTheList')}
@@ -82,7 +83,7 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = ({ className }) => {
                     comments={comments}
                     loading={articleDetailsCommentsLoading}
                 />
-            </div>
+            </Page>
         </DynamicModuleLoader>
     )
 }

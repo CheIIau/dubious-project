@@ -42,7 +42,7 @@ export const Sidebar: FC<SidebarProps> = ({ className }) => {
     }, [collapsed, sidebarItemsList])
 
     return (
-        <div
+        <menu
             className={classNames(classes['sidebar-wrapper'], {
                 [classes.collapsed]: collapsed,
             })}
@@ -74,6 +74,6 @@ export const Sidebar: FC<SidebarProps> = ({ className }) => {
                     <LangSwitcher />
                 </div>
             </div>
-        </div>
+        </menu>
     )
 }

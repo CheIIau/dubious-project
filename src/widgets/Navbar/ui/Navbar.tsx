@@ -28,7 +28,7 @@ export const Navbar: FC<NavbarProps> = ({ className }) => {
     const authData = useAppSelector((state) => state.user.authData)
 
     return (
-        <div className={classNames(classes.navbar, {}, [className])}>
+        <header className={classNames(classes.navbar, {}, [className])}>
             {authData ? (
                 <>
                     <Button
@@ -54,6 +54,6 @@ export const Navbar: FC<NavbarProps> = ({ className }) => {
                     </LoginModal>
                 </>
             )}
-        </div>
+        </header>
     )
 }

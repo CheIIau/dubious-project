@@ -30,20 +30,6 @@ export const ArticleList: FC<ArticleListProps> = ({
     loading,
     articles,
 }) => {
-    if (loading) {
-        return (
-            <div
-                className={classNames(classes['article-list'], {}, [
-                    className,
-                    classes[viewClassesMapping[view]],
-                    'gap-7',
-                ])}
-            >
-                {getSkeletons(view)}
-            </div>
-        )
-    }
-
     const renderArticle = (article: Article) => {
         return (
             <ArticleListItem
@@ -63,6 +49,7 @@ export const ArticleList: FC<ArticleListProps> = ({
             ])}
         >
             {articles.length ? articles.map(renderArticle) : null}
+            {loading && getSkeletons(view)}
         </div>
     )
 }

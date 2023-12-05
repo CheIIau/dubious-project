@@ -16,13 +16,6 @@ body {
     width: 100%;
 }
 
-.page-wrapper {
-    flex-grow: 1;
-    padding: 20px;
-    width: 100%;
-    height: calc(100vh - var(--navbar-height));
-    overflow-y: auto;
-}
 
 .icon {
     fill: var(--bg-color);
