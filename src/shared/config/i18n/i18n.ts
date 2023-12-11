@@ -9,7 +9,7 @@ i18n.use(I18NextHttpBackend)
     .use(LanguageDetector)
     .use(initReactI18next)
     .init<HttpBackendOptions>({
-        debug: __IS_DEV__,
+        debug: false, //__IS_DEV__
         lng: defaultLanguage,
         fallbackLng: fallbackLanguage,
         backend: {

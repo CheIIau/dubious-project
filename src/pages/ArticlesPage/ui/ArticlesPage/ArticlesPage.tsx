@@ -19,8 +19,8 @@ import { fetchArticlesList } from '../../model/services/fetchArticlesList'
 import { TEXT_THEME, Text } from 'src/shared/ui/Text/Text'
 import { useTranslation } from 'react-i18next'
 import { Page } from 'src/shared/ui/Page/Page'
-import { useInfiniteScroll } from 'src/shared/lib/hooks/useInfiniteScroll'
 import { fetchNextArtclesPage } from '../../model/services/fetchNextArticlesPage'
+import { initArticlesPage } from '../../model/services/initArticlesPage'
 
 interface ArticlesPageProps extends PropsWithChildren {
     readonly className?: string
@@ -51,12 +51,7 @@ const ArticlesPage: FC<ArticlesPageProps> = ({ className }) => {
     )
 
     useEffect(() => {
-        dispatch(articlesPageActions.initState())
-        dispatch(
-            fetchArticlesList({
-                page: 1,
-            }),
-        )
+        dispatch(initArticlesPage())
     }, [dispatch])
 
     const onLoadNextPart = useCallback(() => {
