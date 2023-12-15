@@ -4,3 +4,12 @@
     background: var(--card-bg);
     box-shadow: 0 0 16px var(--inverted-bg-color-shadow);
 }
+
+.normal {
+    background: var(--card-bg);
+}
+
+.outline {
+    border: 2px solid var(--primary-color);
+    background: transparent;
+}

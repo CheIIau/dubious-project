@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next'
-import { Page } from 'src/shared/ui/Page/Page'
+import { Page } from 'src/widgets/Page/Page'
 
 
 const MainPage = () => {

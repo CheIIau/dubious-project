@@ -2,7 +2,7 @@ import type { FC, PropsWithChildren } from 'react'
 import { classNames } from 'src/shared/lib/style/classNames'
 import classes from './NotFoundPage.module.scss'
 import { useTranslation } from 'react-i18next'
-import { Page } from 'src/shared/ui/Page/Page'
+import { Page } from 'src/widgets/Page/Page'
 
 interface NotFoundPageProps extends PropsWithChildren {
     readonly className?: string

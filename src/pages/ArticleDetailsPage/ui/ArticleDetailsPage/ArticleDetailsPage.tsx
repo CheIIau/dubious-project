@@ -23,7 +23,7 @@ import { addCommentForArticle } from '../../model/services/addCommentForArticle/
 import { BUTTON_THEME, Button } from 'src/shared/ui/Button/Button'
 import { AppLink } from 'src/shared/ui/AppLink/AppLink'
 import { RouterPaths } from 'src/app/providers/router/routerIndex'
-import { Page } from 'src/shared/ui/Page/Page'
+import { Page } from 'src/widgets/Page/Page'
 const AddCommentForm = lazy(
     () => import('src/features/addCommentForm/addCommentFormIndex'),
 )

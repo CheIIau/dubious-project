@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next'
 import { counterReducer } from 'src/entities/Counter/counderIndex'
 import type { ReducersList } from 'src/shared/lib/components/DynamicModuleLoader'
 import { DynamicModuleLoader } from 'src/shared/lib/components/DynamicModuleLoader'
-import { Page } from 'src/shared/ui/Page/Page'
+import { Page } from 'src/widgets/Page/Page'
 import { Spinner } from 'src/shared/ui/Spinner/Spinner'
 
 const Counter = lazy(() => import('src/entities/Counter/counderIndex'))

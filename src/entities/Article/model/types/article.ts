@@ -46,7 +46,8 @@ export type ArticleBlock =
     | ArticleTextBlock
 
 export const ARTICLE_TYPE = {
-    it: 'IT',
+    ALL: 'ALL',
+    IT: 'IT',
     science: 'science',
     economics: 'economics',
 } as const
@@ -59,4 +60,14 @@ export const ARTICLE_VIEW = {
 export const viewClassesMapping = {
     GRID: 'grid',
     LIST: 'list',
+} as const
+
+type ArticleSortFieldMap = {
+    [K in Extract<keyof Article, 'createdAt' | 'views' | 'title'>]: K
+}
+
+export const ARTICLE_SORT_FIELD: ArticleSortFieldMap = {
+    views: 'views',
+    createdAt: 'createdAt',
+    title: 'title',
 } as const

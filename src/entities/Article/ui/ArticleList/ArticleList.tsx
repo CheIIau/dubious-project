@@ -5,6 +5,8 @@ import type { Article } from '../../articleIndex'
 import { ARTICLE_VIEW, viewClassesMapping } from '../../model/types/article'
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem'
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton'
+import { useTranslation } from 'react-i18next'
+import { Text } from 'src/shared/ui/Text/Text'
 
 interface ArticleListProps extends PropsWithChildren {
     readonly className?: string
@@ -18,6 +20,7 @@ const getSkeletons = (view: keyof typeof ARTICLE_VIEW) => {
         .fill(0)
         .map((item, index) => (
             <ArticleListItemSkeleton
+                className="mt-4"
                 view={view}
                 key={index}
             />
@@ -30,6 +33,8 @@ export const ArticleList: FC<ArticleListProps> = ({
     loading,
     articles,
 }) => {
+    const { t } = useTranslation('translation')
+
     const renderArticle = (article: Article) => {
         return (
             <ArticleListItem
@@ -38,6 +43,19 @@ export const ArticleList: FC<ArticleListProps> = ({
                 key={article.id}
             />
         )
+    }
+
+    if (!loading && !articles.length) {
+        return (
+            <Text
+                title={t('nothingFound')}
+                className="m-auto text-center mt-4 text-lg"
+            />
+        )
+    }
+
+    if (loading) {
+        return getSkeletons(view)
     }
 
     return (
@@ -49,7 +67,6 @@ export const ArticleList: FC<ArticleListProps> = ({
             ])}
         >
             {articles.length ? articles.map(renderArticle) : null}
-            {loading && getSkeletons(view)}
         </div>
     )
 }

@@ -5,5 +5,13 @@
   "comments": "Comments",
   "noComments": "No comments",
   "read": "Read",
-  "backToTheList": "Back to the list"
+  "backToTheList": "Back to the list",
+  "sortBy": "Sort by",
+  "createdDate": "Creation date",
+  "title": "Title",
+  "views": "Views",
+  "it": "It",
+  "all": "All",
+  "economics": "Economics",
+  "science": "Science"
 }

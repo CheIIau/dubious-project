@@ -6,3 +6,5 @@ export type CountriesType =
     | 'Zimbabwe'
 
 export type CurrenciesType = 'RUB' | 'EUR' | 'USD'
+
+export type SortOrder = 'asc' | 'desc'

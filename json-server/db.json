@@ -18,9 +18,9 @@
             "title": "Javascript news",
             "subtitle": "Что нового в JS за 2024 год?",
             "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
-            "views": 1488,
-            "createdAt": "26.02.2023",
-            "type": ["it"],
+            "views": 11,
+            "createdAt": "26.01.1999",
+            "type": ["IT"],
             "blocks": [
                 {
                     "id": "1",
@@ -48,12 +48,12 @@
         {
             "id": "2",
             "userId": "1",
-            "title": "Javascript news",
+            "title": "A Javascript news",
             "subtitle": "Что нового в JS за 2025 год?",
             "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
-            "views": 1488,
-            "createdAt": "26.02.2023",
-            "type": ["it"],
+            "views": 188,
+            "createdAt": "13.02.2021",
+            "type": ["science"],
             "blocks": [
                 {
                     "id": "1",
@@ -81,12 +81,12 @@
         {
             "id": "3",
             "userId": "1",
-            "title": "Javascript news",
+            "title": "The Javascript news",
             "subtitle": "Что нового в JS за 2026 год?",
             "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
-            "views": 1488,
-            "createdAt": "26.02.2023",
-            "type": ["it"],
+            "views": 44,
+            "createdAt": "26.03.2020",
+            "type": ["economics"],
             "blocks": [
                 {
                     "id": "1",
@@ -114,12 +114,12 @@
         {
             "id": "4",
             "userId": "1",
-            "title": "Javascript news",
+            "title": "Some Javascript news",
             "subtitle": "Что нового в JS за 2027 год?",
             "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
-            "views": 1488,
-            "createdAt": "26.02.2023",
-            "type": ["it"],
+            "views": 1,
+            "createdAt": "01.02.2023",
+            "type": ["IT"],
             "blocks": [
                 {
                     "id": "1",
@@ -147,12 +147,12 @@
         {
             "id": "5",
             "userId": "1",
-            "title": "Javascript news",
+            "title": "Any Javascript news",
             "subtitle": "Что нового в JS за 2028 год?",
             "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
-            "views": 1488,
-            "createdAt": "26.02.2023",
-            "type": ["it"],
+            "views": 789,
+            "createdAt": "03.05.2022",
+            "type": ["IT"],
             "blocks": [
                 {
                     "id": "1",
@@ -180,12 +180,12 @@
         {
             "id": "6",
             "userId": "1",
-            "title": "Javascript news",
+            "title": "Random Javascript news",
             "subtitle": "Что нового в JS за 2029 год?",
             "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
-            "views": 1488,
-            "createdAt": "26.02.2023",
-            "type": ["it"],
+            "views": 456,
+            "createdAt": "28.09.2015",
+            "type": ["IT"],
             "blocks": [
                 {
                     "id": "1",
@@ -213,12 +213,12 @@
         {
             "id": "7",
             "userId": "1",
-            "title": "Javascript news",
+            "title": "That one Javascript news",
             "subtitle": "Что нового в JS за 2030 год?",
             "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
-            "views": 1488,
-            "createdAt": "26.02.2023",
-            "type": ["it"],
+            "views": 123,
+            "createdAt": "02.01.2017",
+            "type": ["IT"],
             "blocks": [
                 {
                     "id": "1",
@@ -246,12 +246,12 @@
         {
             "id": "8",
             "userId": "1",
-            "title": "Javascript news",
+            "title": "These Javascript news",
             "subtitle": "Что нового в JS за 2031 год?",
             "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
-            "views": 1488,
-            "createdAt": "26.02.2023",
-            "type": ["it"],
+            "views": 888,
+            "createdAt": "20.12.2020",
+            "type": ["IT"],
             "blocks": [
                 {
                     "id": "1",
@@ -279,12 +279,12 @@
         {
             "id": "9",
             "userId": "1",
-            "title": "Javascript news",
+            "title": "Awful Javascript news",
             "subtitle": "Что нового в JS за 2032 год?",
             "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
-            "views": 1488,
-            "createdAt": "26.02.2023",
-            "type": ["it"],
+            "views": 145,
+            "createdAt": "13.01.2021",
+            "type": ["IT"],
             "blocks": [
                 {
                     "id": "1",
@@ -312,12 +312,12 @@
         {
             "id": "10",
             "userId": "1",
-            "title": "Javascript news",
+            "title": "Boring Javascript news",
             "subtitle": "Что нового в JS за 2033 год?",
             "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
-            "views": 1488,
-            "createdAt": "26.02.2023",
-            "type": ["it"],
+            "views": 1448,
+            "createdAt": "14.05.2022",
+            "type": ["IT"],
             "blocks": [
                 {
                     "id": "1",

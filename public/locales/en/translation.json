@@ -12,5 +12,10 @@
   "cancel": "Cancel",
   "save": "Save",
   "enterComment": "Enter comment",
-  "send": "Send"
+  "send": "Send",
+  "search": "Search",
+  "by": "By",
+  "asc": "Ascending",
+  "desc": "Descending",
+  "nothingFound": "Nothing found"
 }

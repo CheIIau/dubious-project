@@ -17,7 +17,7 @@ import { TEXT_THEME, Text } from 'src/shared/ui/Text/Text'
 import { useTranslation } from 'react-i18next'
 import { VALIDATE_PROFILE_ERROR_MESSAGES_KEYS } from 'src/entities/Profile/model/const/const'
 import { useParams } from 'react-router-dom'
-import { Page } from 'src/shared/ui/Page/Page'
+import { Page } from 'src/widgets/Page/Page'
 
 interface ProfilePageProps extends PropsWithChildren {
     readonly className?: string

@@ -3,7 +3,7 @@ import { classNames } from 'src/shared/lib/style/classNames'
 import classes from './ErrorPage.module.scss'
 import { useTranslation } from 'react-i18next'
 import { Button } from 'src/shared/ui/Button/Button'
-import { Page } from 'src/shared/ui/Page/Page'
+import { Page } from 'src/widgets/Page/Page'
 
 interface ErrorPageProps extends PropsWithChildren {
     readonly className?: string

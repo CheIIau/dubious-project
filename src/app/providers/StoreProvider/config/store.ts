@@ -7,6 +7,7 @@ import { rtkErrorLogger as logger } from './middlewares'
 import { createReducerManager } from './reducerManager'
 import type { StateSchema } from './StateSchema'
 import { $api } from 'src/shared/api/api'
+import { scrollPositionSavingReducer } from 'src/features/scrollPositionSaving/scrollPositionSavingIndex'
 
 export function createStore(
     initialState?: StateSchema,
@@ -15,6 +16,7 @@ export function createStore(
     const rootReducers: ReducersMapObject<StateSchema> = {
         user: userReducer,
         loginForm: loginReducer,
+        scrollPosition: scrollPositionSavingReducer,
         ...asyncReducers,
     }
 

@@ -1,5 +1,6 @@
 import type {
     ChangeEvent,
+    FC,
     OptionHTMLAttributes,
     SelectHTMLAttributes,
 } from 'react'
@@ -7,21 +8,23 @@ import { useMemo, type PropsWithChildren, memo } from 'react'
 import { classNames } from 'src/shared/lib/style/classNames'
 import classes from './Select.module.scss'
 
-interface SelectOption extends OptionHTMLAttributes<HTMLOptionElement> {
+export interface SelectOption<T extends string>
+    extends Omit<OptionHTMLAttributes<HTMLOptionElement>, 'value'> {
     content?: string
+    value: T
 }
 
-interface SelectProps extends PropsWithChildren {
+interface SelectProps<T extends string> extends PropsWithChildren {
     readonly className?: string
     readonly label?: string
-    readonly options?: SelectOption[]
-    readonly value?: string
-    readonly onChange?: (value: string) => void
+    readonly options?: SelectOption<T>[]
+    readonly value?: T
+    readonly onChange?: (value: T) => void
     readonly readonly?: boolean
     readonly selectAttributes?: SelectHTMLAttributes<HTMLSelectElement>
 }
 
-export const Select = memo<SelectProps>(function Select(props) {
+export const Select = <T extends string>(props: SelectProps<T>) => {
     const {
         label,
         className,
@@ -45,7 +48,7 @@ export const Select = memo<SelectProps>(function Select(props) {
     }, [className, options])
 
     const onChangeHandler = (e: ChangeEvent<HTMLSelectElement>) => {
-        onChange?.(e.target.value)
+        onChange?.(e.target.value as T)
     }
 
     return (
@@ -76,4 +79,4 @@ export const Select = memo<SelectProps>(function Select(props) {
             </select>
         </div>
     )
-})
+}

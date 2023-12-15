@@ -26,7 +26,7 @@ const AddCommentForm: FC<AddCommentFormProps> = ({
     onSendComment,
 }) => {
     const { t } = useTranslation('translation')
-    const text = useAppSelector((state) => state.addCommentForm?.text || '')
+    const text = useAppSelector((state) => state.addCommentForm?.text ?? '')
     const dispatch = useAppDispatch()
 
     const onCommentTextChange = useCallback(

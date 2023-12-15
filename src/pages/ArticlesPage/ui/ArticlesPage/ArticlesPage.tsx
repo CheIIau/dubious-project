@@ -18,9 +18,11 @@ import { useAppDispatch, useAppSelector } from 'src/shared/lib/hooks/storeHooks'
 import { fetchArticlesList } from '../../model/services/fetchArticlesList'
 import { TEXT_THEME, Text } from 'src/shared/ui/Text/Text'
 import { useTranslation } from 'react-i18next'
-import { Page } from 'src/shared/ui/Page/Page'
+import { Page } from 'src/widgets/Page/Page'
 import { fetchNextArtclesPage } from '../../model/services/fetchNextArticlesPage'
 import { initArticlesPage } from '../../model/services/initArticlesPage'
+import { ArticlesPageFilters } from '../ArticlesPageFilters/ArticlesPageFilters'
+import { useSearchParams } from 'react-router-dom'
 
 interface ArticlesPageProps extends PropsWithChildren {
     readonly className?: string
@@ -43,16 +45,11 @@ const ArticlesPage: FC<ArticlesPageProps> = ({ className }) => {
 
     const error = useAppSelector((state) => state.articlesPage?.error)
 
-    const onChangeView = useCallback(
-        (view: keyof typeof ARTICLE_VIEW) => {
-            dispatch(articlesPageActions.setView(view))
-        },
-        [dispatch],
-    )
+    const [searchParams, setSearchParams] = useSearchParams()
 
     useEffect(() => {
-        dispatch(initArticlesPage())
-    }, [dispatch])
+        dispatch(initArticlesPage(searchParams))
+    }, [dispatch, searchParams])
 
     const onLoadNextPart = useCallback(() => {
         dispatch(fetchNextArtclesPage())
@@ -75,15 +72,12 @@ const ArticlesPage: FC<ArticlesPageProps> = ({ className }) => {
                 onScrollEnd={onLoadNextPart}
                 className={classNames('', {}, [className])}
             >
-                <ArticleViewSelector
-                    view={view}
-                    onViewClick={onChangeView}
-                    className="mb-2 flex justify-end"
-                />
+                <ArticlesPageFilters />
                 <ArticleList
                     view={view}
                     articles={articles}
                     loading={loading}
+                    className="mt-4"
                 />
             </Page>
         </DynamicModuleLoader>
