@@ -1,4 +1,4 @@
-import type { FC, PropsWithChildren } from 'react'
+import type { FC, HTMLAttributeAnchorTarget, PropsWithChildren } from 'react'
 import { classNames } from 'src/shared/lib/style/classNames'
 import classes from './ArticleList.module.scss'
 import type { Article } from '../../articleIndex'
@@ -13,6 +13,7 @@ interface ArticleListProps extends PropsWithChildren {
     readonly articles: Article[]
     readonly loading: boolean
     readonly view?: keyof typeof ARTICLE_VIEW
+    readonly target?: HTMLAttributeAnchorTarget
 }
 
 const getSkeletons = (view: keyof typeof ARTICLE_VIEW) => {
@@ -32,12 +33,14 @@ export const ArticleList: FC<ArticleListProps> = ({
     view = ARTICLE_VIEW.GRID,
     loading,
     articles,
+    target = '_self',
 }) => {
     const { t } = useTranslation('translation')
 
     const renderArticle = (article: Article) => {
         return (
             <ArticleListItem
+                target={target}
                 article={article}
                 view={view}
                 key={article.id}
@@ -55,7 +58,17 @@ export const ArticleList: FC<ArticleListProps> = ({
     }
 
     if (loading) {
-        return getSkeletons(view)
+        return (
+            <div
+                className={classNames(classes['article-list'], {}, [
+                    className,
+                    classes[viewClassesMapping[view]],
+                    'gap-7',
+                ])}
+            >
+                {getSkeletons(view)}
+            </div>
+        )
     }
 
     return (

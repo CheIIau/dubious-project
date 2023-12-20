@@ -17,6 +17,9 @@ const ArticlesPage = lazy(
 const ArticleDetailsPage = lazy(
     () => import('src/pages/ArticleDetailsPage/articleDetailsPageIndex'),
 )
+const ArticleEditPage = lazy(
+    () => import('src/pages/ArticleEditPage/articleEditPageIndex'),
+)
 
 const router = createBrowserRouter([
     {
@@ -58,6 +61,22 @@ const router = createBrowserRouter([
                         element: (
                             <PrivateRouteWrapper>
                                 <ArticleDetailsPage />
+                            </PrivateRouteWrapper>
+                        ),
+                    },
+                    {
+                        path: RouterPaths.articleEdit,
+                        element: (
+                            <PrivateRouteWrapper>
+                                <ArticleEditPage />
+                            </PrivateRouteWrapper>
+                        ),
+                    },
+                    {
+                        path: RouterPaths.articleCreate,
+                        element: (
+                            <PrivateRouteWrapper>
+                                <ArticleEditPage />
                             </PrivateRouteWrapper>
                         ),
                     },

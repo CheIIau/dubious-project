@@ -16,6 +16,7 @@ const articleDetailsSlice = createSlice({
         builder
             .addCase(fetchArticleById.pending, (state, _action) => {
                 state.loading = true
+                state.error = null
             })
             .addCase(fetchArticleById.fulfilled, (state, action) => {
                 state.loading = false

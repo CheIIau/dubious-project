@@ -37,6 +37,7 @@ const profileSlice = createSlice({
             .addCase(updateProfileData.pending, (state, _action) => {
                 state.readonly = true
                 state.validateError = null
+                state.error = null
             })
             .addCase(updateProfileData.rejected, (state, action) => {
                 if (typeof action.payload === 'string') {

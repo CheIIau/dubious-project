@@ -1,21 +1,15 @@
 import { useEffect, type FC, type PropsWithChildren, useCallback } from 'react'
 import { classNames } from 'src/shared/lib/style/classNames'
-import {
-    ARTICLE_VIEW,
-    ArticleList,
-    ArticleViewSelector,
-} from 'src/entities/Article/articleIndex'
+import { ARTICLE_VIEW, ArticleList } from 'src/entities/Article/articleIndex'
 import {
     DynamicModuleLoader,
     type ReducersList,
 } from 'src/shared/lib/components/DynamicModuleLoader'
 import {
-    articlesPageActions,
     articlesPageReducer,
     getArticles,
 } from '../../model/slices/articlesPageSlice'
 import { useAppDispatch, useAppSelector } from 'src/shared/lib/hooks/storeHooks'
-import { fetchArticlesList } from '../../model/services/fetchArticlesList'
 import { TEXT_THEME, Text } from 'src/shared/ui/Text/Text'
 import { useTranslation } from 'react-i18next'
 import { Page } from 'src/widgets/Page/Page'

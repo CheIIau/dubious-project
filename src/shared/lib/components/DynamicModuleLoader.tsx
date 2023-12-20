@@ -1,10 +1,13 @@
 import { useEffect, type FC, type PropsWithChildren } from 'react'
-import type { StateSchemaKey } from 'src/app/providers/StoreProvider/config/StateSchema'
+import type {
+    StateSchema,
+    StateSchemaKey,
+} from 'src/app/providers/StoreProvider/config/StateSchema'
 import type { Reducer } from '@reduxjs/toolkit'
 import { useAppDispatch, useAppStore } from '../hooks/storeHooks'
 
 export type ReducersList = {
-    [key in StateSchemaKey]?: Reducer
+    [key in StateSchemaKey]?: Reducer<NonNullable<StateSchema[key]>>
 }
 
 interface DynamicModuleLoaderProps extends PropsWithChildren {

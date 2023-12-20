@@ -1,8 +1,13 @@
+import type { HTMLAttributeAnchorTarget } from 'react'
 import { type FC, type PropsWithChildren } from 'react'
 import { classNames } from 'src/shared/lib/style/classNames'
 import classes from './ArticleListItem.module.scss'
 import type { Article, ArticleTextBlock } from '../../model/types/article'
-import { ARTICLE_BLOCK_TYPE, ARTICLE_VIEW, viewClassesMapping } from '../../model/types/article'
+import {
+    ARTICLE_BLOCK_TYPE,
+    ARTICLE_VIEW,
+    viewClassesMapping,
+} from '../../model/types/article'
 import { Text } from 'src/shared/ui/Text/Text'
 import EyeIcon from 'src/shared/assets/icons/doc.svg?react'
 import { Card } from 'src/shared/ui/Card/Card'
@@ -18,12 +23,14 @@ interface ArticleListItemProps extends PropsWithChildren {
     readonly className?: string
     readonly article: Article
     readonly view: keyof typeof ARTICLE_VIEW
+    readonly target?: HTMLAttributeAnchorTarget
 }
 
 export const ArticleListItem: FC<ArticleListItemProps> = ({
     className,
     article,
     view,
+    target = '_self',
 }) => {
     const [_isHover, bindHover] = useHover()
     const { t } = useTranslation('article')
@@ -51,7 +58,12 @@ export const ArticleListItem: FC<ArticleListItemProps> = ({
         ) as ArticleTextBlock
 
         return (
-            <div className={classNames('', {}, [className, classes[viewClassesMapping[view]]])}>
+            <div
+                className={classNames('', {}, [
+                    className,
+                    classes[viewClassesMapping[view]],
+                ])}
+            >
                 <Card>
                     <div className={classes.header}>
                         <Avatar
@@ -86,6 +98,7 @@ export const ArticleListItem: FC<ArticleListItemProps> = ({
                     )}
                     <div className={classNames(classes.footer, {}, ['mt-2'])}>
                         <AppLink
+                            target={target}
                             to={RouterPaths.articleDetails + `/${article.id}`}
                         >
                             <Button theme={BUTTON_THEME.outline}>
@@ -101,10 +114,16 @@ export const ArticleListItem: FC<ArticleListItemProps> = ({
 
     return (
         <div
-            className={classNames('', {}, [className, classes[viewClassesMapping[view]]])}
+            className={classNames('', {}, [
+                className,
+                classes[viewClassesMapping[view]],
+            ])}
             {...bindHover}
         >
-            <AppLink to={RouterPaths.articleDetails + `/${article.id}`}>
+            <AppLink
+                target={target}
+                to={RouterPaths.articleDetails + `/${article.id}`}
+            >
                 <Card>
                     <div className={classes['image-wrapper']}>
                         <img

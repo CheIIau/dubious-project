@@ -14,21 +14,23 @@ import type { UserSchema } from 'src/entities/User/userIndex'
 import type { LoginSchema } from 'src/features/AuthByUsername/authByUsernameIndex'
 import type { AddCommentFormSchema } from 'src/features/addCommentForm/addCommentFormIndex'
 import type { ScrollPositionSavingSchema } from 'src/features/scrollPositionSaving/scrollPositionSavingIndex'
-import type { ArticleDetailsCommentSchema } from 'src/pages/ArticleDetailsPage/articleDetailsPageIndex'
+import type {
+    ArticleDetailsPageSchema,
+} from 'src/pages/ArticleDetailsPage/articleDetailsPageIndex'
 import type { ArticlesPageSchema } from 'src/pages/ArticlesPage/articlesPageIndex'
 
 export interface StateSchema {
     user: UserSchema
     loginForm: LoginSchema
     scrollPosition: ScrollPositionSavingSchema
-    
+
     // below is async reducers
     profile?: ProfileSchema
     counter?: CounterSchema
-    articleDetails?: ArticleDetailsSchema
-    articleDetailsComments?: ArticleDetailsCommentSchema
     addCommentForm?: AddCommentFormSchema
     articlesPage?: ArticlesPageSchema
+    articleDetails?: ArticleDetailsSchema
+    articleDetailsPage?: ArticleDetailsPageSchema
 }
 
 export type StateSchemaKey = keyof StateSchema

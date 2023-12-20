@@ -19,6 +19,7 @@ export const CommentCard: FC<CommentCardProps> = ({
     comment,
     loading,
 }) => {
+
     if (loading) {
         return (
             <div
@@ -44,6 +45,7 @@ export const CommentCard: FC<CommentCardProps> = ({
             </div>
         )
     }
+    
     if (comment) {
         return (
             <div

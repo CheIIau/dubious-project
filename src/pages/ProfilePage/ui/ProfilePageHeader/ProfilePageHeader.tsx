@@ -52,7 +52,7 @@ export const ProfilePageHeader = memo<ProfilePageHeaderProps>(
                                 className="ml-auto"
                                 onClick={onEdit}
                             >
-                                {t('profile:edit')}
+                                {t('translation:edit')}
                             </Button>
                         ) : (
                             <>

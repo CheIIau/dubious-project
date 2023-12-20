@@ -1,16 +1,22 @@
-.navbar {
-    width: 100%;
-    height: var(--navbar-height);
-    background: var(--inverted-bg-color);
+.navbar-right {
     display: flex;
     align-items: center;
-    padding: 20px;
     justify-content: flex-end;
-    position: relative;
-    z-index: 2;
-    transition: 0.3s;
 }
 
 .links {
     margin-left: auto;
+}
+
+.navbar {
+    align-items: center;
+    padding: 20px;
+    height: var(--navbar-height);
+    background: var(--inverted-bg-color);
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    z-index: 2;
+    transition: 0.3s;
+    position: relative;
 }

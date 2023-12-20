@@ -5,5 +5,7 @@ export const RouterPaths = {
     profile: '/profile', //+id
     articles: '/articles',
     articleDetails: '/article', //+id
-    _notFound: '/*'
+    articleCreate: '/article/new',
+    articleEdit: '/article/:id/edit',
+    _notFound: '/*',
 } as const
