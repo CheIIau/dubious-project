@@ -39,7 +39,7 @@ const ArticlesPage: FC<ArticlesPageProps> = ({ className }) => {
 
     const error = useAppSelector((state) => state.articlesPage?.error)
 
-    const [searchParams, setSearchParams] = useSearchParams()
+    const [searchParams] = useSearchParams()
 
     useEffect(() => {
         dispatch(initArticlesPage(searchParams))

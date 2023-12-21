@@ -7,16 +7,14 @@ import App from 'src/app/App'
 import { RoutesWrapper } from '../routerIndex'
 import { RouterPaths } from './routeList'
 import { PrivateRouteWrapper } from '../ui/PrivateRouteWrapper'
-
+import { ArticleDetailsPageAsync } from 'src/pages/ArticleDetailsPage/articleDetailsPageIndex'
 const MainPage = lazy(() => import('src/pages/MainPage/MainPage'))
 const AboutPage = lazy(() => import('src/pages/AboutPage/AboutPage'))
 const ProfilePage = lazy(() => import('src/pages/ProfilePage/ProfilePage'))
 const ArticlesPage = lazy(
     () => import('src/pages/ArticlesPage/articlesPageIndex'),
 )
-const ArticleDetailsPage = lazy(
-    () => import('src/pages/ArticleDetailsPage/articleDetailsPageIndex'),
-)
+
 const ArticleEditPage = lazy(
     () => import('src/pages/ArticleEditPage/articleEditPageIndex'),
 )
@@ -60,7 +58,7 @@ const router = createBrowserRouter([
                         path: RouterPaths.articleDetails + '/:id',
                         element: (
                             <PrivateRouteWrapper>
-                                <ArticleDetailsPage />
+                                <ArticleDetailsPageAsync />
                             </PrivateRouteWrapper>
                         ),
                     },

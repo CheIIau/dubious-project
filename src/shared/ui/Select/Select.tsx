@@ -1,10 +1,9 @@
 import type {
     ChangeEvent,
-    FC,
     OptionHTMLAttributes,
     SelectHTMLAttributes,
 } from 'react'
-import { useMemo, type PropsWithChildren, memo } from 'react'
+import { useMemo, type PropsWithChildren } from 'react'
 import { classNames } from 'src/shared/lib/style/classNames'
 import classes from './Select.module.scss'
 

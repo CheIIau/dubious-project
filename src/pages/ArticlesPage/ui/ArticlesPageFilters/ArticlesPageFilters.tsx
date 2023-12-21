@@ -1,4 +1,4 @@
-import { useCallback, type FC, type PropsWithChildren, useMemo } from 'react'
+import { useCallback, type FC, type PropsWithChildren } from 'react'
 import { classNames } from 'src/shared/lib/style/classNames'
 import classes from './ArticlesPageFilters.module.scss'
 import type { ARTICLE_SORT_FIELD } from 'src/entities/Article/articleIndex'
@@ -21,8 +21,6 @@ import {
 import type { SortOrder } from 'src/shared/types/common'
 import { fetchArticlesList } from '../../model/services/fetchArticlesList'
 import { useDebounce } from 'src/shared/lib/hooks/useDebounce'
-import type { TabItem } from 'src/shared/ui/Tabs/Tabs'
-import { Tabs } from 'src/shared/ui/Tabs/Tabs'
 import type { ARTICLE_TYPE } from 'src/entities/Article/articleIndex'
 import { ArticleTypeTabs } from 'src/features/ArticleTypeTabs/ArticleTypeTabs'
 

@@ -17,7 +17,6 @@ export const ArticleDetailsPageHeader: FC<ArticleDetailsPageHeaderProps> = ({
 }) => {
     const { t } = useTranslation(['article', 'translation'])
 
-    const userData = useAppSelector((state) => state.user.authData)
     const article = useAppSelector((state) => state.articleDetails?.data)
     const canEdit = useAppSelector(getCanEditArticle)
 
