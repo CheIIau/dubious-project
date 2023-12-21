@@ -9,6 +9,7 @@ export function buildPlugins({
     paths,
     isDev,
     project,
+    apiUrl
 }: BuildOptions): webpack.WebpackPluginInstance[] {
     const plugins = [
         new HTMLWebpackPlugin({
@@ -23,6 +24,7 @@ export function buildPlugins({
         new webpack.DefinePlugin({
             __IS_DEV__: JSON.stringify(isDev),
             __PROJECT__: JSON.stringify(project),
+            __API_URL__: JSON.stringify(apiUrl)
         }),
         new CopyPlugin({
             patterns: [{ from: paths.locales, to: paths.buildLocales }],

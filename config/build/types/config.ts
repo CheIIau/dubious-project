@@ -17,6 +17,7 @@ export interface BuildOptions {
     isDev: boolean
     port: number
     project: 'storybook' | 'frontend' | 'unit_test'
+    apiUrl: string | undefined
 }
 
 export interface BuildEnv {
