@@ -17,7 +17,7 @@ import type { ScrollPositionSavingSchema } from 'src/features/scrollPositionSavi
 import type {
     ArticleDetailsPageSchema,
 } from 'src/pages/ArticleDetailsPage/articleDetailsPageIndex'
-import type { ArticlesPageSchema } from 'src/pages/ArticlesPage/articlesPageIndex'
+import { ArticlesPageSchema } from 'src/pages/ArticlesPage/articlesPageIndex'
 
 export interface StateSchema {
     user: UserSchema
