@@ -1,5 +1,2 @@
-import ArticlesPage from './ui/ArticlesPage/ArticlesPage'
-
-export default ArticlesPage
-
+export { ArticlesPageAsync as ArticlesPage } from './ui/ArticlesPage/ArticlesPage.async'
 export type { ArticlesPageSchema } from './model/types/articlesPageSchema'
