@@ -113,5 +113,9 @@
         "last 1 version",
         "> 1%",
         "not dead"
+    ],
+    "sideEffects": [
+        "*.scss",
+        "./src/shared/config/i18n/i18n.ts"
     ]
 }

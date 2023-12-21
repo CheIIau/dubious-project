@@ -8,22 +8,22 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
         test: /\.(png|jpe?g|gif)$/i,
         use: [
             {
-                loader: 'file-loader'
-            }
-        ]
+                loader: 'file-loader',
+            },
+        ],
     }
 
     const svgLoader = {
         test: /\.svg$/i,
         issuer: /\.[jt]sx?$/,
-        use: ['@svgr/webpack']
+        use: ['@svgr/webpack'],
     }
 
-    const tsLoader = {
-        test: /\.tsx?$/,
-        use: 'ts-loader',
-        exclude: /node_modules/
-    }
+    // const tsLoader = {
+    //     test: /\.tsx?$/,
+    //     use: 'ts-loader',
+    //     exclude: /node_modules/
+    // }
 
     const babelLoader = {
         test: /\.(js|jsx|tsx|ts)$/,
@@ -37,15 +37,21 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
                         'i18next-extract',
                         {
                             locales: languages,
-                            keyAsDefaultValue: true
-                        }
-                    ]
-                ]
-            }
-        }
+                            keyAsDefaultValue: true,
+                        },
+                    ],
+                ],
+            },
+        },
     }
 
     const cssLoaders = buildCssLoader(options.isDev)
 
-    return [fileLoader, svgLoader, babelLoader, tsLoader, cssLoaders]
+    return [
+        fileLoader,
+        svgLoader,
+        babelLoader,
+        //tsLoader,
+        cssLoaders,
+    ]
 }
