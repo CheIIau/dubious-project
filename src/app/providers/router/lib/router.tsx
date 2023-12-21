@@ -13,7 +13,7 @@ const AboutPage = lazy(() => import('src/pages/AboutPage/AboutPage'))
 const ProfilePage = lazy(() => import('src/pages/ProfilePage/ProfilePage'))
 
 import { ArticlesPage } from 'src/pages/ArticlesPage/articlesPageIndex'
-import { ArticleDetailsPage } from 'src/pages/ArticleDetailsPage/articleDetailsPageIndex'
+import { ArticleDetailsPageAsync } from 'src/pages/ArticleDetailsPage/articleDetailsPageAsync'
 
 const ArticleEditPage = lazy(
     () => import('src/pages/ArticleEditPage/articleEditPageIndex'),
