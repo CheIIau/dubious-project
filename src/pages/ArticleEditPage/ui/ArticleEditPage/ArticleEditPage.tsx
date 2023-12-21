@@ -1,6 +1,5 @@
 import type { FC, PropsWithChildren } from 'react'
 import { classNames } from 'src/shared/lib/style/classNames'
-import classes from './ArticleEditPage.module.scss'
 import { useParams } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 
