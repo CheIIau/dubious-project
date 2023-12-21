@@ -5,11 +5,14 @@ import { buildCssLoader } from '../build/loaders/cssLoader'
 
 export default ({ config }: { config: webpack.Configuration }) => {
     const paths: BuildPaths = {
+        '~': path.resolve(__dirname, '..', '..'),
         build: '',
         html: '',
         entry: '',
         src: path.resolve(__dirname, '..', '..', 'src'),
         test: '',
+        locales: '',
+        buildLocales: ''
     }
 
     config.resolve?.modules?.push(paths.src)
@@ -17,6 +20,7 @@ export default ({ config }: { config: webpack.Configuration }) => {
     config.resolve!.alias = {
         src: paths.src,
         '@': paths.src,
+        '~': paths['~']
     }
 
     config.module!.rules = config.module!.rules!.map((configRule) => {

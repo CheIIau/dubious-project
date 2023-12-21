@@ -5,7 +5,7 @@ export const languages = ['ru-RU', 'en'] as const
 export const defaultLanguage = 'en'
 export const fallbackLanguage = 'ru-RU'
 export const ns = getKeys(resourcesEnum)
-
+ //export const ns = ['profile', 'article', 'main', 'about', 'translation']
 export const resources = ns.reduce(
     (acc, n) => {
         languages.forEach((lng) => {

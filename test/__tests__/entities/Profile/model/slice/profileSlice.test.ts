@@ -27,7 +27,7 @@ describe('profileSlice', () => {
                 state as ProfileSchema,
                 profileActions.setReadonly(true),
             ),
-        ).toContain({ readonly: true } as ProfileSchema)
+        ).toHaveProperty('readonly', true)
     })
 
     // тесты на остальные редюсеры писать лень, они все однотипные
@@ -40,7 +40,7 @@ describe('profileSlice', () => {
 
         expect(
             profileReducer(state as ProfileSchema, updateProfileData.pending),
-        ).toContain({ loading: true, validateError: null } as ProfileSchema)
+        ).toMatchObject({ loading: true, validateError: null } as ProfileSchema)
     })
 
     it('sets form data and loading to false on update profile fulfilled', () => {
@@ -55,7 +55,7 @@ describe('profileSlice', () => {
                 state as ProfileSchema,
                 updateProfileData.fulfilled(USER_DATA, '', USER_DATA.id),
             ),
-        ).toContain({
+        ).toMatchObject({
             loading: false,
             form: USER_DATA,
             data: USER_DATA,

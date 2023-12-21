@@ -14,7 +14,7 @@ export default defineConfig({
         ],
         globals: true,
     },
-    plugins: [tsconfigPaths(), svgr()],
+    plugins: [tsconfigPaths() as Plugin, svgr() as Plugin],
     define: {
         __IS_DEV__: true,
     },

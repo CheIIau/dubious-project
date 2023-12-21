@@ -10,7 +10,7 @@ import {
 i18n.use(initReactI18next).init({
     lng: defaultLanguage,
     fallbackLng: fallbackLanguage,
-    // have a common namespace used around the full app
+    // have a common namespace used around the entire app
     debug: false,
     ns,
     resources
