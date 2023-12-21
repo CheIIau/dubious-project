@@ -11,8 +11,12 @@ import { PrivateRouteWrapper } from '../ui/PrivateRouteWrapper'
 const MainPage = lazy(() => import('src/pages/MainPage/MainPage'))
 const AboutPage = lazy(() => import('src/pages/AboutPage/AboutPage'))
 const ProfilePage = lazy(() => import('src/pages/ProfilePage/ProfilePage'))
-import { ArticlesPageAsync as ArticlesPage } from 'src/pages/ArticlesPage/articlesPageAsyncIndex'
-import { ArticleDetailsPageAsync as ArticleDetailsPage } from 'src/pages/ArticleDetailsPage/articleDetailsPageAsyncIndex'
+const ArticlesPage = lazy(
+    () => import('src/pages/ArticlesPage/articlesPageIndex'),
+)
+const ArticleDetailsPage = lazy(
+    () => import('src/pages/ArticleDetailsPage/articleDetailsPageIndex'),
+)
 const ArticleEditPage = lazy(
     () => import('src/pages/ArticleEditPage/articleEditPageIndex'),
 )
