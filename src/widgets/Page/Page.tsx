@@ -53,7 +53,12 @@ export const Page: FC<PageProps> = ({ className, children, onScrollEnd }) => {
             onScroll={onScroll}
         >
             {children}
-            {onScrollEnd && <div ref={triggerRef}></div>}
+            {onScrollEnd && (
+                <div
+                    className={classes.trigger}
+                    ref={triggerRef}
+                ></div>
+            )}
         </section>
     )
 }
