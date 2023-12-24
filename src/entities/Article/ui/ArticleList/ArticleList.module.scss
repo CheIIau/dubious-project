@@ -5,6 +5,16 @@
 
 .grid {
     justify-content: space-evenly;
+
+    .card {
+        display: inline-flex;
+        min-width: 232px;
+    }
+
+    .row {
+        display: flex;
+        justify-content: space-evenly;
+    }
 }
 
 .list {

@@ -16,6 +16,8 @@ interface PageProps extends PropsWithChildren {
     readonly onScrollEnd?: () => void
 }
 
+export const PAGE_ID = 'PAGE_ID'
+
 export const Page: FC<PageProps> = ({ className, children, onScrollEnd }) => {
     const wrapperRef = useRef<HTMLDivElement | null>(null)
     const triggerRef = useRef<HTMLDivElement | null>(null)
@@ -51,6 +53,7 @@ export const Page: FC<PageProps> = ({ className, children, onScrollEnd }) => {
             ref={wrapperRef}
             className={classNames(classes.page, {}, [className])}
             onScroll={onScroll}
+            id={PAGE_ID}
         >
             {children}
             {onScrollEnd && (

@@ -26,6 +26,10 @@
 
 .grid {
     width: 232px;
+    max-height: 296px;
+    overflow: hidden;
+    border-radius: 10px;
+
     transition: 0.2s;
     cursor: pointer;
 

@@ -26,6 +26,8 @@ interface ArticleListItemProps extends PropsWithChildren {
     readonly target?: HTMLAttributeAnchorTarget
 }
 
+export const ARTICLE_GRID_ITEM_WIDTH = 232
+
 export const ArticleListItem: FC<ArticleListItemProps> = ({
     className,
     article,

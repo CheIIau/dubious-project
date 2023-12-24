@@ -1,12 +1,26 @@
-import type { FC, HTMLAttributeAnchorTarget, PropsWithChildren } from 'react'
+import {
+    useEffect,
+    type FC,
+    type HTMLAttributeAnchorTarget,
+    type PropsWithChildren,
+    useMemo,
+    useCallback,
+} from 'react'
 import { classNames } from 'src/shared/lib/style/classNames'
 import classes from './ArticleList.module.scss'
 import type { Article } from '../../articleIndex'
 import { ARTICLE_VIEW, viewClassesMapping } from '../../model/types/article'
-import { ArticleListItem } from '../ArticleListItem/ArticleListItem'
+import {
+    ARTICLE_GRID_ITEM_WIDTH,
+    ArticleListItem,
+} from '../ArticleListItem/ArticleListItem'
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton'
 import { useTranslation } from 'react-i18next'
 import { Text } from 'src/shared/ui/Text/Text'
+import type { ListRowProps } from 'react-virtualized'
+import { AutoSizer, List, WindowScroller } from 'react-virtualized'
+import { PAGE_ID } from 'src/widgets/Page/Page'
+import { useElementSize } from 'src/shared/lib/hooks/useElementSize'
 
 interface ArticleListProps extends PropsWithChildren {
     readonly className?: string
@@ -21,7 +35,7 @@ const getSkeletons = (view: keyof typeof ARTICLE_VIEW) => {
         .fill(0)
         .map((item, index) => (
             <ArticleListItemSkeleton
-                className="mt-4"
+                className="mb-4"
                 view={view}
                 key={index}
             />
@@ -36,17 +50,48 @@ export const ArticleList: FC<ArticleListProps> = ({
     target = '_self',
 }) => {
     const { t } = useTranslation('translation')
+    const pageElement = document.getElementById(PAGE_ID) as HTMLElement
+    const pageSize = useElementSize(pageElement)
+    const isList = view === ARTICLE_VIEW.LIST
+    const gridItemsInRow = pageSize
+        ? Math.floor(pageSize[0] / (ARTICLE_GRID_ITEM_WIDTH + 32))
+        : 3
+    const itemsPerRow = isList ? 1 : gridItemsInRow
+    const rowCount = isList
+        ? articles.length
+        : Math.ceil(articles.length / itemsPerRow)
+    const rowHeight = isList ? 670 : 330
 
-    const renderArticle = (article: Article) => {
-        return (
-            <ArticleListItem
-                target={target}
-                article={article}
-                view={view}
-                key={article.id}
-            />
-        )
-    }
+    const rowRender = useCallback(
+        ({ index, key, style, isScrolling }: ListRowProps) => {
+            const items = []
+            const fromIndex = index * itemsPerRow
+            const toIndex = Math.min(fromIndex + itemsPerRow, articles.length)
+
+            for (let i = fromIndex; i < toIndex; i++) {
+                items.push(
+                    <ArticleListItem
+                        target={target}
+                        article={articles[i]}
+                        view={view}
+                        key={articles[i].id}
+                        className={classes.card}
+                    />,
+                )
+            }
+
+            return (
+                <div
+                    key={key}
+                    style={style}
+                    className={classNames(classes.row, {}, ['gap-7'])}
+                >
+                    {items}
+                </div>
+            )
+        },
+        [articles, itemsPerRow, target, view],
+    )
 
     if (!loading && !articles.length) {
         return (
@@ -57,29 +102,37 @@ export const ArticleList: FC<ArticleListProps> = ({
         )
     }
 
-    if (loading) {
-        return (
-            <div
-                className={classNames(classes['article-list'], {}, [
-                    className,
-                    classes[viewClassesMapping[view]],
-                    'gap-7',
-                ])}
-            >
-                {getSkeletons(view)}
-            </div>
-        )
-    }
-
     return (
-        <div
-            className={classNames(classes['article-list'], {}, [
-                className,
-                classes[viewClassesMapping[view]],
-                'gap-7',
-            ])}
-        >
-            {articles.length ? articles.map(renderArticle) : null}
-        </div>
+        <WindowScroller scrollElement={pageElement}>
+            {({
+                height,
+                width,
+                registerChild,
+                scrollTop,
+                onChildScroll,
+                isScrolling,
+            }) => (
+                <div
+                    ref={registerChild as any}
+                    className={classNames(classes['article-list'], {}, [
+                        className,
+                        classes[viewClassesMapping[view]],
+                    ])}
+                >
+                    <List
+                        autoHeight
+                        height={height ?? 800}
+                        rowCount={rowCount}
+                        rowHeight={rowHeight}
+                        rowRenderer={rowRender}
+                        width={width ? width - 50 : 700}
+                        onScroll={onChildScroll}
+                        isScrolling={isScrolling}
+                        scrollTop={scrollTop}
+                    />
+                    {loading && getSkeletons(view)}
+                </div>
+            )}
+        </WindowScroller>
     )
 }
