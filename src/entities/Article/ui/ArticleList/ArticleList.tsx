@@ -84,7 +84,7 @@ export const ArticleList: FC<ArticleListProps> = ({
                 <div
                     key={key}
                     style={style}
-                    className={classNames(classes.row, {}, ['gap-7'])}
+                    className={classNames(classes.row, {}, ['gap-7', 'mt-2'])}
                 >
                     {items}
                 </div>

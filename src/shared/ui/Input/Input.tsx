@@ -7,11 +7,14 @@ import {
     memo,
     useRef,
 } from 'react'
-import type { Mods} from 'src/shared/lib/style/classNames'
+import type { Mods } from 'src/shared/lib/style/classNames'
 import { classNames } from 'src/shared/lib/style/classNames'
 import classes from './Input.module.scss'
 
-type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'onChange' | 'readOnly'>
+type HTMLInputProps = Omit<
+    InputHTMLAttributes<HTMLInputElement>,
+    'onChange' | 'readOnly'
+>
 
 interface InputProps extends PropsWithChildren, HTMLInputProps {
     readonly className?: string
@@ -59,18 +62,22 @@ export const Input = memo<InputProps>(function Input({
     }
 
     const mods: Mods = {
-        [classes.readonly]: readonly
+        [classes.readonly]: readonly,
     }
 
     const isCaretVisible = isFocused && !readonly
 
     return (
-        <div className={classNames(classes['input-wrapper'], mods, [className])}>
+        <div
+            className={classNames(classes['input-wrapper'], mods, [className])}
+        >
             {placeholder && <div className="mr-1">{`${placeholder}>`}</div>}
             <div className={classes['caret-wrapper']}>
                 <input
                     ref={inputRef}
-                    className={classNames(classes.input, mods, [inputClassName])}
+                    className={classNames(classes.input, mods, [
+                        inputClassName,
+                    ])}
                     type={type}
                     value={value}
                     onChange={onChangeHandler}

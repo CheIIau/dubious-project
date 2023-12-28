@@ -9,6 +9,7 @@
     .card {
         display: inline-flex;
         min-width: 232px;
+        box-shadow: 0 0 10px rgba(var(--inverted-bg-color-rgb) / 0.3);
     }
 
     .row {
@@ -20,4 +21,8 @@
 .list {
     display: flex;
     flex-flow: column wrap;
+
+    .card {
+        box-shadow: 0 0 10px rgba(var(--inverted-bg-color-rgb) / 0.3);
+    }
 }

@@ -29,7 +29,6 @@
     max-height: 296px;
     overflow: hidden;
     border-radius: 10px;
-
     transition: 0.2s;
     cursor: pointer;
 
@@ -47,7 +46,7 @@
     .date {
         padding: 0 4px;
         border: 1px solid var(--inverted-bg-color);
-        background-color: rgb(var(--bg-color-rbg) 0.4);
+        background-color: rgb(var(--bg-color-rgb) 0.4);
         border-radius: 10px;
         position: absolute;
         right: 4px;

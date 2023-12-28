@@ -1,8 +1,8 @@
 :root {
     --bg-color: #fbfbfe;
-    --bg-color-rbg: 251, 251, 254;
-    --inverted-bg-color-rbg: 32, 32, 40;
-    --inverted-bg-color: #202028;
+    --bg-color-rgb: 251 251 254;
+    --inverted-bg-color-rgb: 32 32 40;
+    --inverted-bg-color: rgb(var(--inverted-bg-color-rgb));
     --primary-color: #008500;
     --secondary-color: #a8a8a8;
     --inverted-primary-color: #009a00;

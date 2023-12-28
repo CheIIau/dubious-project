@@ -1,6 +1,7 @@
 import { useCallback, type PropsWithChildren, memo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { CURRENCIES } from 'src/shared/const/enums'
+import { ListBox } from 'src/shared/ui/ListBox/ListBox/ListBox'
 import { Select } from 'src/shared/ui/Select/Select'
 
 interface CurrencySelectProps extends PropsWithChildren {
@@ -32,14 +33,26 @@ export const CurrencySelect = memo<CurrencySelectProps>(
         )
 
         return (
-            <Select
+            <ListBox
                 label={t('profile:chooseCurrency')}
-                options={currenciesOptions}
+                readonly={readonly}
+                defaultValue={t('chooseCurrency')}
                 className={className}
                 onChange={onChangeHandler}
-                readonly={readonly}
                 value={value}
+                items={currenciesOptions}
             />
         )
+
+        // return (
+        //     <Select
+        //         label={t('profile:chooseCurrency')}
+        //         options={currenciesOptions}
+        //         className={className}
+        //         onChange={onChangeHandler}
+        //         readonly={readonly}
+        //         value={value}
+        //     />
+        // )
     },
 )

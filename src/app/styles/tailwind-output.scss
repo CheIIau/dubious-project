@@ -622,6 +622,10 @@ video {
   flex-grow: 1;
 }
 
+.resize {
+  resize: both;
+}
+
 .flex-row {
   flex-direction: row;
 }

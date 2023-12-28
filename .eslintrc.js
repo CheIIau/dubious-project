@@ -31,7 +31,13 @@ module.exports = {
         ecmaVersion: 'latest',
         sourceType: 'module',
     },
-    plugins: ['@typescript-eslint', 'react', 'i18next', 'react-hooks'],
+    plugins: [
+        'dubious-plugin',
+        '@typescript-eslint',
+        'react',
+        'i18next',
+        'react-hooks',
+    ],
     rules: {
         // indent: ['warn', 4],
         'linebreak-style': 'off',
@@ -56,5 +62,6 @@ module.exports = {
         '@typescript-eslint/no-explicit-any': 'warn',
         'react/prop-types': 'off',
         indent: 'off',
+        'dubious-plugin/path-checker': 'error',
     },
 }

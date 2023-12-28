@@ -42,7 +42,7 @@ export const Sidebar: FC<SidebarProps> = ({ className }) => {
     }, [collapsed, sidebarItemsList])
 
     return (
-        <menu
+        <aside
             className={classNames(classes['sidebar-wrapper'], {
                 [classes.collapsed]: collapsed,
             })}
@@ -66,7 +66,7 @@ export const Sidebar: FC<SidebarProps> = ({ className }) => {
                         <MenuIcon className="icon" />
                     </div>
                 </Button>
-                <div className={classNames(classes.links, {}, ['mt-3'])}>
+                <div role='navigation' className={classNames(classes.links, {}, ['mt-3'])}>
                     {itemsList}
                 </div>
                 <div className={classes.switchers}>
@@ -74,6 +74,6 @@ export const Sidebar: FC<SidebarProps> = ({ className }) => {
                     <LangSwitcher />
                 </div>
             </div>
-        </menu>
+        </aside>
     )
 }

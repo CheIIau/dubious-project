@@ -31,9 +31,8 @@
         "no-duplicate-selectors": null,
         "at-rule-empty-line-before": null,
         "no-invalid-position-at-import-rule": null,
-        "scss/double-slash-comment-whitespace-inside": null
+        "scss/double-slash-comment-whitespace-inside": null,
+        "alpha-value-notation": "number"
     },
-    "ignoreFiles": [
-        "src/app/styles/tailwind-output.scss"
-    ]
+    "ignoreFiles": ["src/app/styles/tailwind-output.scss"]
 }

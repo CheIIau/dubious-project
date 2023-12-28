@@ -131,6 +131,7 @@ export const ProfileCard = memo<ProfileCardProps>(function ProfileCard(props) {
                 readonly={readonly}
                 className="mb-3"
             />
+            {/* Let there be diffrent selects */}
             <CurrencySelect
                 readonly={readonly}
                 value={data?.currency}

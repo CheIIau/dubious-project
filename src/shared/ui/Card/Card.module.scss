@@ -1,8 +1,8 @@
 .card {
     padding: 16px;
     border-radius: 10px;
-    background: var(--card-bg);
-    box-shadow: 0 0 16px var(--inverted-bg-color-shadow);
+    background: var(--inverted-bg-color-rgb);
+    box-shadow: 0 0 10px rgba(var(--inverted-bg-color-rgb) / 0.3);
 }
 
 .normal {

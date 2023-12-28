@@ -55,7 +55,7 @@ export const Select = <T extends string>(props: SelectProps<T>) => {
             {label && (
                 <span
                     className={classNames('mr-2', {
-                        [classes.label__disabled]: readonly,
+                        [classes.label_disabled]: readonly,
                     })}
                 >
                     {label}
