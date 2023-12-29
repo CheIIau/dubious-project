@@ -1,49 +1,35 @@
-.list-box {
+.dropdown {
     position: relative;
     display: inline-block;
 }
 
-.trigger {
+.button {
     background: none;
-    border: none;
     outline: none;
-    padding: 0;
     margin: 0;
+    padding: 0;
+    border: none;
+    cursor: pointer;
 }
 
-.options {
+.menu {
     background: var(--card-bg);
     position: absolute;
     z-index: 10000;
     border-radius: 10px;
-    box-shadow: 0 2px 10px 0 var(--skeleton-shadow);
-    width: 100%;
+    border: 1px solid var(--primary-color);
 }
 
 .item {
-    padding: 6px 12px;
-    border-radius: 10px;
+    padding: 3px 11px;
+    border: none;
+    background: none;
+    outline: none;
+    color: var(--primary-color);
     cursor: pointer;
 
-    &_selected {
-        background: var(--inverted-primary-color);
-        color: var(--bg-color);
-    }
-
     &_active {
-        background: var(--secondary-color);
-    }
-
-    &_disabled {
-        color: var(--skeleton-color);
-    }
-}
-
-.readonly {
-    opacity: 0.7;
-
-    &:hover {
-        cursor: not-allowed;
+        background: var(--inverted-primary-color);
     }
 }
 

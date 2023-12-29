@@ -1,5 +1,5 @@
 import type { FC, PropsWithChildren } from 'react'
-import { classNames } from 'src/shared/lib/classNames/classNames';
+import { classNames } from 'src/shared/lib/style/classNames';
 import classes from './[FTName].module.scss';
 
 interface [FTName]Props extends PropsWithChildren {

@@ -4,6 +4,7 @@ import { classNames } from 'src/shared/lib/style/classNames'
 import classes from './ListBox.module.scss'
 import { Listbox as HListBox } from '@headlessui/react'
 import { Button } from 'src/shared/ui/Button/Button'
+import type { DropdownDirection } from 'src/shared/types/ui'
 
 interface ListBoxProps extends PropsWithChildren {
     readonly className?: string
@@ -21,8 +22,6 @@ export interface ListBoxItem {
     content: ReactNode
     disabled?: boolean
 }
-
-type DropdownDirection = 'top' | 'bottom'
 
 export const ListBox: FC<ListBoxProps> = ({
     className,
