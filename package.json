@@ -25,6 +25,7 @@
         "visual:report:json": "node ./.loki/scripts/generate-visual-json-report.js",
         "visual:report:html": "reg-cli --from .loki/report.json --report .loki/report.html",
         "remove:prod": "rm -rf ./build",
+        "generate:slice": "node ./scripts/createSlice/index.mjs",
         "watch": "webpack --watch"
     },
     "keywords": [],

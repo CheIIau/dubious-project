@@ -27,6 +27,7 @@
     outline: none;
     color: var(--primary-color);
     cursor: pointer;
+    width: 100%;
 
     &_active {
         background: var(--inverted-primary-color);
@@ -35,22 +36,22 @@
 
 .bottom-left {
     top: 100%;
-    right: 100%
+    right: 0
 }
 
 .top-left {
     bottom: 100%;
-    right: 100%
+    right: 0
 }
 
 .bottom-right {
     top: 100%;
-    left: 100%
+    left: 0
 }
 
 .top-right {
     bottom: 100%;
-    left: 100%
+    left: 0
 }
 
 .bottom {

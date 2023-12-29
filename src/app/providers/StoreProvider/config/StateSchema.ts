@@ -14,10 +14,8 @@ import type { UserSchema } from 'src/entities/User/userIndex'
 import type { LoginSchema } from 'src/features/AuthByUsername/authByUsernameIndex'
 import type { AddCommentFormSchema } from 'src/features/addCommentForm/addCommentFormIndex'
 import type { ScrollPositionSavingSchema } from 'src/features/scrollPositionSaving/scrollPositionSavingIndex'
-import type {
-    ArticleDetailsPageSchema,
-} from 'src/pages/ArticleDetailsPage/articleDetailsPageIndex'
-import type { ArticlesPageSchema } from 'src/pages/ArticlesPage/articlesPageIndex'
+import type { ArticleDetailsPageSchema } from 'src/pages/ArticleDetailsPage/ArticleDetailsPageIndex'
+import type { ArticlesPageSchema } from 'src/pages/ArticlesPage/ArticlesPageIndex'
 
 export interface StateSchema {
     user: UserSchema
