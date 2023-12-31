@@ -1,14 +1,14 @@
 import type {
     Profile,
-    ValidateProfileErrorKeyType,
 } from 'src/entities/Profile/profileIndex'
-import { updateProfileData } from 'src/entities/Profile/profileIndex'
+import { updateProfileData } from 'src/features/editableProfileCard/editableProfileCardIndex'
+import type { ValidateProfileErrorKeyType } from 'src/features/editableProfileCard/model/types/editableProfileCardSchema'
 import { MockAsyncThunk } from 'test/helpers/mockAsyncThunk'
 
 const ERROR_MESSAGE = 'error' as const
 
 vi.mock(
-    'src/entities/Profile/model/services/validateProfileData/validateProfileData',
+    'src/features/editableProfileCard/model/services/validateProfileData/validateProfileData',
     () => ({
         validateProfileData: vi.fn((profile: Profile) => {
             if (!profile.age) {
@@ -48,7 +48,7 @@ describe('updateProfileData', () => {
 
         it('makes put request', async () => {
             await import(
-                'src/entities/Profile/model/services/validateProfileData/validateProfileData'
+                'src/features/editableProfileCard/model/services/validateProfileData/validateProfileData'
             )
             await thunk.callThunk(USER_DATA.id)
 

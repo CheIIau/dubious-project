@@ -55,11 +55,11 @@ export const ArticleList: FC<ArticleListProps> = ({
     const isList = view === ARTICLE_VIEW.LIST
     const gridItemsInRow = pageSize
         ? Math.floor(pageSize[0] / (ARTICLE_GRID_ITEM_WIDTH + 32))
-        : 3
-    const itemsPerRow = isList ? 1 : gridItemsInRow
+        : 3 || 1
+    const itemsPerRow = isList ? 1 : gridItemsInRow || 1
     const rowCount = isList
         ? articles.length
-        : Math.ceil(articles.length / itemsPerRow)
+        : Math.ceil(articles.length / itemsPerRow) || 1
     const rowHeight = isList ? 670 : 330
 
     const rowRender = useCallback(
@@ -102,6 +102,20 @@ export const ArticleList: FC<ArticleListProps> = ({
         )
     }
 
+    if (loading) {
+        return (
+            <div
+                className={classNames(classes['article-list'], {}, [
+                    className,
+                    classes[viewClassesMapping[view]],
+                    'gap-7',
+                ])}
+            >
+                {getSkeletons(view)}
+            </div>
+        )
+    }
+
     return (
         <WindowScroller scrollElement={pageElement}>
             {({
@@ -113,7 +127,12 @@ export const ArticleList: FC<ArticleListProps> = ({
                 isScrolling,
             }) => (
                 <div
-                    ref={registerChild as any}
+                    // the line below is to get rid of annoying findDOMNode error
+                    ref={(element): void => {
+                        if (element && registerChild) {
+                            registerChild(element as any)
+                        }
+                    }}
                     className={classNames(classes['article-list'], {}, [
                         className,
                         classes[viewClassesMapping[view]],
@@ -130,7 +149,6 @@ export const ArticleList: FC<ArticleListProps> = ({
                         isScrolling={isScrolling}
                         scrollTop={scrollTop}
                     />
-                    {loading && getSkeletons(view)}
                 </div>
             )}
         </WindowScroller>

@@ -8,6 +8,7 @@ import { createReducerManager } from './reducerManager'
 import type { StateSchema } from './StateSchema'
 import { $api } from 'src/shared/api/api'
 import { scrollPositionSavingReducer } from 'src/features/scrollPositionSaving/scrollPositionSavingIndex'
+import { rtkApi } from 'src/shared/api/rtkApi'
 
 export function createStore(
     initialState?: StateSchema,
@@ -17,6 +18,7 @@ export function createStore(
         user: userReducer,
         loginForm: loginReducer,
         scrollPosition: scrollPositionSavingReducer,
+        [rtkApi.reducerPath]: rtkApi.reducer,
         ...asyncReducers,
     }
 
@@ -34,7 +36,9 @@ export function createStore(
                         api: $api,
                     },
                 },
-            }).concat(logger),
+            })
+                .concat(rtkApi.middleware)
+                .concat(logger),
     })
     ///@ts-expect-error
     store.reducerManager = reducerManager

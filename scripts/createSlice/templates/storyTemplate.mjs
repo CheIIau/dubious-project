@@ -9,11 +9,11 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' },
     },
-} as ComponentMeta<typeof ${componentName}>;
+} as ComponentMeta<typeof ${componentName}>
 
 const Template: ComponentStory<typeof ${componentName}> = (args) => <${componentName} {...args} />
 
 export const Normal = Template.bind({})
 Normal.args = {
    
-};`
+}`

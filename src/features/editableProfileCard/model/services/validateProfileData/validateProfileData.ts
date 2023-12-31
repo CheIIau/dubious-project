@@ -1,5 +1,6 @@
+import type { Profile } from 'src/entities/Profile/profileIndex'
 import { VALIDATE_PROFILE_ERROR_MESSAGES_KEYS } from '../../const/const'
-import type { Profile, ValidateProfileErrorKeyType } from '../../types/profile'
+import type { ValidateProfileErrorKeyType } from '../../types/editableProfileCardSchema'
 
 export const validateProfileData = (profile?: Profile) => {
     if (!profile) {

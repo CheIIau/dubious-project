@@ -1,5 +1,5 @@
 describe("[FTName]", () => {
     it('', () => {
         expect()
-    });
-});
+    })
+})

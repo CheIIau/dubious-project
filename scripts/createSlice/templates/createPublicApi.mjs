@@ -9,7 +9,7 @@ export default async (layer, sliceName) => {
     try {
         await writeFile(
             resolveRoot('src', layer, sliceName, 'index.ts'),
-            `export { ${componentName} } from './ui/${componentName}/${componentName}';
+            `export { ${componentName} } from './ui/${componentName}/${componentName}'
 export { ${firstCharUpperCase(
                 schemaName,
             )} } from './model/types/${schemaName}'`,

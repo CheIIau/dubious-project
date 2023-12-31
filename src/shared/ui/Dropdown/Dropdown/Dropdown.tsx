@@ -36,7 +36,7 @@ export const Dropdown: FC<DropdownProps> = ({
             <Menu.Items
                 className={classNames(classes.menu, {}, optionsClasses)}
             >
-                {items?.map((item) => {
+                {items?.map((item, i) => {
                     const content = ({ active }: { active: boolean }) => (
                         <button
                             type="button"
@@ -66,7 +66,7 @@ export const Dropdown: FC<DropdownProps> = ({
                     }
                     return (
                         <Menu.Item
-                            key={item.href}
+                            key={i}
                             as={Fragment}
                             disabled={item.disabled}
                         >

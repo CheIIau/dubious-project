@@ -9,18 +9,20 @@ import type {
 import type { AxiosInstance } from 'axios'
 import type { ArticleDetailsSchema } from 'src/entities/Article/articleIndex'
 import type { CounterSchema } from 'src/entities/Counter/counderIndex'
-import type { ProfileSchema } from 'src/entities/Profile/profileIndex'
+import type { ProfileSchema } from 'src/features/editableProfileCard/model/types/editableProfileCardSchema'
 import type { UserSchema } from 'src/entities/User/userIndex'
 import type { LoginSchema } from 'src/features/AuthByUsername/authByUsernameIndex'
 import type { AddCommentFormSchema } from 'src/features/addCommentForm/addCommentFormIndex'
 import type { ScrollPositionSavingSchema } from 'src/features/scrollPositionSaving/scrollPositionSavingIndex'
 import type { ArticleDetailsPageSchema } from 'src/pages/ArticleDetailsPage/ArticleDetailsPageIndex'
 import type { ArticlesPageSchema } from 'src/pages/ArticlesPage/ArticlesPageIndex'
+import type { rtkApi } from 'src/shared/api/rtkApi'
 
 export interface StateSchema {
     user: UserSchema
     loginForm: LoginSchema
     scrollPosition: ScrollPositionSavingSchema
+    [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>
 
     // below is async reducers
     profile?: ProfileSchema

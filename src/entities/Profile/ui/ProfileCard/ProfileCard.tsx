@@ -89,14 +89,14 @@ export const ProfileCard = memo<ProfileCardProps>(function ProfileCard(props) {
                 </div>
             )}
             <Input
-                value={data?.firstname}
+                value={data?.firstname ?? ''}
                 placeholder={t('profile:yourFirstname')}
                 onChange={onChangeFirstname}
                 readonly={readonly}
                 className="mb-3"
             />
             <Input
-                value={data?.lastname}
+                value={data?.lastname ?? ''}
                 placeholder={t('profile:yourLastname')}
                 onChange={onChangeLastname}
                 readonly={readonly}
@@ -111,27 +111,27 @@ export const ProfileCard = memo<ProfileCardProps>(function ProfileCard(props) {
                 className="mb-3"
             />
             <Input
-                value={data?.city}
+                value={data?.city ?? ''}
                 placeholder={t('profile:city')}
                 onChange={onChangeCity}
                 readonly={readonly}
                 className="mb-3"
             />
             <Input
-                value={data?.username}
+                value={data?.username ?? ''}
                 placeholder={t('profile:username')}
                 onChange={onChangeUsername}
                 readonly={readonly}
                 className="mb-3"
             />
             <Input
-                value={data?.avatar}
+                value={data?.avatar ?? ''}
                 placeholder={t('profile:avatarLink')}
                 onChange={onChangeAvatar}
                 readonly={readonly}
                 className="mb-3"
             />
-            {/* Let there be diffrent selects */}
+            {/* Let there be different selects */}
             <CurrencySelect
                 readonly={readonly}
                 value={data?.currency}

@@ -1,5 +1,5 @@
 import type { Profile } from 'src/entities/Profile/profileIndex'
-import { fetchProfileData } from 'src/entities/Profile/profileIndex'
+import { fetchProfileData } from 'src/features/editableProfileCard/editableProfileCardIndex'
 import { MockAsyncThunk } from 'test/helpers/mockAsyncThunk'
 
 describe('fetchProfileData', () => {
@@ -54,7 +54,7 @@ describe('fetchProfileData', () => {
 
         it('sets request status to rejected', async () => {
             const result = await thunk.callThunk('1')
-            
+
             expect(result.meta.requestStatus).toBe('rejected')
         })
     })

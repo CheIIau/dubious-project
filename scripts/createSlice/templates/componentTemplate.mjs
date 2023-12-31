@@ -2,22 +2,25 @@ const interfaceConst = 'interface'
 
 export default (
     componentName,
-) => `import { classNames } from 'shared/lib/classNames/classNames'
+) => `import { classNames } from 'src/shared/lib/style/classNames'
 import { useTranslation } from 'react-i18next'
-import cls from './${componentName}.module.scss'
-import { memo } from 'react'
+import classes from './${componentName}.module.scss'
+import {
+    memo,
+    type PropsWithChildren,
+} from 'react'
 
-${interfaceConst} ${componentName}Props {
-    className?: string
+${interfaceConst} ${componentName}Props extends PropsWithChildren {
+    readonly className?: string
 }
 
-export const ${componentName} = memo((props: ${componentName}Props) => {
-    const { className } = props
-    const { t } = useTranslation()
+export const ${componentName} = memo<${componentName}Props>(
+    function ${componentName}({ className }) {
+        const { t } = useTranslation()
     
-    return (
-        <div className={classNames(cls.${componentName}, {}, [className])}>
-           
-        </div>
-    )
+        return (
+            <div className={classNames(classes.${componentName}, {}, [className])}>
+               
+            </div>
+        )
 })`

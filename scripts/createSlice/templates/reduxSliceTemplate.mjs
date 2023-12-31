@@ -30,9 +30,9 @@ export const ${sliceName}Slice = createSlice({
     //         .addCase(, (state, action) => {
     //             state.isLoading = false
     //             state.error = action.payload
-    //         });
+    //         })
     // },
-});
+})
 
 export const { actions: ${sliceName}Actions } = ${sliceName}Slice
 export const { reducer: ${sliceName}Reducer } = ${sliceName}Slice`

@@ -39,7 +39,7 @@ export const CurrencySelect = memo<CurrencySelectProps>(
                 defaultValue={t('chooseCurrency')}
                 className={className}
                 onChange={onChangeHandler}
-                value={value}
+                value={value ?? CURRENCIES.RUB}
                 items={currenciesOptions}
             />
         )

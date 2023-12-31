@@ -1,10 +1,10 @@
 import type { DeepPartial } from '@reduxjs/toolkit'
-import type { ProfileSchema } from 'src/entities/Profile/profileIndex'
+import type { ProfileSchema } from 'src/features/editableProfileCard/editableProfileCardIndex'
 import {
     profileActions,
     profileReducer,
     updateProfileData,
-} from 'src/entities/Profile/profileIndex'
+} from 'src/features/editableProfileCard/editableProfileCardIndex'
 
 describe('profileSlice', () => {
     const USER_DATA = {

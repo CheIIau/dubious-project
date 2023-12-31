@@ -1,5 +1,5 @@
-import type { Meta, StoryObj } from "@storybook/react";
-import { [FTName] } from "./[FTName]";
+import type { Meta, StoryObj } from "@storybook/react"
+import { [FTName] } from "./[FTName]"
 import { ThemeDecorator } from 'src/shared/config/storybook/decorators/ThemeDecorator'
 import { THEME } from 'src/app/providers/ThemeProvider/themeProviderIndex'
 
@@ -16,12 +16,12 @@ const meta = {
     argTypes: {
        
     },
-} satisfies Meta<typeof [FTName]>;
+} satisfies Meta<typeof [FTName]>
 
-export default meta;
-type Story = StoryObj<typeof meta>;
+export default meta
+type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
     args: {},
     decorators: [ThemeDecorator(THEME.light)],
-};
+}

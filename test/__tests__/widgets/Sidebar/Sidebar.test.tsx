@@ -9,10 +9,10 @@ import { renderWrapper } from 'test/helpers/renderWrapper'
 //       __esModule: true,
 //       A: true,
 //       default: () => {
-//         return <div></div>;
+//         return <div></div>
 //       },
-//     };
-//   });
+//     }
+//   })
 
 // you can render div instead
 // vi.mock('src/widgets/ThemeSwitcher/themeSwitcherIndex', () => ({

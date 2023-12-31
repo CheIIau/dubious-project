@@ -7,13 +7,13 @@ import { useAppDispatch, useAppSelector } from 'src/shared/lib/hooks/storeHooks'
 import {
     profileActions,
     updateProfileData,
-} from 'src/entities/Profile/profileIndex'
+} from '../../editableProfileCardIndex'
 
-interface ProfilePageHeaderProps extends PropsWithChildren {
+interface EditableProfileCardHeaderProps extends PropsWithChildren {
     readonly className?: string
 }
 
-export const ProfilePageHeader = memo<ProfilePageHeaderProps>(
+export const EditableProfileCardHeader = memo<EditableProfileCardHeaderProps>(
     function ProfilePageHeader(props) {
         const { className } = props
         const { t } = useTranslation(['translation', 'profile'])

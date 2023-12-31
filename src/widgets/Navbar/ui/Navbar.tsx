@@ -55,7 +55,8 @@ export const Navbar: FC<NavbarProps> = ({ className }) => {
                             items={[
                                 {
                                     content: t('profile:profile'),
-                                    href: RouterPaths.profile + authData.id,
+                                    href:
+                                        RouterPaths.profile + '/' + authData.id,
                                 },
                                 {
                                     content: t('translation:singOut'),
