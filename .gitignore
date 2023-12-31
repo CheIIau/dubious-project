@@ -7,13 +7,14 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-/build
+build
 node_modules
 dist
 extractedTranslations
 storybook-static
 dist-ssr
 *.local
+.reports
 
 # Editor directories and files
 .vscode/*
