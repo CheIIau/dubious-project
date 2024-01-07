@@ -10,6 +10,7 @@ const recommendationsApi = rtkApi.injectEndpoints({
                     _limit: limit,
                 },
             }),
+            providesTags: ['Recommendations'],
         }),
     }),
 })

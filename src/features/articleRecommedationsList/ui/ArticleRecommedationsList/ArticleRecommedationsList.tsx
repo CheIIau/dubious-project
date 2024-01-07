@@ -17,6 +17,7 @@ export const ArticleRecommedationsList = memo<ArticleRecommedationsListProps>(
             error,
             isLoading,
         } = useArticleRecommendationsList(3)
+        
         return (
             <div
                 className={classNames('', {}, [
