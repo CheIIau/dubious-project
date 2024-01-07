@@ -2,7 +2,7 @@ import type { FC, PropsWithChildren } from 'react'
 import { classNames } from 'src/shared/lib/style/classNames'
 import classes from './Spinner.module.scss'
 
-interface SpinnerProps extends PropsWithChildren {
+export interface SpinnerProps extends PropsWithChildren {
     readonly className?: string
     readonly color?: string
     readonly size?: string

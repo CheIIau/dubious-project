@@ -2,12 +2,12 @@ import type { FunctionComponent, PropsWithChildren } from 'react'
 import { Navigate, useLocation } from 'react-router-dom'
 import { useAppSelector } from 'src/shared/lib/hooks/storeHooks'
 import { RouterPaths } from '../routerIndex'
+import { isUserAdmin } from 'src/entities/User/userIndex'
 
 export const PrivateRouteWrapper: FunctionComponent<PropsWithChildren> = ({
     children,
 }) => {
-    const auth =
-        useAppSelector((state) => state.user.authData)
+    const auth = useAppSelector((state) => state.user.authData)
 
     const location = useLocation()
 
@@ -15,6 +15,26 @@ export const PrivateRouteWrapper: FunctionComponent<PropsWithChildren> = ({
         return (
             <Navigate
                 to={RouterPaths.main}
+                state={{ from: location }}
+                replace
+            />
+        )
+    }
+    return children
+}
+
+export const AdminRouteWrapper: FunctionComponent<PropsWithChildren> = ({
+    children,
+}) => {
+    const auth = useAppSelector((state) => state.user.authData)
+
+    const isAdmin = useAppSelector(isUserAdmin)
+    const location = useLocation()
+
+    if (!auth || !isAdmin) {
+        return (
+            <Navigate
+                to={RouterPaths._forbidden}
                 state={{ from: location }}
                 replace
             />

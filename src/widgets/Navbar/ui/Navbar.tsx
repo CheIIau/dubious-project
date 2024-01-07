@@ -5,12 +5,12 @@ import classes from './Navbar.module.scss'
 import { useTranslation } from 'react-i18next'
 import { Button } from 'src/shared/ui/Button/Button'
 import { LoginModal } from 'src/features/AuthByUsername/authByUsernameIndex'
-import { userActions } from 'src/entities/User/userIndex'
+import { isUserAdmin, userActions } from 'src/entities/User/userIndex'
 import { useAppDispatch, useAppSelector } from 'src/shared/lib/hooks/storeHooks'
 import { Text } from 'src/shared/ui/Text/Text'
 import { AppLink } from 'src/shared/ui/AppLink/AppLink'
 import { RouterPaths } from 'src/app/providers/router/routerIndex'
-import { Dropdown } from 'src/shared/ui/Dropdown/Dropdown/Dropdown'
+import { Dropdown } from 'src/shared/ui/Dropdown/Dropdown'
 import { Avatar } from 'src/shared/ui/Avatar/Avatar'
 
 interface NavbarProps extends PropsWithChildren {
@@ -31,6 +31,7 @@ export const Navbar: FC<NavbarProps> = ({ className }) => {
     }, [dispatch])
 
     const authData = useAppSelector((state) => state.user.authData)
+    const isAdmin = useAppSelector(isUserAdmin)
 
     return (
         <header className={classNames(classes.navbar, {}, [className])}>
@@ -53,6 +54,16 @@ export const Navbar: FC<NavbarProps> = ({ className }) => {
                             className="h-8"
                             direction="bottom-left"
                             items={[
+                                ...(isAdmin
+                                    ? [
+                                          {
+                                              content: t(
+                                                  'translation:adminPanel',
+                                              ),
+                                              href: RouterPaths.adminPanelPage,
+                                          },
+                                      ]
+                                    : []),
                                 {
                                     content: t('profile:profile'),
                                     href:

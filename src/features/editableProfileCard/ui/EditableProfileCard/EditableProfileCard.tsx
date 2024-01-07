@@ -136,7 +136,9 @@ export const EditableProfileCard = memo<EditableProfileCardProps>(
                         onChangeCountry={onChangeCountry}
                     />
                     {profile?.validateError?.length && (
-                        <div className="p-1 mt-2">
+                        <div
+                            className="p-1 mt-2"
+                        >
                             {profile.validateError.map((error) => (
                                 <Text
                                     key={error}

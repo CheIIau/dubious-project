@@ -19,5 +19,7 @@
   "asc": "Возрастанию",
   "desc": "Убыванию",
   "nothingFound": "Ничего не найдено",
-  "recommendations": "Рекомендации"
+  "recommendations": "Рекомендации",
+  "adminPanel": "Админ панель",
+  "dontHavePermissions": "У вас недостаточно прав для просмотра этой страницы"
 }

@@ -18,6 +18,7 @@
     z-index: 10000;
     border-radius: 10px;
     border: 1px solid var(--primary-color);
+    overflow: hidden;
 }
 
 .item {
@@ -32,6 +33,8 @@
     &_active {
         background: var(--inverted-primary-color);
     }
+
+    white-space: nowrap;
 }
 
 .bottom-left {

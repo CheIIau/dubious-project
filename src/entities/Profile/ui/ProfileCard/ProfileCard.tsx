@@ -12,7 +12,7 @@ import { CurrencySelect } from 'src/entities/Currency/indexCurrency'
 import type { COUNTRIES, CURRENCIES } from 'src/shared/const/enums'
 import { CountrySelect } from 'src/entities/Country/indexCurrency'
 
-interface ProfileCardProps extends PropsWithChildren {
+export interface ProfileCardProps extends PropsWithChildren {
     readonly className?: string
     readonly data?: Profile | null
     readonly error?: string | null
@@ -94,6 +94,7 @@ export const ProfileCard = memo<ProfileCardProps>(function ProfileCard(props) {
                 onChange={onChangeFirstname}
                 readonly={readonly}
                 className="mb-3"
+                data-testid="firstname"
             />
             <Input
                 value={data?.lastname ?? ''}
@@ -101,6 +102,7 @@ export const ProfileCard = memo<ProfileCardProps>(function ProfileCard(props) {
                 onChange={onChangeLastname}
                 readonly={readonly}
                 className="mb-3"
+                data-testid="lastname"
             />
             <Input
                 value={data?.age ? data.age + '' : ''}

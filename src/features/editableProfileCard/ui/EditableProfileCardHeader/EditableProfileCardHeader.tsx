@@ -25,6 +25,7 @@ export const EditableProfileCardHeader = memo<EditableProfileCardHeaderProps>(
         const canEdit = currentUserId === profileId
 
         const dispatch = useAppDispatch()
+
         const onEdit = useCallback(() => {
             dispatch(profileActions.setReadonly(false))
         }, [dispatch])
@@ -51,6 +52,7 @@ export const EditableProfileCardHeader = memo<EditableProfileCardHeaderProps>(
                                 theme={BUTTON_THEME.outline}
                                 className="ml-auto"
                                 onClick={onEdit}
+                                data-testid="edit-button"
                             >
                                 {t('translation:edit')}
                             </Button>
@@ -60,6 +62,7 @@ export const EditableProfileCardHeader = memo<EditableProfileCardHeaderProps>(
                                     theme={BUTTON_THEME.outline}
                                     className="ml-auto"
                                     onClick={onSave}
+                                    data-testid="save-button"
                                 >
                                     {t('translation:save')}
                                 </Button>
@@ -67,6 +70,7 @@ export const EditableProfileCardHeader = memo<EditableProfileCardHeaderProps>(
                                     theme={BUTTON_THEME['outline-red']}
                                     className="ml-3"
                                     onClick={onCancelEdit}
+                                    data-testid="cancel-button"
                                 >
                                     {t('cancel')}
                                 </Button>

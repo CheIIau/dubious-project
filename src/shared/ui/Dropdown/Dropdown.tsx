@@ -4,7 +4,7 @@ import { classNames } from 'src/shared/lib/style/classNames'
 import classes from './Dropdown.module.scss'
 import { Menu } from '@headlessui/react'
 import type { DropdownDirection } from 'src/shared/types/ui'
-import { AppLink } from '../../AppLink/AppLink'
+import { AppLink } from '../AppLink/AppLink'
 
 export interface DropdownItem {
     disabled?: boolean

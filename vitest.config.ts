@@ -1,6 +1,7 @@
 import { defineConfig } from 'vitest/config'
 import tsconfigPaths from 'vite-tsconfig-paths'
 import svgr from 'vite-plugin-svgr'
+import path from 'node:path'
 
 export default defineConfig({
     test: {
@@ -16,6 +17,12 @@ export default defineConfig({
         outputFile: './.reports/html/index.html',
     },
     plugins: [tsconfigPaths() as Plugin, svgr() as Plugin],
+    resolve: {
+        alias: [
+            { find: '@', replacement: path.resolve(__dirname, 'src') },
+            { find: '~', replacement: path.resolve(__dirname, './') },
+        ],
+    },
     define: {
         __IS_DEV__: true,
     },

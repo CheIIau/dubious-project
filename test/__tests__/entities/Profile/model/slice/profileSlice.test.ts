@@ -40,9 +40,11 @@ describe('profileSlice', () => {
 
         expect(
             profileReducer(state as ProfileSchema, updateProfileData.pending),
-        ).toMatchObject({ loading: true, validateError: null } as ProfileSchema)
+        ).toMatchObject(
+            expect.objectContaining({ loading: true, validateError: null }),
+        )
     })
-
+    
     it('sets form data and loading to false on update profile fulfilled', () => {
         const state: DeepPartial<ProfileSchema> = {
             loading: true,
@@ -55,10 +57,12 @@ describe('profileSlice', () => {
                 state as ProfileSchema,
                 updateProfileData.fulfilled(USER_DATA, '', USER_DATA.id),
             ),
-        ).toMatchObject({
-            loading: false,
-            form: USER_DATA,
-            data: USER_DATA,
-        } as ProfileSchema)
+        ).toMatchObject(
+            expect.objectContaining({
+                loading: false,
+                form: USER_DATA,
+                data: USER_DATA,
+            }),
+        )
     })
 })
