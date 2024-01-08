@@ -5,6 +5,7 @@ import CopyPlugin from 'copy-webpack-plugin'
 import HTMLWebpackPlugin from 'html-webpack-plugin'
 import type { BuildOptions } from './types/config'
 import CircilarDependencyPlugin from 'circular-dependency-plugin'
+import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin'
 
 //curent count of circular dependencies because of router.tsx and App.tsx file. is completely safe
 const MAX_CYCLES = 8
@@ -33,6 +34,15 @@ export function buildPlugins({
         }),
         new CopyPlugin({
             patterns: [{ from: paths.locales, to: paths.buildLocales }],
+        }),
+        new ForkTsCheckerWebpackPlugin({
+            typescript: {
+                diagnosticOptions: {
+                    semantic: true,
+                    syntactic: true,
+                },
+                mode: 'write-references',
+            },
         }),
     ]
     if (isDev) {

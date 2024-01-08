@@ -36,7 +36,8 @@
         "test/**/*.tsx",
         "**/*.ts",
         "**/*.tsx",
-        "**/*.d.ts"
+        "**/*.d.ts",
+        "config/babel/babelRemoveAttrsPlugin.cts"
     ],
     "exclude": ["node_modules"]
 }
