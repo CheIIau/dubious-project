@@ -1,9 +1,9 @@
 import type { FC, PropsWithChildren } from 'react'
 import { classNames } from 'src/shared/lib/style/classNames'
-import { ARTICLE_VIEW } from '../../articleIndex'
 import ListIcon from 'src/shared/assets/icons/list.svg?react'
 import GridIcon from 'src/shared/assets/icons/grid.svg?react'
 import { BUTTON_THEME, Button } from 'src/shared/ui/Button/Button'
+import { ARTICLE_VIEW } from '../../model/types/article'
 
 interface ArticleViewSelectorProps extends PropsWithChildren {
     readonly className?: string
@@ -38,7 +38,11 @@ export const ArticleViewSelector: FC<ArticleViewSelectorProps> = ({
                     theme={BUTTON_THEME.clear}
                     onClick={onChangeViewClick(viewType.view)}
                     key={viewType.view}
-                    className={view===viewType.view ? 'icon-primary': 'icon-inverted'}
+                    className={
+                        view === viewType.view
+                            ? 'icon-primary'
+                            : 'icon-inverted'
+                    }
                 >
                     {viewType.icon}
                 </Button>

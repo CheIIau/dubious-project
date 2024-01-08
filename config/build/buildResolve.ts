@@ -2,13 +2,14 @@ import type webpack from 'webpack'
 import type { BuildOptions } from './types/config'
 
 export function buildResolvers({
-    paths
+    paths,
 }: BuildOptions): webpack.ResolveOptions {
     return {
         alias: {
             src: paths.src,
-            '@': paths.src
+            '@': paths.src,
+            '~': paths['~'],
         },
-        extensions: ['.ts', '.tsx', '.js', '.json']
+        extensions: ['.ts', '.tsx', '.js', '.json'],
     }
 }

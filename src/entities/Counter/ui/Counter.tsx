@@ -1,8 +1,8 @@
 import type { FC, PropsWithChildren } from 'react'
 import { Button } from 'src/shared/ui/Button/Button'
 import { counterActions } from '../model/slice/counterSlice'
-import { getCounterValue } from '../counderIndex'
 import { useAppDispatch, useAppSelector } from 'src/shared/lib/hooks/storeHooks'
+import { getCounterValue } from '../model/selectors/counterSelector'
 
 interface CounterProps extends PropsWithChildren {}
 

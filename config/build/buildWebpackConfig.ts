@@ -6,7 +6,7 @@ import { buildLoaders } from './buildLoaders'
 import { buildDevServer } from './buildDevServer'
 
 export function buildWebpackConfig(
-    options: BuildOptions
+    options: BuildOptions,
 ): webpack.Configuration {
     const { paths, mode, isDev } = options
     return {
@@ -16,14 +16,14 @@ export function buildWebpackConfig(
             path: paths.build,
             filename: '[name].[contenthash].js',
             clean: true,
-            publicPath: '/'
+            publicPath: '/',
         },
         plugins: buildPlugins(options),
         resolve: buildResolvers(options),
         module: {
-            rules: buildLoaders(options)
+            rules: buildLoaders(options),
         },
         devtool: isDev ? 'inline-source-map' : undefined,
-        devServer: isDev ? buildDevServer(options) : undefined
+        devServer: isDev ? buildDevServer(options) : undefined,
     }
 }
