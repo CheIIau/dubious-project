@@ -4,6 +4,7 @@ import type { Mods } from 'src/shared/lib/style/classNames'
 import { classNames } from 'src/shared/lib/style/classNames'
 import classes from './Modal.module.scss'
 import { Portal } from '../Portal/Portal'
+import { Overlay } from '../Overlay/Overlay'
 
 interface ModalProps extends PropsWithChildren {
     readonly isOpen: boolean
@@ -36,10 +37,6 @@ export const Modal: FC<ModalProps> = (props) => {
         }
     }, [onClose, setIsClosing])
 
-    const onContentClick = (event: React.MouseEvent) => {
-        event.stopPropagation()
-    }
-
     const mods: Mods = {
         [classes.opened]: isOpen,
         [classes['is-closing']]: isClosing,
@@ -70,17 +67,8 @@ export const Modal: FC<ModalProps> = (props) => {
     return (
         <Portal>
             <div className={classNames(classes.modal, mods, [className])}>
-                <div
-                    className={classes.overlay}
-                    onClick={closeHandler}
-                >
-                    <div
-                        className={classes.content}
-                        onClick={onContentClick}
-                    >
-                        {children}
-                    </div>
-                </div>
+                <Overlay onClick={closeHandler} />
+                <div className={classes.content}>{children}</div>
             </div>
         </Portal>
     )

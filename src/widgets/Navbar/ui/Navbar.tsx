@@ -1,4 +1,4 @@
-import { classNames } from '../../../shared/lib/style/classNames'
+import { classNames } from 'src/shared/lib/style/classNames'
 import type { FC, PropsWithChildren } from 'react'
 import { useCallback, useState } from 'react'
 import classes from './Navbar.module.scss'
@@ -11,6 +11,7 @@ import { AppLink } from 'src/shared/ui/AppLink/AppLink'
 import { RouterPaths } from 'src/app/providers/router/routerIndex'
 import { NotificationButton } from 'src/features/notificationButton/notificationButtonIndex'
 import { AvatarDropdown } from 'src/features/avatarDropdown/avatarDropdownIndex'
+
 interface NavbarProps extends PropsWithChildren {
     readonly className?: string
 }
