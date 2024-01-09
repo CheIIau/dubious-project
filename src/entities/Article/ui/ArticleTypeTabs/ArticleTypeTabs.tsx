@@ -1,8 +1,8 @@
 import { useMemo, type FC, type PropsWithChildren, useCallback } from 'react'
 import { classNames } from 'src/shared/lib/style/classNames'
-import { ARTICLE_TYPE } from 'src/entities/Article/articleIndex'
 import { Tabs, type TabItem } from 'src/shared/ui/Tabs/Tabs'
 import { useTranslation } from 'react-i18next'
+import { ARTICLE_TYPE } from '../../model/types/article'
 
 interface ArticleTypeTabsProps extends PropsWithChildren {
     readonly className?: string

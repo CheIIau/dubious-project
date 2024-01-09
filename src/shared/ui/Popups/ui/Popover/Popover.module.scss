@@ -1,0 +1,9 @@
+.panel {
+    background: var(--card-bg);
+    position: absolute;
+    z-index: 10000;
+    border-radius: 10px;
+    border: 1px solid var(--primary-color);
+    overflow: hidden;
+    padding: 12px;
+}

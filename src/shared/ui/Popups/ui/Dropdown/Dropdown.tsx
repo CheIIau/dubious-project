@@ -2,9 +2,10 @@ import type { ReactNode } from 'react'
 import { Fragment, type FC, type PropsWithChildren } from 'react'
 import { classNames } from 'src/shared/lib/style/classNames'
 import classes from './Dropdown.module.scss'
+import popupClasses from '../../styles/popup.module.scss'
 import { Menu } from '@headlessui/react'
 import type { DropdownDirection } from 'src/shared/types/ui'
-import { AppLink } from '../AppLink/AppLink'
+import { AppLink } from '../../../AppLink/AppLink'
 
 export interface DropdownItem {
     disabled?: boolean
@@ -26,13 +27,13 @@ export const Dropdown: FC<DropdownProps> = ({
     items,
     direction = 'bottom',
 }) => {
-    const optionsClasses = [classes[direction]]
+    const optionsClasses = [popupClasses[direction]]
     return (
         <Menu
             as={'div'}
-            className={classNames(classes.dropdown, {}, [className])}
+            className={classNames(popupClasses.popup, {}, [className])}
         >
-            <Menu.Button className={classes.button}>{trigger}</Menu.Button>
+            <Menu.Button className={popupClasses.trigger}>{trigger}</Menu.Button>
             <Menu.Items
                 className={classNames(classes.menu, {}, optionsClasses)}
             >

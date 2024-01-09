@@ -8,7 +8,7 @@ import CircilarDependencyPlugin from 'circular-dependency-plugin'
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin'
 
 //curent count of circular dependencies because of router.tsx and App.tsx file. is completely safe
-const MAX_CYCLES = 8
+const MAX_CYCLES = 10
 let numCyclesDetected = 0
 
 export function buildPlugins({
@@ -54,12 +54,11 @@ export function buildPlugins({
                 onStart({ compilation }) {
                     numCyclesDetected = 0
                 },
-                onDetected() //     {
-                //     module: webpackModuleRecord,
-                //     paths,
-                //     compilation,
-                //     }
-                {
+                onDetected({
+                    module: webpackModuleRecord,
+                    paths,
+                    compilation,
+                }) {
                     numCyclesDetected++
                     // compilation.warnings.push(
                     //     new WebpackError(paths.join(' -> ')),

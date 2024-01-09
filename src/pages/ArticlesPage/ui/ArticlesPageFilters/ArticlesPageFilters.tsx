@@ -22,7 +22,7 @@ import type { SortOrder } from 'src/shared/types/common'
 import { fetchArticlesList } from '../../model/services/fetchArticlesList'
 import { useDebounce } from 'src/shared/lib/hooks/useDebounce'
 import type { ARTICLE_TYPE } from 'src/entities/Article/articleIndex'
-import { ArticleTypeTabs } from 'src/features/ArticleTypeTabs/ArticleTypeTabs'
+import { ArticleTypeTabs } from 'src/entities/Article/ui/ArticleTypeTabs/ArticleTypeTabs'
 
 interface ArticlesPageFiltersProps extends PropsWithChildren {
     readonly className?: string
@@ -112,7 +112,7 @@ export const ArticlesPageFilters: FC<ArticlesPageFiltersProps> = ({
             </Card>
             <ArticleTypeTabs
                 value={type}
-                className='mt-3 gap-3'
+                className="mt-3 gap-3"
                 onChangeType={onChangeType}
             />
         </div>

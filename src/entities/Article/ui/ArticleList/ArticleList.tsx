@@ -1,9 +1,8 @@
+import type { ReactNode } from 'react'
 import {
-    useEffect,
     type FC,
     type HTMLAttributeAnchorTarget,
     type PropsWithChildren,
-    useMemo,
     useCallback,
 } from 'react'
 import { classNames } from 'src/shared/lib/style/classNames'
@@ -18,7 +17,7 @@ import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkele
 import { useTranslation } from 'react-i18next'
 import { Text } from 'src/shared/ui/Text/Text'
 import type { ListRowProps } from 'react-virtualized'
-import { AutoSizer, List, WindowScroller } from 'react-virtualized'
+import { List, WindowScroller } from 'react-virtualized'
 import { PAGE_ID } from 'src/widgets/Page/Page'
 import { useElementSize } from 'src/shared/lib/hooks/useElementSize'
 
@@ -130,7 +129,7 @@ export const ArticleList: FC<ArticleListProps> = ({
                     // the line below is to get rid of annoying findDOMNode error
                     ref={(element): void => {
                         if (element && registerChild) {
-                            registerChild(element as any)
+                            registerChild(element as unknown as ReactNode)
                         }
                     }}
                     className={classNames(classes['article-list'], {}, [

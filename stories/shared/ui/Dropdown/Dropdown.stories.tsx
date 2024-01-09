@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { Dropdown } from 'src/shared/ui/Dropdown/Dropdown'
+import { Dropdown } from 'src/shared/ui/Popups/ui/Dropdown/Dropdown'
 import { ThemeDecorator } from 'src/shared/config/storybook/decorators/ThemeDecorator'
 import { THEME } from 'src/app/providers/ThemeProvider/themeProviderIndex'
 import { Button } from 'src/shared/ui/Button/Button'

@@ -1,8 +1,7 @@
 import { useCallback, type PropsWithChildren, memo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { CURRENCIES } from 'src/shared/const/enums'
-import { ListBox } from 'src/shared/ui/ListBox/ListBox/ListBox'
-import { Select } from 'src/shared/ui/Select/Select'
+import { ListBox } from 'src/shared/ui/Popups/popupsIndex'
 
 interface CurrencySelectProps extends PropsWithChildren {
     readonly className?: string

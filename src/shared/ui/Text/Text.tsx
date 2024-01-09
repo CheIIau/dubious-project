@@ -1,4 +1,4 @@
-import { memo, type FC, type PropsWithChildren } from 'react'
+import { memo, type PropsWithChildren } from 'react'
 import { classNames } from 'src/shared/lib/style/classNames'
 import classes from './Text.module.scss'
 

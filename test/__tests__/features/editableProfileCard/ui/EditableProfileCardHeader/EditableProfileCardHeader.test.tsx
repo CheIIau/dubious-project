@@ -117,7 +117,7 @@ describe('EditableProfileCardHeader', () => {
     })
 
     it('calls setReadonly action on edit button click', async () => {
-        const renderResult = render(
+        render(
             renderWrapper(<EditableProfileCardHeader />, {
                 initialState: {
                     profile: {
@@ -142,7 +142,7 @@ describe('EditableProfileCardHeader', () => {
     })
 
     it('calls cancelEdit action on cancel button click', async () => {
-        const renderResult = render(
+        render(
             renderWrapper(<EditableProfileCardHeader />, {
                 initialState: {
                     profile: {
@@ -167,7 +167,7 @@ describe('EditableProfileCardHeader', () => {
     })
 
     it('calls saveButton action on save button click', async () => {
-        const renderResult = render(
+        render(
             renderWrapper(<EditableProfileCardHeader />, {
                 initialState: {
                     profile: {
@@ -192,7 +192,7 @@ describe('EditableProfileCardHeader', () => {
     })
 
     it('does not show buttons if user id differs from profile id', async () => {
-        const renderResult = render(
+        render(
             renderWrapper(<EditableProfileCardHeader />, {
                 initialState: {
                     profile: {

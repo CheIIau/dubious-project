@@ -4,7 +4,7 @@ import { USER_LOCALSTORAGE_KEY } from '../const/localstorage'
 
 // Define a service using a base URL and expected endpoints
 export const rtkApi = createApi({
-    tagTypes: ['Recommendations'],
+    tagTypes: ['Recommendations', 'Notifications'],
     reducerPath: 'api',
     baseQuery: fetchBaseQuery({
         baseUrl: baseUrl,

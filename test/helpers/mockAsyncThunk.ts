@@ -31,7 +31,7 @@ export class MockAsyncThunk<Return, Arg, RejectedValue> {
     }
 
     async callThunk(arg: Arg) {
-        const action = this.actionCreator(arg as any)
+        const action = this.actionCreator(arg)
         const result = await action(this.dispatch, this.getState, {
             api: this.api,
         })

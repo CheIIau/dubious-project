@@ -5,6 +5,7 @@ import classes from './ListBox.module.scss'
 import { Listbox as HListBox } from '@headlessui/react'
 import { Button } from 'src/shared/ui/Button/Button'
 import type { DropdownDirection } from 'src/shared/types/ui'
+import popupClasses from '../../styles/popup.module.scss'
 
 interface ListBoxProps extends PropsWithChildren {
     readonly className?: string
@@ -33,7 +34,7 @@ export const ListBox: FC<ListBoxProps> = ({
     label,
     direction = 'bottom',
 }) => {
-    const optionsClasses = [classes[direction]]
+    const optionsClasses = [popupClasses[direction]]
 
     return (
         <div>
@@ -51,7 +52,7 @@ export const ListBox: FC<ListBoxProps> = ({
                 disabled={readonly}
                 as={'div'}
                 className={classNames(
-                    classes['list-box'],
+                    popupClasses.popup,
                     {
                         [classes.readonly]: readonly,
                     },

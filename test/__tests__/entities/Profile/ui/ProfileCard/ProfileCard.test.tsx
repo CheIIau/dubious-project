@@ -2,7 +2,6 @@ import { fireEvent, render, screen } from '@testing-library/react'
 import { renderWrapper } from 'test/helpers/renderWrapper'
 import type { Profile } from 'src/entities/Profile/profileIndex'
 import { ProfileCard } from 'src/entities/Profile/profileIndex'
-import { $api } from 'src/shared/api/api'
 
 const SPINNER = 'Spinner'
 
@@ -92,7 +91,7 @@ describe('ProfileCard', () => {
     })
 
     it('sets readonly on every input if component has readonly prop', () => {
-        const renderResult = render(
+        render(
             renderWrapper(
                 <ProfileCard
                     {...profileCardCallbacks}
@@ -102,13 +101,13 @@ describe('ProfileCard', () => {
         )
         const inputs = screen.getAllByRole('textbox') as HTMLInputElement[]
 
-        inputs.forEach((input, i) => {
+        inputs.forEach((input) => {
             expect(input.readOnly).toBe(true)
         })
     })
 
     it('sets readonly on every input if component has readonly prop', () => {
-        const renderResult = render(
+        render(
             renderWrapper(
                 <ProfileCard
                     {...profileCardCallbacks}
@@ -118,13 +117,13 @@ describe('ProfileCard', () => {
         )
         const inputs = screen.getAllByRole('textbox') as HTMLInputElement[]
 
-        inputs.forEach((input, i) => {
+        inputs.forEach((input) => {
             expect(input.readOnly).toBe(true)
         })
     })
 
     it('sets firstname value to input from props', () => {
-        const renderResult = render(
+        render(
             renderWrapper(
                 <ProfileCard
                     {...profileCardCallbacks}
@@ -140,7 +139,7 @@ describe('ProfileCard', () => {
     })
 
     it('invokes callback on change firstname input value', () => {
-        const renderResult = render(
+        render(
             renderWrapper(
                 <ProfileCard
                     {...profileCardCallbacks}
@@ -154,7 +153,7 @@ describe('ProfileCard', () => {
         expect(profileCardCallbacks.onChangeFirstname).not.toBeCalled()
 
         fireEvent.change(firstnameInput, { target: { value: 'Johnny' } })
-        
+
         expect(profileCardCallbacks.onChangeFirstname).toBeCalledTimes(1)
     })
 })

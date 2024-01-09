@@ -1,4 +1,4 @@
-import { fireEvent, render, screen } from '@testing-library/react'
+import { render } from '@testing-library/react'
 import type { ProfileCardProps } from 'src/entities/Profile/ui/ProfileCard/ProfileCard'
 import { type Profile } from 'src/entities/Profile/profileIndex'
 import { profileReducer } from 'src/features/editableProfileCard/model/slice/profileSlice'
@@ -55,7 +55,7 @@ describe('EditableProfileCard', () => {
     })
 
     it('calls fetchProfileData dispatch', () => {
-        const renderResult = render(
+        render(
             renderWrapper(<EditableProfileCard id="1" />, {
                 initialState: {
                     profile: {
@@ -74,7 +74,7 @@ describe('EditableProfileCard', () => {
     })
 
     it('passes correct props to ProfileCard component', () => {
-        const renderResult = render(
+       render(
             renderWrapper(<EditableProfileCard id="1" />, {
                 initialState: {
                     profile: {
@@ -133,6 +133,3 @@ describe('EditableProfileCard', () => {
         expect(renderResult.container.innerHTML).toContain(INCORRECT_AGE_TEXT)
     })
 })
-// const asd = screen.getByTestId('firstname') as HTMLInputElement
-// fireEvent.change(asd, {target: {value: ''}})
-// console.log(asd.value)
