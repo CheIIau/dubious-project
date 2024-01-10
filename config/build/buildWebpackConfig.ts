@@ -25,5 +25,10 @@ export function buildWebpackConfig(
         },
         devtool: isDev ? 'inline-source-map' : undefined,
         devServer: isDev ? buildDevServer(options) : undefined,
+        optimization: {
+            splitChunks: {
+                chunks: 'all',
+            },
+        },
     }
 }

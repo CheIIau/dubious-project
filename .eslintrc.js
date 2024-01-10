@@ -56,12 +56,18 @@ module.exports = {
         '@typescript-eslint/ban-ts-comment': 'off',
         'react-hooks/rules-of-hooks': 'error',
         'react-hooks/exhaustive-deps': 'warn',
-        '@typescript-eslint/consistent-type-imports': 'error',
+        'react/jsx-no-constructed-context-values': 'error',
         '@typescript-eslint/no-non-null-assertion': 'warn',
         'react/prefer-read-only-props': 'error',
         '@typescript-eslint/no-explicit-any': 'warn',
         'react/prop-types': 'off',
         indent: 'off',
         'dubious-plugin/path-checker': 'error',
+        '@typescript-eslint/consistent-type-imports': [
+            'error',
+            {
+                disallowTypeAnnotations: false,
+            },
+        ],
     },
 }

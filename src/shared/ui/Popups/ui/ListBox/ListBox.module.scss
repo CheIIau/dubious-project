@@ -9,7 +9,7 @@
 .options {
     background: var(--card-bg);
     position: absolute;
-    z-index: 10000;
+    z-index: var(--modal-z-index);
     border-radius: 10px;
     box-shadow: 0 2px 10px 0 var(--skeleton-shadow);
     width: 100%;

@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/consistent-type-imports */
-
 module.exports = function (): import('@babel/core').PluginItem {
     return {
         visitor: {

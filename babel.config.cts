@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/consistent-type-imports */
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const babelRemoveAttrsPlugin = require('./config/babel/babelRemoveAttrsPlugin.cts')
 
