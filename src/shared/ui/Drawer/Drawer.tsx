@@ -12,7 +12,10 @@ import { Portal } from '../Portal/Portal'
 import { Overlay } from '../Overlay/Overlay'
 import { useModal } from 'src/shared/lib/hooks/useModal'
 import type { AnimationContextPayload } from 'src/shared/lib/components/AnimationProvider'
-import { useAnimationLibs } from 'src/shared/lib/components/AnimationProvider'
+import {
+    AnimationProvider,
+    useAnimationLibs,
+} from 'src/shared/lib/components/AnimationProvider'
 
 interface DrawerProps extends PropsWithChildren {
     readonly className?: string
@@ -123,7 +126,7 @@ export const DrawerContent: FC<DrawerProps> = ({
     )
 }
 
-export const Drawer = memo<DrawerProps>(function Drawer(props) {
+const DrawerAsync = memo<DrawerProps>(function Drawer(props) {
     const { isLoaded } = useAnimationLibs()
 
     if (!isLoaded) {
@@ -132,3 +135,11 @@ export const Drawer = memo<DrawerProps>(function Drawer(props) {
 
     return <DrawerContent {...props} />
 })
+
+export const Drawer: FC<DrawerProps> = (props) => {
+    return (
+        <AnimationProvider>
+            <DrawerAsync {...props} />
+        </AnimationProvider>
+    )
+}

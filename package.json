@@ -125,11 +125,6 @@
         "react-virtualized": "^9.22.5",
         "react-virtuoso": "^4.6.2"
     },
-    "browserslist": [
-        "last 1 version",
-        "> 1%",
-        "not dead"
-    ],
     "sideEffects": [
         "*.scss",
         "./src/shared/config/i18n/i18n.ts"

@@ -7,7 +7,6 @@ import { NotificationList } from 'src/entities/Notification/notificationIndex'
 import NotificationIcon from 'src/shared/assets/icons/notifications.svg?react'
 import { Drawer } from 'src/shared/ui/Drawer/Drawer'
 import { BrowserView, MobileView } from 'react-device-detect'
-import { AnimationProvider } from 'src/shared/lib/components/AnimationProvider'
 
 interface NotificationButtonProps extends PropsWithChildren {
     readonly className?: string
@@ -38,15 +37,12 @@ export const NotificationButton: FC<NotificationButtonProps> = ({
         <div>
             <MobileView>
                 {trigger}
-
-                <AnimationProvider>
-                    <Drawer
-                        isOpen={isOpen}
-                        onClose={onCloseDrawer}
-                    >
-                        <NotificationList />
-                    </Drawer>
-                </AnimationProvider>
+                <Drawer
+                    isOpen={isOpen}
+                    onClose={onCloseDrawer}
+                >
+                    <NotificationList />
+                </Drawer>
             </MobileView>
 
             <BrowserView>

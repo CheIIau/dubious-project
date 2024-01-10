@@ -2,16 +2,34 @@ import { Project } from 'ts-morph'
 
 const project = new Project({})
 
-project.addSourceFileAtPath('src/**/*.ts')
-project.addSourceFileAtPath('src/**/*.tsx')
+project.addSourceFilesAtPaths('src/**/*.ts')
+project.addSourceFilesAtPaths('src/**/*.tsx')
 
 const files = project.getSourceFiles()
+const folderNames = [
+    'app',
+    'shared',
+    'entities',
+    'widgets',
+    'features',
+    'pages',
+] as const
+
+function isAbsolute(value: string) {
+    return folderNames.some((folderName) => value.startsWith(folderName))
+}
 
 files.forEach((sourceFile) => {
     const importDeclarations = sourceFile.getImportDeclarations()
     importDeclarations.forEach((importDeclaration) => {
         const value = importDeclaration.getModuleSpecifierValue()
+
+        if (isAbsolute(value)) {
+            console.log(value)
+            importDeclaration.setModuleSpecifier('src/' + value)
+        }
     })
 })
 
 project.save()
+//npx ts-node scripts/updateImports/updateImports.ts
