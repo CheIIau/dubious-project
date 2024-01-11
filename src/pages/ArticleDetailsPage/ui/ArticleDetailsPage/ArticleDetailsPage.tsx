@@ -10,6 +10,7 @@ import { articleDetailsPageRecuder } from '../../model/slices/articleDetailsSlic
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader'
 import { ArticleRecommedationsList } from 'src/features/articleRecommedationsList/articleRecommendationListIndex'
 import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetailsComments'
+import { ArticleRating } from 'src/features/articleRating/articleRatingIndex'
 
 interface ArticleDetailsPageProps extends PropsWithChildren {
     readonly className?: string
@@ -36,6 +37,10 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = ({ className }) => {
             <Page className={classNames('', {}, [className])}>
                 <ArticleDetailsPageHeader />
                 <ArticleDetails id={id} />
+                <ArticleRating
+                    articleId={id}
+                    className="mt-5"
+                />
                 <ArticleRecommedationsList />
                 <ArticleDetailsComments id={id} />
             </Page>

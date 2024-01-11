@@ -21,5 +21,6 @@
   "nothingFound": "Nothing found",
   "recommendations": "Recommendations",
   "adminPanel": "Admin panel",
-  "dontHavePermissions": "You do not have the necessary permissions to see this page"
+  "dontHavePermissions": "You do not have the necessary permissions to see this page",
+  "yourFeedback": "Your feedback"
 }

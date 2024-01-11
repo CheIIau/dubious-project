@@ -15,5 +15,8 @@
   "economics": "Economics",
   "science": "Science",
   "editArticle": "Edit article",
-  "createArticle": "Create new article"
+  "createArticle": "Create new article",
+  "rateAnArticle": "Rate an article",
+  "leaveYourFeedback": "Leave your feedback",
+  "thanksForFeedback": "Thanks for your feedback"
 }

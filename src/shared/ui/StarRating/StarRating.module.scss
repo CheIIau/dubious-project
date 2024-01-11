@@ -1,0 +1,24 @@
+.star-rating {
+    display: flex;
+}
+
+.star {
+    cursor: pointer;
+    fill: none;
+
+    &_active {
+        color: var(--primary-color)
+    }
+
+    &_inactive {
+        color: var(--inverted-bg-color)
+    }
+
+    &_selected {
+        fill: var(--primary-color)
+    }
+
+    &_disabled {
+        cursor: auto;
+    }
+}

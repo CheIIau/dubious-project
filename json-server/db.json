@@ -448,5 +448,49 @@
       "username": "admin",
       "avatar": "https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg"
     }
+  ],
+  "article-ratings": [
+    {
+      "id": "1",
+      "articleId": "1",
+      "rate": 4,
+      "feedback": "Not bad",
+      "userId": "1"
+    },
+    {
+      "id": "2",
+      "articleId": "2",
+      "rate": 1,
+      "feedback": "Not good",
+      "userId": "2"
+    },
+    {
+      "id": "3",
+      "articleId": "3",
+      "rate": 5,
+      "feedback": "Mediocre aritcle",
+      "userId": "1"
+    },
+    {
+      "id": "4",
+      "articleId": "4",
+      "rate": 3,
+      "feedback": "So-so",
+      "userId": "2"
+    },
+    {
+      "userId": "1",
+      "articleId": "5",
+      "rate": 3,
+      "feedback": "asd",
+      "id": "kKcHHJU"
+    },
+    {
+      "userId": "1",
+      "articleId": "8",
+      "rate": 3,
+      "feedback": "",
+      "id": "8124TIA"
+    }
   ]
 }

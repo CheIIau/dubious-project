@@ -3,11 +3,8 @@ import { Page } from 'src/widgets/Page/Page'
 
 const MainPage = () => {
     const { t } = useTranslation('main')
-    return (
-        <Page>
-            {t('mainPage')}
-        </Page>
-    )
+
+    return <Page>{t('mainPage')}</Page>
 }
 
 export default MainPage
