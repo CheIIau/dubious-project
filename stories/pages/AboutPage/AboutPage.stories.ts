@@ -4,7 +4,9 @@ import { counterReducer } from 'src/entities/Counter/counderIndex'
 import AboutPage from 'src/pages/AboutPage/AboutPage'
 import { StoreDecorator } from 'src/shared/config/storybook/decorators/StoreDecorator'
 import { ThemeDecorator } from 'src/shared/config/storybook/decorators/ThemeDecorator'
-
+import {
+    withRouter,
+} from 'storybook-addon-react-router-v6'
 const meta = {
     title: 'pages/AboutPage',
     component: AboutPage,
@@ -22,6 +24,7 @@ const meta = {
     },
     decorators: [
         StoreDecorator({ counter: { value: 0 } }, { counter: counterReducer }),
+        withRouter,
     ],
 } satisfies Meta<typeof AboutPage>
 

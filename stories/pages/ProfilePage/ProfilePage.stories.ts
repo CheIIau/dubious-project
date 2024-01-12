@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 import ProfilePage from 'src/pages/ProfilePage/ProfilePage'
 import { DEV_API_URL } from 'src/shared/api/api'
 import { StoreDecorator } from 'src/shared/config/storybook/decorators/StoreDecorator'
+import { withRouter } from 'storybook-addon-react-router-v6'
 
 const meta = {
     title: 'pages/ProfilePage',
@@ -35,6 +36,7 @@ const meta = {
             description: 'Given classes',
         },
     },
+    decorators: [withRouter],
 } satisfies Meta<typeof ProfilePage>
 
 export default meta

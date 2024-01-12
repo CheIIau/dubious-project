@@ -1,7 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { THEME } from 'src/app/providers/ThemeProvider/themeProviderIndex'
 import ErrorPage from 'src/pages/ErrorPage/ErrorPage'
+import { StoreDecorator } from 'src/shared/config/storybook/decorators/StoreDecorator'
 import { ThemeDecorator } from 'src/shared/config/storybook/decorators/ThemeDecorator'
+import { withRouter } from 'storybook-addon-react-router-v6'
 
 const meta = {
     title: 'pages/ErrorPage',
@@ -18,6 +20,7 @@ const meta = {
             description: 'Given classes',
         },
     },
+    decorators: [withRouter, StoreDecorator({})],
 } satisfies Meta<typeof ErrorPage>
 
 export default meta

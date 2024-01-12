@@ -84,9 +84,14 @@ const meta = {
                 url: `${DEV_API_URL}/comments?articleId=:id&_expand=user`,
                 method: 'GET',
                 status: 200,
-                response: []
+                response: [],
             },
-            
+            {
+                url: `${DEV_API_URL}/article-ratings?articleId=:id`,
+                method: 'GET',
+                status: 200,
+                response: [],
+            },
         ],
     },
     tags: ['autodocs'],
@@ -106,7 +111,7 @@ type Story = StoryObj<typeof meta>
 
 export const Primary: Story = {
     render: ({ ...args }) => (
-        <div style={{maxWidth: '700px', maxHeight: '100vh'}}>
+        <div style={{ maxWidth: '700px', maxHeight: '100vh' }}>
             <ArticleDetailsPage {...args} />
         </div>
     ),
