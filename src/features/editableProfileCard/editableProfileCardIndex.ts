@@ -1,3 +1,4 @@
+export { EditableProfileCardHeader } from './ui/EditableProfileCardHeader/EditableProfileCardHeader'
 export { fetchProfileData } from './model/services/fetchProfileData/fetchProfileData'
 export { updateProfileData } from './model/services/updateProfileData/updateProfileData'
 export { profileReducer, profileActions } from './model/slice/profileSlice'

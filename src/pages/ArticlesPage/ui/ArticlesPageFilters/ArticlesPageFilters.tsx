@@ -22,7 +22,7 @@ import type { SortOrder } from 'src/shared/types/common'
 import { fetchArticlesList } from '../../model/services/fetchArticlesList'
 import { useDebounce } from 'src/shared/lib/hooks/useDebounce'
 import type { ARTICLE_TYPE } from 'src/entities/Article/articleIndex'
-import { ArticleTypeTabs } from 'src/entities/Article/ui/ArticleTypeTabs/ArticleTypeTabs'
+import { ArticleTypeTabs } from 'src/entities/Article/articleIndex'
 
 interface ArticlesPageFiltersProps extends PropsWithChildren {
     readonly className?: string

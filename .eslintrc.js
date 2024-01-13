@@ -62,7 +62,11 @@ module.exports = {
         '@typescript-eslint/no-explicit-any': 'warn',
         'react/prop-types': 'off',
         indent: 'off',
-        'dubious-plugin/path-checker': 'error',
+        'dubious-plugin/path-checker': ['error', { alias: 'src' }],
+        'dubious-plugin/public-imports': [
+            'error',
+            { alias: 'src', ignoreFiles: ['test', 'stories'] },
+        ],
         '@typescript-eslint/consistent-type-imports': [
             'error',
             {

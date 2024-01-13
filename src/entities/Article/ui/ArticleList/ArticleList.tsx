@@ -62,7 +62,7 @@ export const ArticleList: FC<ArticleListProps> = ({
     const rowHeight = isList ? 670 : 330
 
     const rowRender = useCallback(
-        ({ index, key, style, isScrolling }: ListRowProps) => {
+        ({ index, key, style }: ListRowProps) => {
             const items = []
             const fromIndex = index * itemsPerRow
             const toIndex = Math.min(fromIndex + itemsPerRow, articles.length)

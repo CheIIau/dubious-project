@@ -3,7 +3,7 @@ import { useMemo, useState } from 'react'
 import { classNames } from 'src/shared/lib/style/classNames'
 import classes from './Sidebar.module.scss'
 import { ThemeSwitcher } from 'src/widgets/ThemeSwitcher/themeSwitcherIndex'
-import { LangSwitcher } from 'src/widgets/LangSwitcher/ui/LangSwitcher'
+import { LangSwitcher } from 'src/widgets/LangSwitcher/LangSwitcherIndex'
 import { Button } from 'src/shared/ui/Button/Button'
 import { useTranslation } from 'react-i18next'
 import { SidebarItem } from './SidebarItem/SidebarItem'
@@ -66,7 +66,10 @@ export const Sidebar: FC<SidebarProps> = ({ className }) => {
                         <MenuIcon className="icon" />
                     </div>
                 </Button>
-                <div role='navigation' className={classNames(classes.links, {}, ['mt-3'])}>
+                <div
+                    role="navigation"
+                    className={classNames(classes.links, {}, ['mt-3'])}
+                >
                     {itemsList}
                 </div>
                 <div className={classes.switchers}>

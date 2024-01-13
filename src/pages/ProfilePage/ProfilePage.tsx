@@ -4,7 +4,7 @@ import classes from './ProfilePage.module.scss'
 import { Page } from 'src/widgets/Page/Page'
 import { EditableProfileCard } from 'src/features/editableProfileCard/editableProfileCardIndex'
 import { useParams } from 'react-router-dom'
-import { EditableProfileCardHeader } from 'src/features/editableProfileCard/ui/EditableProfileCardHeader/EditableProfileCardHeader'
+import { EditableProfileCardHeader } from 'src/features/editableProfileCard/editableProfileCardIndex'
 
 interface ProfilePageProps extends PropsWithChildren {
     readonly className?: string
