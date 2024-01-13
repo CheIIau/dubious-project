@@ -5,7 +5,7 @@ import NotFoundPage from 'src/pages/NotFoundPage/NotFoundPage'
 import ErrorPage from 'src/pages/ErrorPage/ErrorPage'
 import App from 'src/app/App'
 import { RoutesWrapper } from '../routerIndex'
-import { RouterPaths } from './routeList'
+import { RouterPaths } from 'src/shared/const/routeList'
 import { AdminRouteWrapper, PrivateRouteWrapper } from '../ui/PrivateRouteWrapper'
 
 const MainPage = lazy(() => import('src/pages/MainPage/MainPage'))

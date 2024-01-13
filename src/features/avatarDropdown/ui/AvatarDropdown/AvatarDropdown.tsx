@@ -4,7 +4,7 @@ import { Dropdown } from 'src/shared/ui/Popups/popupsIndex'
 import { useAppDispatch, useAppSelector } from 'src/shared/lib/hooks/storeHooks'
 import { isUserAdmin, userActions } from 'src/entities/User/userIndex'
 import { useTranslation } from 'react-i18next'
-import { RouterPaths } from 'src/app/providers/router/routerIndex'
+import { RouterPaths } from 'src/shared/const/routeList'
 import { Avatar } from 'src/shared/ui/Avatar/Avatar'
 
 interface AvatarDropdownProps extends PropsWithChildren {

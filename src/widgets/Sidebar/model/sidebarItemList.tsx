@@ -1,4 +1,4 @@
-import { RouterPaths } from 'src/app/providers/router/routerIndex'
+import { RouterPaths } from 'src/shared/const/routeList'
 import type { SidebarItemProps } from '../ui/Sidebar/SidebarItem/SidebarItem'
 import { appLinkTheme } from 'src/shared/ui/AppLink/AppLink'
 import HomeIcon from 'src/shared/assets/icons/home.svg?react'

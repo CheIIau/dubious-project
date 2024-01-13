@@ -2,7 +2,7 @@ import type { FunctionComponent, PropsWithChildren } from 'react'
 import { Navigate, useLocation } from 'react-router-dom'
 import { useAppSelector } from 'src/shared/lib/hooks/storeHooks'
 import { isUserAdmin } from 'src/entities/User/userIndex'
-import { RouterPaths } from '../lib/routeList'
+import { RouterPaths } from 'src/shared/const/routeList'
 
 export const PrivateRouteWrapper: FunctionComponent<PropsWithChildren> = ({
     children,

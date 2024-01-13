@@ -8,7 +8,7 @@ import { LoginModal } from 'src/features/AuthByUsername/authByUsernameIndex'
 import { useAppSelector } from 'src/shared/lib/hooks/storeHooks'
 import { Text } from 'src/shared/ui/Text/Text'
 import { AppLink } from 'src/shared/ui/AppLink/AppLink'
-import { RouterPaths } from 'src/app/providers/router/routerIndex'
+import { RouterPaths } from 'src/shared/const/routeList'
 import { NotificationButton } from 'src/features/notificationButton/notificationButtonIndex'
 import { AvatarDropdown } from 'src/features/avatarDropdown/avatarDropdownIndex'
 

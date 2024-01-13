@@ -6,7 +6,7 @@ import { Avatar } from 'src/shared/ui/Avatar/Avatar'
 import { Text } from 'src/shared/ui/Text/Text'
 import { Skeleton } from 'src/shared/ui/Skeleton/Skeleton'
 import { AppLink } from 'src/shared/ui/AppLink/AppLink'
-import { RouterPaths } from 'src/app/providers/router/routerIndex'
+import { RouterPaths } from 'src/shared/const/routeList'
 
 interface CommentCardProps extends PropsWithChildren {
     readonly className?: string
