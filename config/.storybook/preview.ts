@@ -3,7 +3,7 @@ import type { Preview } from '@storybook/react'
 // import '../../src/app/styles/storybook.scss'
 import { StyleDecorator } from '../../src/shared/config/storybook/decorators/StyleDecorator'
 import { ThemeDecorator } from '../../src/shared/config/storybook/decorators/ThemeDecorator'
-import { THEME } from '../../src/app/providers/ThemeProvider/themeProviderIndex'
+import { THEME } from '../../src/shared/const/theme'
 import i18n from './i18n'
 
 const preview: Preview = {

@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { THEME } from 'src/app/providers/ThemeProvider/themeProviderIndex'
+import { THEME } from 'src/shared/const/theme'
 import { counterReducer } from 'src/entities/Counter/counderIndex'
 import AboutPage from 'src/pages/AboutPage/AboutPage'
 import { StoreDecorator } from 'src/shared/config/storybook/decorators/StoreDecorator'

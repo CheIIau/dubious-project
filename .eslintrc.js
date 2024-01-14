@@ -67,6 +67,18 @@ module.exports = {
             'error',
             { alias: 'src', ignoreFiles: ['test', 'stories'] },
         ],
+        'dubious-plugin/layer-imports': [
+            'off',
+            {
+                alias: 'src',
+                ignoreImportPatterns: [
+                    '**/StoreProvider',
+                    '*.scss',
+                    '**/ThemeProvider',
+                ],
+                ignoreFiles: ['.test.', '.stories.'],
+            },
+        ],
         '@typescript-eslint/consistent-type-imports': [
             'error',
             {

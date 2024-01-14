@@ -1,9 +1,8 @@
 import type { Decorator } from '@storybook/react'
-import type {
-    ThemeType} from 'src/app/providers/ThemeProvider/themeProviderIndex'
 import {
     ThemeProvider
 } from 'src/app/providers/ThemeProvider/themeProviderIndex'
+import type { ThemeType } from 'src/shared/const/theme'
 
 export const ThemeDecorator: (theme: ThemeType) => Decorator = (theme) => {
     return function ThemedStory(Story) {

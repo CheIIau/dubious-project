@@ -16,7 +16,7 @@ import { Avatar } from 'src/shared/ui/Avatar/Avatar'
 import { BUTTON_THEME, Button } from 'src/shared/ui/Button/Button'
 import { useTranslation } from 'react-i18next'
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent'
-import { RouterPaths } from 'src/app/providers/router/routerIndex'
+import { RouterPaths } from 'src/shared/const/routeList'
 import { AppLink } from 'src/shared/ui/AppLink/AppLink'
 
 interface ArticleListItemProps extends PropsWithChildren {

@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react"
 import { [FTName] } from "./[FTName]"
 import { ThemeDecorator } from 'src/shared/config/storybook/decorators/ThemeDecorator'
-import { THEME } from 'src/app/providers/ThemeProvider/themeProviderIndex'
+import { THEME } from 'src/shared/const/theme'
 
 const meta = {
     title: "shared/[FTName]",

@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 import { Sidebar } from 'src/widgets/Sidebar/SidebarIndex'
 import { ThemeDecorator } from 'src/shared/config/storybook/decorators/ThemeDecorator'
 import { RouterDecorator } from 'src/shared/config/storybook/decorators/RouterDecorator'
-import { THEME } from 'src/app/providers/ThemeProvider/themeProviderIndex'
+import { THEME } from 'src/shared/const/theme'
 
 const meta = {
     title: 'widget/Sidebar',
