@@ -68,13 +68,13 @@ module.exports = {
             { alias: 'src', ignoreFiles: ['test', 'stories'] },
         ],
         'dubious-plugin/layer-imports': [
-            'off',
+            'error',
             {
                 alias: 'src',
                 ignoreImportPatterns: [
-                    '**/StoreProvider',
-                    '*.scss',
-                    '**/ThemeProvider',
+                    '**.scss',
+                    '**/StoreProvider/**',
+                    '**/ThemeProvider/**',
                 ],
                 ignoreFiles: ['.test.', '.stories.'],
             },

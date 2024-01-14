@@ -18,7 +18,7 @@ import { useTranslation } from 'react-i18next'
 import { Text } from 'src/shared/ui/Text/Text'
 import type { ListRowProps } from 'react-virtualized'
 import { List, WindowScroller } from 'react-virtualized'
-import { PAGE_ID } from 'src/widgets/Page/Page'
+import { PAGE_ID } from 'src/shared/const/ids'
 import { useElementSize } from 'src/shared/lib/hooks/useElementSize'
 
 interface ArticleListProps extends PropsWithChildren {

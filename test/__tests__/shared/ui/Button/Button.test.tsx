@@ -1,4 +1,3 @@
-/* eslint-disable i18next/no-literal-string */
 import { render, screen } from '@testing-library/react'
 import { Button, BUTTON_THEME } from 'src/shared/ui/Button/Button'
 

@@ -10,13 +10,12 @@ import {
 } from 'src/features/scrollPositionSaving/scrollPositionSavingIndex'
 import { useLocation } from 'react-router-dom'
 import { useThrottle } from 'src/shared/lib/hooks/useThrottle'
+import { PAGE_ID } from 'src/shared/const/ids'
 
 interface PageProps extends PropsWithChildren {
     readonly className?: string
     readonly onScrollEnd?: () => void
 }
-
-export const PAGE_ID = 'PAGE_ID'
 
 export const Page: FC<PageProps> = ({ className, children, onScrollEnd }) => {
     const wrapperRef = useRef<HTMLDivElement | null>(null)

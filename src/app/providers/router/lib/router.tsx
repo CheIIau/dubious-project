@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/promise-function-async */
 import { createBrowserRouter } from 'react-router-dom'
 import { lazy } from 'react'
 import NotFoundPage from 'src/pages/NotFoundPage/NotFoundPage'
