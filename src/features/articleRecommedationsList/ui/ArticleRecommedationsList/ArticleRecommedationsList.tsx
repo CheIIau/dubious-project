@@ -14,7 +14,6 @@ export const ArticleRecommedationsList = memo<ArticleRecommedationsListProps>(
         const { t } = useTranslation(['article', 'translation'])
         const {
             data: articles,
-            error,
             isLoading,
         } = useArticleRecommendationsList(3)
         

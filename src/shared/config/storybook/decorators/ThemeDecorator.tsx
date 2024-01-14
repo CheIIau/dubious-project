@@ -1,4 +1,5 @@
 import type { Decorator } from '@storybook/react'
+// eslint-disable-next-line dubious-plugin/layer-imports
 import {
     ThemeProvider
 } from 'src/app/providers/ThemeProvider/themeProviderIndex'

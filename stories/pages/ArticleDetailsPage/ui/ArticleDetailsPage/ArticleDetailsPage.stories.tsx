@@ -23,7 +23,7 @@ const article: Article = {
     type: [ARTICLE_TYPE.IT],
     user: {
         id: '1',
-        username: 'Ulbi tv',
+        username: 'admin',
         avatar: '',
     },
     blocks: [

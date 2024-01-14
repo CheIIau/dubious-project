@@ -74,7 +74,6 @@ module.exports = {
                 ignoreImportPatterns: [
                     '**.scss',
                     '**/StoreProvider/**',
-                    '**/ThemeProvider/**',
                 ],
                 ignoreFiles: ['.test.', '.stories.'],
             },
