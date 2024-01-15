@@ -7,8 +7,8 @@ const config = {
     ],
     addons: [
         '@storybook/addon-links',
+        '@storybook/addon-themes',
         '@storybook/addon-essentials',
-        '@storybook/addon-onboarding',
         '@storybook/addon-interactions',
         'storybook-react-i18next',
         'storybook-addon-mock',

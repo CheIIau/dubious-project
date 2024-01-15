@@ -1,8 +1,6 @@
-import { useEffect, type FC, type PropsWithChildren } from 'react'
-import { useSearchParams } from 'react-router-dom'
+import { type FC, type PropsWithChildren } from 'react'
 import { ARTICLE_VIEW, ArticleList } from 'src/entities/Article/articleIndex'
-import { useAppDispatch, useAppSelector } from 'src/shared/lib/hooks/storeHooks'
-import { initArticlesPage } from '../../model/services/initArticlesPage'
+import { useAppSelector } from 'src/shared/lib/hooks/storeHooks'
 import { getArticles } from '../../model/slices/articlesPageSlice'
 import { TEXT_THEME, Text } from 'src/shared/ui/Text/Text'
 import { useTranslation } from 'react-i18next'
@@ -15,7 +13,6 @@ export const ArticlesInfiniteList: FC<ArticlesInfiniteListProps> = ({
     className,
 }) => {
     const { t } = useTranslation()
-    const dispatch = useAppDispatch()
     const articles = useAppSelector(getArticles.selectAll)
     const loading = useAppSelector(
         (state) => state.articlesPage?.loading || false,
@@ -24,11 +21,6 @@ export const ArticlesInfiniteList: FC<ArticlesInfiniteListProps> = ({
         (state) => state.articlesPage?.view || ARTICLE_VIEW.GRID,
     )
     const error = useAppSelector((state) => state.articlesPage?.error)
-    const [searchParams] = useSearchParams()
-
-    useEffect(() => {
-        dispatch(initArticlesPage(searchParams))
-    }, [dispatch, searchParams])
 
     if (error) {
         return (

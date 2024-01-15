@@ -6,7 +6,16 @@ import { ThemeDecorator } from '../../src/shared/config/storybook/decorators/The
 import { THEME } from '../../src/shared/const/theme'
 import i18n from './i18n'
 
-const preview: Preview = {
+const decorator = withThemeByClassName({
+    themes: {
+        light: THEME.light,
+        dark: THEME.dark,
+        orange: THEME.orange,
+    },
+    defaultTheme: 'light',
+})
+
+const preview = {
     parameters: {
         actions: { argTypesRegex: '^on[A-Z].*' },
         controls: {
@@ -17,7 +26,7 @@ const preview: Preview = {
         },
         i18n,
     },
-    decorators: [StyleDecorator, ThemeDecorator(THEME.light)],
+    decorators: [StyleDecorator, ThemeDecorator(THEME.light), decorator],
     globals: {
         locale: 'ru-RU',
         locales: {
@@ -25,6 +34,8 @@ const preview: Preview = {
             en: 'English',
         },
     },
-}
+} satisfies Preview
+
+import { withThemeByClassName } from '@storybook/addon-themes'
 
 export default preview

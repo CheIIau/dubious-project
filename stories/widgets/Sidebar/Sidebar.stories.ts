@@ -4,12 +4,13 @@ import { Sidebar } from 'src/widgets/Sidebar/SidebarIndex'
 import { ThemeDecorator } from 'src/shared/config/storybook/decorators/ThemeDecorator'
 import { RouterDecorator } from 'src/shared/config/storybook/decorators/RouterDecorator'
 import { THEME } from 'src/shared/const/theme'
+import { StoreDecorator } from 'src/shared/config/storybook/decorators/StoreDecorator'
 
 const meta = {
     title: 'widget/Sidebar',
     component: Sidebar,
     parameters: {
-        layout: 'centered',
+        layout: 'fullscreen',
     },
     tags: ['autodocs'],
     args: {
@@ -20,7 +21,7 @@ const meta = {
             description: 'Given classes',
         },
     },
-    decorators: [RouterDecorator]
+    decorators: [RouterDecorator, StoreDecorator({})]
 } satisfies Meta<typeof Sidebar>
 
 export default meta

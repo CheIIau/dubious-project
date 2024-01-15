@@ -3,11 +3,11 @@ import type { ThunkConfig } from 'src/app/providers/StoreProvider/storeProviderI
 import { fetchArticlesList } from './fetchArticlesList'
 import { articlesPageActions } from '../slices/articlesPageSlice'
 
-export const fetchNextArtclesPage = createAsyncThunk<
+export const fetchNextArticlesPage = createAsyncThunk<
     Promise<void>,
     undefined,
     ThunkConfig<string>
->('articlesPage/fetchNextArtclesPage', async (_, thunkApi) => {
+>('articlesPage/fetchNextArticlesPage', async (_, thunkApi) => {
     const { dispatch, getState } = thunkApi
     const hasMore = getState().articlesPage?.hasMore
     const page = getState().articlesPage?.page

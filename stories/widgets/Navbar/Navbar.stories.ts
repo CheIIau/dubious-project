@@ -10,7 +10,7 @@ const meta = {
     title: 'widget/Navbar',
     component: Navbar,
     parameters: {
-        layout: 'centered',
+        layout: 'fullscreen',
     },
     tags: ['autodocs'],
     args: {

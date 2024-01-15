@@ -66,7 +66,7 @@ const meta = {
                 path: '/users/:id',
             },
         }),
-        layout: 'centered',
+        layout: 'fullscreen',
         mockData: [
             {
                 url: `${DEV_API_URL}/articles?_limit=:id`,
@@ -111,8 +111,8 @@ type Story = StoryObj<typeof meta>
 
 export const Primary: Story = {
     render: ({ ...args }) => (
-        <div style={{ maxWidth: '700px', maxHeight: '100vh' }}>
-            <ArticleDetailsPage {...args} />
-        </div>
+        // <div style={{ maxWidth: '700px', maxHeight: '100vh' }}>
+        <ArticleDetailsPage {...args} />
+        // </div>
     ),
 }
