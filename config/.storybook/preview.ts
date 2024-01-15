@@ -2,20 +2,10 @@ import type { Preview } from '@storybook/react'
 // можно подгрузить глобальные стили не через декораторы а тупо импортом
 // import '../../src/app/styles/storybook.scss'
 import { StyleDecorator } from '../../src/shared/config/storybook/decorators/StyleDecorator'
-import { ThemeDecorator } from '../../src/shared/config/storybook/decorators/ThemeDecorator'
-import { THEME } from '../../src/shared/const/theme'
+import { AddonThemeDecorator } from '../../src/shared/config/storybook/decorators/AddonThemeDecorator'
 import i18n from './i18n'
 
-const decorator = withThemeByClassName({
-    themes: {
-        light: THEME.light,
-        dark: THEME.dark,
-        orange: THEME.orange,
-    },
-    defaultTheme: 'light',
-})
-
-const preview = {
+const preview: Preview = {
     parameters: {
         actions: { argTypesRegex: '^on[A-Z].*' },
         controls: {
@@ -26,7 +16,11 @@ const preview = {
         },
         i18n,
     },
-    decorators: [StyleDecorator, ThemeDecorator(THEME.light), decorator],
+    decorators: [
+        StyleDecorator,
+        //@ts-expect-error
+        AddonThemeDecorator,
+    ],
     globals: {
         locale: 'ru-RU',
         locales: {
@@ -34,8 +28,6 @@ const preview = {
             en: 'English',
         },
     },
-} satisfies Preview
-
-import { withThemeByClassName } from '@storybook/addon-themes'
+}
 
 export default preview

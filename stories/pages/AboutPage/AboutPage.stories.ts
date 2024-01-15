@@ -3,7 +3,7 @@ import { THEME } from 'src/shared/const/theme'
 import { counterReducer } from 'src/entities/Counter/counderIndex'
 import AboutPage from 'src/pages/AboutPage/AboutPage'
 import { StoreDecorator } from 'src/shared/config/storybook/decorators/StoreDecorator'
-import { ThemeDecorator } from 'src/shared/config/storybook/decorators/ThemeDecorator'
+import { CustomThemeDecorator } from 'src/shared/config/storybook/decorators/CustomThemeDecorator'
 import {
     withRouter,
 } from 'storybook-addon-react-router-v6'
@@ -37,5 +37,5 @@ export const Light: Story = {
 
 export const Dark: Story = {
     args: {},
-    decorators: [ThemeDecorator(THEME.dark)],
+    decorators: [CustomThemeDecorator(THEME.dark)],
 }

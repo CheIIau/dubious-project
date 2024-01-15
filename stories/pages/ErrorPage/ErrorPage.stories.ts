@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 import { THEME } from 'src/shared/const/theme'
 import ErrorPage from 'src/pages/ErrorPage/ErrorPage'
 import { StoreDecorator } from 'src/shared/config/storybook/decorators/StoreDecorator'
-import { ThemeDecorator } from 'src/shared/config/storybook/decorators/ThemeDecorator'
+import { CustomThemeDecorator } from 'src/shared/config/storybook/decorators/CustomThemeDecorator'
 import { withRouter } from 'storybook-addon-react-router-v6'
 
 const meta = {
@@ -32,5 +32,5 @@ export const Light: Story = {
 
 export const Dark: Story = {
     args: {},
-    decorators: [ThemeDecorator(THEME.dark)],
+    decorators: [CustomThemeDecorator(THEME.dark)],
 }

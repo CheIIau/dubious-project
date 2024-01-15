@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
 import { Button } from 'src/shared/ui/Button/Button'
-import { ThemeDecorator } from 'src/shared/config/storybook/decorators/ThemeDecorator'
+import { CustomThemeDecorator } from 'src/shared/config/storybook/decorators/CustomThemeDecorator'
 import { THEME } from 'src/shared/const/theme'
 
 const meta = {
@@ -34,7 +34,7 @@ export const Primary: Story = {
 
 export const PrimaryDark: Story = {
     args: {},
-    decorators: [ThemeDecorator(THEME.dark)],
+    decorators: [CustomThemeDecorator(THEME.dark)],
 }
 
 export const Clear: Story = {
@@ -52,7 +52,7 @@ export const ClearDark: Story = {
     args: {
         theme: 'clear',
     },
-    decorators: [ThemeDecorator(THEME.dark)],
+    decorators: [CustomThemeDecorator(THEME.dark)],
 }
 
 export const Outline: Story = {
@@ -65,7 +65,7 @@ export const OutlineDark: Story = {
     args: {
         theme: 'outline',
     },
-    decorators: [ThemeDecorator(THEME.dark)],
+    decorators: [CustomThemeDecorator(THEME.dark)],
 }
 
 export const Square: Story = {

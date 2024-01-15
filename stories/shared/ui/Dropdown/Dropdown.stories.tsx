@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { Dropdown } from 'src/shared/ui/Popups/ui/Dropdown/Dropdown'
-import { ThemeDecorator } from 'src/shared/config/storybook/decorators/ThemeDecorator'
+import { CustomThemeDecorator } from 'src/shared/config/storybook/decorators/CustomThemeDecorator'
 import { THEME } from 'src/shared/const/theme'
 import { Button } from 'src/shared/ui/Button/Button'
 
@@ -28,7 +28,7 @@ export const Default: Story = {
             { content: 'third' },
         ],
     },
-    decorators: [ThemeDecorator(THEME.light)],
+    decorators: [CustomThemeDecorator(THEME.light)],
 }
 
 export const TopRight: Story = {
@@ -41,7 +41,7 @@ export const TopRight: Story = {
             { content: 'third' },
         ],
     },
-    decorators: [ThemeDecorator(THEME.light)],
+    decorators: [CustomThemeDecorator(THEME.light)],
 }
 
 export const TopLeft: Story = {
@@ -54,7 +54,7 @@ export const TopLeft: Story = {
             { content: 'third' },
         ],
     },
-    decorators: [ThemeDecorator(THEME.light)],
+    decorators: [CustomThemeDecorator(THEME.light)],
 }
 export const BottomLeft: Story = {
     args: {
@@ -66,7 +66,7 @@ export const BottomLeft: Story = {
             { content: 'third' },
         ],
     },
-    decorators: [ThemeDecorator(THEME.light)],
+    decorators: [CustomThemeDecorator(THEME.light)],
 }
 export const BottomRight: Story = {
     args: {
@@ -78,5 +78,5 @@ export const BottomRight: Story = {
             { content: 'third' },
         ],
     },
-    decorators: [ThemeDecorator(THEME.light)],
+    decorators: [CustomThemeDecorator(THEME.light)],
 }

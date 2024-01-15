@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { ThemeDecorator } from 'src/shared/config/storybook/decorators/ThemeDecorator'
+import { CustomThemeDecorator } from 'src/shared/config/storybook/decorators/CustomThemeDecorator'
 import { THEME } from 'src/shared/const/theme'
 import { TEXT_THEME, Text } from 'src/shared/ui/Text/Text'
 
@@ -42,7 +42,7 @@ export const TextWithTitleDark: Story = {
         text: 'text',
         title: 'title',
     },
-    decorators: [ThemeDecorator(THEME.dark)],
+    decorators: [CustomThemeDecorator(THEME.dark)],
 }
 
 export const TextWithTitleError: Story = {

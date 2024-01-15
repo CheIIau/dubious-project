@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
 import { Navbar } from 'src/widgets/Navbar/NavbarIndex'
-import { ThemeDecorator } from 'src/shared/config/storybook/decorators/ThemeDecorator'
+import { CustomThemeDecorator } from 'src/shared/config/storybook/decorators/CustomThemeDecorator'
 import { RouterDecorator } from 'src/shared/config/storybook/decorators/RouterDecorator'
 import { THEME } from 'src/shared/const/theme'
 import { StoreDecorator } from 'src/shared/config/storybook/decorators/StoreDecorator'
@@ -33,7 +33,7 @@ export const Light: Story = {
 
 export const Dark: Story = {
     args: {},
-    decorators: [ThemeDecorator(THEME.dark)],
+    decorators: [CustomThemeDecorator(THEME.dark)],
 }
 
 export const SignedUser: Story = {
