@@ -65,16 +65,20 @@ module.exports = {
         'dubious-plugin/path-checker': ['error', { alias: 'src' }],
         'dubious-plugin/public-imports': [
             'error',
-            { alias: 'src', ignoreFiles: ['test', 'stories'] },
+            { alias: 'src', ignoreFiles: ['.test.', '.stories.'] },
         ],
         'dubious-plugin/layer-imports': [
             'error',
             {
                 alias: 'src',
-                ignoreImportPatterns: [
-                    '**.scss',
-                    '**/StoreProvider/**',
-                ],
+                ignoreImportPatterns: ['**.scss', '**/StoreProvider/**'],
+                ignoreFiles: ['.test.', '.stories.'],
+            },
+        ],
+        'dubious-plugin/different-layer-absolute-import': [
+            'error',
+            {
+                alias: 'src',
                 ignoreFiles: ['.test.', '.stories.'],
             },
         ],

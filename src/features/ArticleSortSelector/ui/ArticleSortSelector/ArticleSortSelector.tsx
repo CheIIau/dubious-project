@@ -4,8 +4,8 @@ import { classNames } from 'src/shared/lib/style/classNames'
 import type { SelectOption } from 'src/shared/ui/Select/Select'
 import classes from './ArticleSortSelector.module.scss'
 import { Select } from 'src/shared/ui/Select/Select'
-import { ARTICLE_SORT_FIELD } from '../../model/types/article'
 import type { SortOrder } from 'src/shared/types/common'
+import { ARTICLE_SORT_FIELD } from 'src/entities/Article/articleIndex'
 
 interface ArticleSortSelectorProps extends PropsWithChildren {
     readonly className?: string

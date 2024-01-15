@@ -1,4 +1,5 @@
 import type { Resource } from 'i18next'
+// eslint-disable-next-line dubious-plugin/different-layer-absolute-import
 import { resources as resourcesEnum } from '../../../app/types/i18n/resources'
 
 export const languages = ['ru-RU', 'en'] as const

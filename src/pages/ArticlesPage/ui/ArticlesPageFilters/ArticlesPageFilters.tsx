@@ -4,7 +4,6 @@ import classes from './ArticlesPageFilters.module.scss'
 import type { ARTICLE_SORT_FIELD } from 'src/entities/Article/articleIndex'
 import {
     ARTICLE_VIEW,
-    ArticleSortSelector,
     ArticleViewSelector,
 } from 'src/entities/Article/articleIndex'
 import { useAppDispatch, useAppSelector } from 'src/shared/lib/hooks/storeHooks'
@@ -23,6 +22,7 @@ import { fetchArticlesList } from '../../model/services/fetchArticlesList'
 import { useDebounce } from 'src/shared/lib/hooks/useDebounce'
 import type { ARTICLE_TYPE } from 'src/entities/Article/articleIndex'
 import { ArticleTypeTabs } from 'src/entities/Article/articleIndex'
+import { ArticleSortSelector } from 'src/features/ArticleSortSelector/articleSortSelectorIndex'
 
 interface ArticlesPageFiltersProps extends PropsWithChildren {
     readonly className?: string
