@@ -2,10 +2,7 @@ import { useCallback, type FC, type PropsWithChildren } from 'react'
 import { classNames } from 'src/shared/lib/style/classNames'
 import classes from './ArticlesPageFilters.module.scss'
 import type { ARTICLE_SORT_FIELD } from 'src/entities/Article/articleIndex'
-import {
-    ARTICLE_VIEW,
-    ArticleViewSelector,
-} from 'src/entities/Article/articleIndex'
+import { ARTICLE_VIEW } from 'src/entities/Article/articleIndex'
 import { useAppDispatch, useAppSelector } from 'src/shared/lib/hooks/storeHooks'
 import { articlesPageActions } from '../../model/slices/articlesPageSlice'
 import { useTranslation } from 'react-i18next'
@@ -21,8 +18,9 @@ import type { SortOrder } from 'src/shared/types/common'
 import { fetchArticlesList } from '../../model/services/fetchArticlesList'
 import { useDebounce } from 'src/shared/lib/hooks/useDebounce'
 import type { ARTICLE_TYPE } from 'src/entities/Article/articleIndex'
-import { ArticleTypeTabs } from 'src/entities/Article/articleIndex'
+import { ArticleTypeTabs } from 'src/features/ArticleTypeTabs/articleTypeTabsIndex'
 import { ArticleSortSelector } from 'src/features/ArticleSortSelector/articleSortSelectorIndex'
+import { ArticleViewSelector } from 'src/features/ArticleViewSelector/articleViewSelectorIndex'
 
 interface ArticlesPageFiltersProps extends PropsWithChildren {
     readonly className?: string

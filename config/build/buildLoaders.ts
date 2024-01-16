@@ -4,6 +4,7 @@ import { buildCssLoader } from './loaders/cssLoader'
 
 export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
     const fileLoader = {
+        exclude: /node_modules/,
         test: /\.(png|jpe?g|gif)$/i,
         use: [
             {
@@ -16,6 +17,7 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
         test: /\.svg$/i,
         issuer: /\.[jt]sx?$/,
         use: ['@svgr/webpack'],
+        exclude: /node_modules/,
     }
 
     // const tsLoader = {
@@ -29,18 +31,19 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
         exclude: /node_modules/,
         use: {
             loader: 'babel-loader',
-            // options: {
-            // presets: ['@babel/preset-env'],
-            // plugins: [
-            //     [
-            //         'i18next-extract',
-            //         {
-            //             locales: languages,
-            //             keyAsDefaultValue: true,
-            //         },
-            //     ],
-            // ],
-            // },
+            options: {
+                cacheDirectory: true,
+                // presets: ['@babel/preset-env'],
+                // plugins: [
+                //     [
+                //         'i18next-extract',
+                //         {
+                //             locales: languages,
+                //             keyAsDefaultValue: true,
+                //         },
+                //     ],
+                // ],
+            },
         },
     }
 

@@ -23,7 +23,7 @@ export function buildWebpackConfig(
         module: {
             rules: buildLoaders(options),
         },
-        devtool: isDev ? 'inline-source-map' : undefined,
+        devtool: isDev ? 'eval-cheap-module-source-map' : undefined,
         devServer: isDev ? buildDevServer(options) : undefined,
         optimization: {
             splitChunks: {

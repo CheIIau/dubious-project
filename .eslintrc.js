@@ -62,24 +62,30 @@ module.exports = {
         '@typescript-eslint/no-explicit-any': 'warn',
         'react/prop-types': 'off',
         indent: 'off',
-        'dubious-plugin/path-checker': ['error', { alias: 'src' }],
-        'dubious-plugin/public-imports': [
+        'dubious-plugin/same-slice-local-import': ['error', { alias: 'src' }],
+        'dubious-plugin/public-api-import-slice': [
             'error',
-            { alias: 'src', ignoreFiles: ['.test.', '.stories.'] },
+            { alias: 'src', ignoreFiles: ['**/*.test.*', '**/*.stories.*'] },
         ],
-        'dubious-plugin/layer-imports': [
+        'dubious-plugin/underlying-layer-imports': [
             'error',
             {
                 alias: 'src',
                 ignoreImportPatterns: ['**.scss', '**/StoreProvider/**'],
-                ignoreFiles: ['.test.', '.stories.'],
+                ignoreFiles: ['**/*.test.*', '**/*.stories.*'],
             },
         ],
         'dubious-plugin/different-layer-absolute-import': [
             'error',
             {
                 alias: 'src',
-                ignoreFiles: ['.test.', '.stories.'],
+                ignoreFiles: ['**/*.test.*', '**/*.stories.*'],
+            },
+        ],
+        'dubious-plugin/different-layer-export': [
+            'error',
+            {
+                alias: 'src',
             },
         ],
         '@typescript-eslint/consistent-type-imports': [

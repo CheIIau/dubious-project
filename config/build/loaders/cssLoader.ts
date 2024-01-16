@@ -4,6 +4,7 @@ import type webpack from 'webpack'
 export const buildCssLoader = (isDev: boolean): webpack.RuleSetRule => {
     return {
         test: /\.s[ac]ss$/i,
+        exclude: /node_modules/,
         use: [
             // Creates `style` nodes from JS strings
             isDev ? 'style-loader' : MiniCssExtractPlugin.loader,

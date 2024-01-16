@@ -3,7 +3,7 @@ import { classNames } from 'src/shared/lib/style/classNames'
 import ListIcon from 'src/shared/assets/icons/list.svg?react'
 import GridIcon from 'src/shared/assets/icons/grid.svg?react'
 import { BUTTON_THEME, Button } from 'src/shared/ui/Button/Button'
-import { ARTICLE_VIEW } from '../../model/types/article'
+import { ARTICLE_VIEW } from 'src/entities/Article/articleIndex'
 
 interface ArticleViewSelectorProps extends PropsWithChildren {
     readonly className?: string

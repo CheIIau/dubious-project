@@ -23,18 +23,12 @@ export function buildPlugins({
             // title: 'App',
         }),
         new webpack.ProgressPlugin(),
-        new MiniCssExtractPlugin({
-            filename: 'css/[name].[contenthash:8].css',
-            chunkFilename: 'css/[name].[contenthash:8].css',
-        }),
         new webpack.DefinePlugin({
             __IS_DEV__: JSON.stringify(isDev),
             __PROJECT__: JSON.stringify(project),
             __API_URL__: JSON.stringify(apiUrl),
         }),
-        new CopyPlugin({
-            patterns: [{ from: paths.locales, to: paths.buildLocales }],
-        }),
+
         new ForkTsCheckerWebpackPlugin({
             typescript: {
                 diagnosticOptions: {
@@ -73,6 +67,18 @@ export function buildPlugins({
                         )
                     }
                 },
+            }),
+        )
+    } else {
+        plugins.push(
+            new MiniCssExtractPlugin({
+                filename: 'css/[name].[contenthash:8].css',
+                chunkFilename: 'css/[name].[contenthash:8].css',
+            }),
+        )
+        plugins.push(
+            new CopyPlugin({
+                patterns: [{ from: paths.locales, to: paths.buildLocales }],
             }),
         )
     }
