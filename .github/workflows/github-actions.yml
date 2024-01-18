@@ -90,7 +90,7 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         if: always()
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v3
 
   checks:
     runs-on: ubuntu-latest
@@ -105,8 +105,11 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: install modules
         run: npm ci --force
-      - name: typescript lint
+      - name: eslint
         run: npm run lint:eslint:ts
+        if: always()
+      - name: typescript
+        run: npm run lint:typescript:ts
         if: always()
       - name: styles lint
         run: npm run lint:scss
