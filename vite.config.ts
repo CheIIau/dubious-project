@@ -35,7 +35,7 @@ export default defineConfig({
             'test/__tests__/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}',
         ],
         globals: true,
-        outputFile: './.reports/html/index.html',
+        outputFile: './.reports/unit/index.html',
     },
 })
 

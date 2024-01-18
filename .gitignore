@@ -14,7 +14,7 @@ extractedTranslations
 storybook-static
 dist-ssr
 *.local
-.reports
+.reports/unit
 
 # Editor directories and files
 .vscode/*
