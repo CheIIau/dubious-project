@@ -18,6 +18,8 @@ import { useTranslation } from 'react-i18next'
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent'
 import { RouterPaths } from 'src/shared/const/routeList'
 import { AppLink } from 'src/shared/ui/AppLink/AppLink'
+import { AppImage } from 'src/shared/ui/AppImage/AppImage'
+import { Skeleton } from 'src/shared/ui/Skeleton/Skeleton'
 
 interface ArticleListItemProps extends PropsWithChildren {
     readonly className?: string
@@ -87,10 +89,16 @@ export const ArticleListItem: FC<ArticleListItemProps> = ({
                     />
                     {types}
 
-                    <img
+                    <AppImage
                         src={article.img}
                         className={classNames(classes.image, {}, ['my-2'])}
                         alt={article.title}
+                        loadingFallback={
+                            <Skeleton
+                                width="100%"
+                                height={250}
+                            />
+                        }
                     />
                     {textBlock && (
                         <ArticleTextBlockComponent
@@ -128,10 +136,16 @@ export const ArticleListItem: FC<ArticleListItemProps> = ({
             >
                 <Card>
                     <div className={classes['image-wrapper']}>
-                        <img
+                        <AppImage
                             src={article.img}
                             className={classes.image}
                             alt={article.title}
+                            loadingFallback={
+                                <Skeleton
+                                    width={200}
+                                    height={200}
+                                />
+                            }
                         />
                         <Text
                             text={article.createdAt}

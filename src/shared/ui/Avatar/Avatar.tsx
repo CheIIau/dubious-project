@@ -2,6 +2,9 @@ import type { CSSProperties, ImgHTMLAttributes } from 'react'
 import { useMemo, memo } from 'react'
 import { classNames } from 'src/shared/lib/style/classNames'
 import classes from './Avatar.module.scss'
+import { AppImage } from '../AppImage/AppImage'
+import UserIcon from 'src/shared/assets/icons/user.svg?react'
+import { Skeleton } from '../Skeleton/Skeleton'
 
 interface AvatarProps extends ImgHTMLAttributes<HTMLImageElement> {
     readonly className?: string
@@ -17,11 +20,25 @@ export const Avatar = memo<AvatarProps>(function Avatar(props) {
     }, [size])
 
     return (
-        <img
+        <AppImage
             src={src}
             className={classNames(classes.avatar, {}, [className])}
             style={styles}
+            errorFallback={
+                <UserIcon
+                    width={size}
+                    height={size}
+                    className={classes['fallback-icon-color']}
+                />
+            }
+            loadingFallback={
+                <Skeleton
+                    width={size}
+                    height={size}
+                    border="50%"
+                />
+            }
             {...otherProps}
-        ></img>
+        ></AppImage>
     )
 })
