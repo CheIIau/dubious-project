@@ -1,9 +1,15 @@
 {
     "compilerOptions": {
-        "types": ["node"],
-        "lib": ["ES5", "DOM"],
-        "isolatedModules": false
+        "types": ["node", "cypress"],
+        "lib": ["ES6", "DOM"],
+        "isolatedModules": false,
+        "sourceMap": false,
+        "target": "ES6"
     },
     "extends": "../tsconfig.json",
-    "include": ["**/*.ts", "**/*.d.ts", "**/*.tsx"]
+    "include": [
+        "**/*.ts",
+        "**/*.d.ts"
+    ],
+    "exclude": []
 }

@@ -2,12 +2,8 @@
 // ***********************************************
 Cypress.Commands.add('login', (email, password) => {})
 
-declare global {
-    // eslint-disable-next-line @typescript-eslint/no-namespace
-    namespace Cypress {
-        interface Chainable {
-            login(email: string, password: string): Chainable<void>
-        }
-    }
-}
+Cypress.Commands.add('dataCy', (value) => {
+    return cy.get(`[data-cy=${value}]`)
+})
+
 export {}

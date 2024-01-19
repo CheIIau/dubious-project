@@ -39,5 +39,5 @@
         "**/*.d.ts",
         "config/babel/babelRemoveAttrsPlugin.cts"
     ],
-    "exclude": ["node_modules"]
+    "exclude": ["node_modules", "cypress", "cypress.config.ts"]
 }

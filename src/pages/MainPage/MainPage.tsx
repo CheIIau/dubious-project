@@ -4,7 +4,11 @@ import { Page } from 'src/widgets/Page/Page'
 const MainPage = () => {
     const { t } = useTranslation('main')
 
-    return <Page>{t('mainPage')}</Page>
+    return (
+        <Page>
+            <span data-cy="main-page-text">{t('mainPage')}</span>
+        </Page>
+    )
 }
 
 export default MainPage
