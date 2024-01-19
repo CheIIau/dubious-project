@@ -6,7 +6,7 @@ project.addSourceFilesAtPaths('src/**/*.ts')
 project.addSourceFilesAtPaths('src/**/*.tsx')
 
 const files = project.getSourceFiles()
-const folderNames = [
+const folderNames = [ //layer names
     'app',
     'shared',
     'entities',
@@ -19,6 +19,7 @@ function isAbsolute(value: string) {
     return folderNames.some((folderName) => value.startsWith(folderName))
 }
 
+// if import value start with layer name adds src/ to it
 files.forEach((sourceFile) => {
     const importDeclarations = sourceFile.getImportDeclarations()
     importDeclarations.forEach((importDeclaration) => {

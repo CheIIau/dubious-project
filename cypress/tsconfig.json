@@ -1,0 +1,9 @@
+{
+    "compilerOptions": {
+        "types": ["node"],
+        "lib": ["ES5", "DOM"],
+        "isolatedModules": false
+    },
+    "extends": "../tsconfig.json",
+    "include": ["**/*.ts", "**/*.d.ts", "**/*.tsx"]
+}

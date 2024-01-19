@@ -12,8 +12,8 @@ export const resources = ns.reduce((acc, n) => {
         if (!acc[lng]) acc[lng] = {}
         acc[lng] = {
             ...acc[lng],
-            // [n]: import(`../../../../public/locales/${lng}/${n}.json`), // this one is for vite
-            [n]: require(`../../../../public/locales/${lng}/${n}.json`), // this one - for testing (vitest), webpack and storybook
+            [n]: import(`../../../../public/locales/${lng}/${n}.json`), // this one is for vite
+            // [n]: require(`../../../../public/locales/${lng}/${n}.json`), // this one - for testing (vitest), webpack and storybook
         }
     })
     return acc
