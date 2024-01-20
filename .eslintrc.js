@@ -14,6 +14,7 @@ module.exports = {
         'plugin:react/recommended',
         'plugin:i18next/recommended',
         'plugin:storybook/recommended',
+        'prettier',
     ],
     overrides: [
         {
@@ -39,10 +40,6 @@ module.exports = {
         'react-hooks',
     ],
     rules: {
-        // indent: ['warn', 4],
-        'linebreak-style': 'off',
-        quotes: ['warn', 'single'],
-        semi: ['warn', 'never'],
         'react/react-in-jsx-scope': 'off',
         '@typescript-eslint/no-unused-vars': [
             'warn',
@@ -61,7 +58,6 @@ module.exports = {
         'react/prefer-read-only-props': 'error',
         '@typescript-eslint/no-explicit-any': 'warn',
         'react/prop-types': 'off',
-        indent: 'off',
         'dubious-plugin/same-slice-local-import': ['error', { alias: 'src' }],
         'dubious-plugin/public-api-import-slice': [
             'error',

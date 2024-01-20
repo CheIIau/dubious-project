@@ -95,6 +95,7 @@ export const ProfileCard = memo<ProfileCardProps>(function ProfileCard(props) {
                 readonly={readonly}
                 className="mb-3"
                 data-testid="firstname"
+                data-cy="firstname"
             />
             <Input
                 value={data?.lastname ?? ''}
