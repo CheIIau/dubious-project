@@ -21,7 +21,7 @@ export interface BuildOptions {
 }
 
 export interface BuildEnv {
-    mode: BuildMods
+    NODE_ENV: BuildMods
     port: number
     apiUrl?: string
 }

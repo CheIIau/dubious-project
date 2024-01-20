@@ -69,6 +69,7 @@ export const Sidebar: FC<SidebarProps> = ({ className }) => {
                 <div
                     role="navigation"
                     className={classNames(classes.links, {}, ['mt-3'])}
+                    data-cy="sidebar-items"
                 >
                     {itemsList}
                 </div>

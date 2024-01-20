@@ -1,9 +1,25 @@
 /// <reference types="cypress" />
 // ***********************************************
-Cypress.Commands.add('login', (email, password) => {})
+import { USER_LOCALSTORAGE_KEY } from '~/src/shared/const/localstorage'
 
-Cypress.Commands.add('dataCy', (value) => {
-    return cy.get(`[data-cy=${value}]`)
-})
+export default function addCustomCommands() {
+    Cypress.Commands.add('login', (username = 'test_user', password = 'test') => {
+        cy.request({
+            method: 'POST',
+            url: 'http://localhost:8000/login',
+            body: {
+                username,
+                password,
+            },
+        }).then(({ body }) => {
+            window.localStorage.setItem(
+                USER_LOCALSTORAGE_KEY,
+                JSON.stringify(body),
+            )
+        })
+    })
 
-export {}
+    Cypress.Commands.add('dataCy', (value) => {
+        return cy.get(`[data-cy=${value}]`)
+    })
+}

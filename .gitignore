@@ -10,6 +10,7 @@ lerna-debug.log*
 # Cypress and istanbul related directories
 .nyc_output
 coverage
+cypress/videos
 
 build
 node_modules

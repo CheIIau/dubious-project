@@ -16,17 +16,17 @@ export default (env: BuildEnv) => {
         buildLocales: path.resolve(__dirname, 'build', 'locales'),
     }
 
-    const mode = env.mode || 'development'
+    const mode = env.NODE_ENV || 'development'
     const PORT = env.port || 3000
     const apiUrl = env.apiUrl
-
+    
     const config: webpack.Configuration = buildWebpackConfig({
         mode,
         paths,
         isDev: mode === 'development' ? true : false,
         port: PORT,
         project: 'frontend',
-        apiUrl,
+        apiUrl
     })
     return config
 }

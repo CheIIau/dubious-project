@@ -1,0 +1,5 @@
+{
+    "all": true,
+    "include": ["src/**/*.{js,cjs,mjs,jsx,ts,tsx}"],
+    "exclude": ["**/__tests__/**", "**/*.d.ts"]
+}
