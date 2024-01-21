@@ -1,0 +1,25 @@
+version: '3.9' #put the file one directory higher or edit contexts
+services:
+  nginx:
+    depends_on:
+      - client
+    restart: always
+    build:
+      dockerfile: Dockerfile
+      context: ./dubious-project/nginx
+    ports:
+      - 80:80
+  client:
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./dubious-project
+      args:
+        - NODE_ENV=development
+        - PORT=3000
+        - API_URL=/api
+    ports:
+      - 3000:3000
+      - 8000:8000
+    volumes:
+      - /app/node_modules
+      - ./dubious-project:/app

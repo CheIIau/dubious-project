@@ -1,7 +1,7 @@
 import 'webpack-dev-server'
 import type webpack from 'webpack'
 import { buildWebpackConfig } from './config/build/buildWebpackConfig'
-import type { BuildEnv, BuildPaths } from './config/build/types/config'
+import type { BuildEnv, BuildMods, BuildPaths } from './config/build/types/config'
 import path from 'path'
 
 export default (env: BuildEnv) => {
@@ -15,16 +15,16 @@ export default (env: BuildEnv) => {
         locales: path.resolve(__dirname, 'public', 'locales'),
         buildLocales: path.resolve(__dirname, 'build', 'locales'),
     }
-
-    const mode = env.NODE_ENV || 'development'
-    const PORT = env.port || 3000
-    const apiUrl = env.apiUrl
+    
+    const mode = (process?.env?.NODE_ENV || 'development') as BuildMods
+    const port = (process?.env?.PORT ? +process.env.PORT : 3000) as number
+    const apiUrl = process?.env?.API_URL || '/api'
     
     const config: webpack.Configuration = buildWebpackConfig({
         mode,
         paths,
         isDev: mode === 'development' ? true : false,
-        port: PORT,
+        port,
         project: 'frontend',
         apiUrl
     })

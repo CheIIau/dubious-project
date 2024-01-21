@@ -6,7 +6,7 @@ export type ServiceError = AxiosError<{ message: string }>
 
 export const DEV_API_URL = 'http://localhost:8000'
 
-export const baseUrl = __IS_DEV__ ? DEV_API_URL : __API_URL__
+export const baseUrl =  __API_URL__ || DEV_API_URL
 
 export const $api = axios.create({
     baseURL: baseUrl,
