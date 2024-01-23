@@ -1,0 +1,32 @@
+version: '3.9'
+services:
+  client:
+    mem_limit: 64m
+    build:
+      dockerfile: Dockerfile.client
+      context: ./dubious-project
+      args:
+        - NODE_ENV=production
+        - API_URL=/api
+      # volumes:
+      #   - ./nginx/data/certbot/www:/var/www/certbot/:ro
+      # - ./nginx/data/certbot/conf:/etc/letsencrypt
+    ports:
+      - 80:80
+      - 443:443
+  # certbot:
+  #   container_name: certbot
+  #   image: certbot/certbot:latest
+  #   volumes:
+  #     - ./nginx/data/certbot/conf:/etc/letsencrypt/:rw
+  #     - ./nginx/data/certbot/www:/var/www/certbot/:rw
+  server:
+    mem_limit: 128m
+    build:
+      dockerfile: Dockerfile.server
+      context: ./dubious-project
+    ports:
+      - 8000:8000
+
+# good article
+# https://gist.github.com/dancheskus/8d26823d0f5633e9dde63d150afb40b2
